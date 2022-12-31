@@ -1,0 +1,32 @@
+/* @import url('') */
+html {
+    margin: 0;
+    padding: 0;
+}
+/* This is an example comment in css (ctrl + /)*/
+body {
+    font: 75% georgia, sans-serif;
+	line-height: 1.88889;
+	color: #000000; 
+	background: rgb(0, 224, 120) no-repeat bottom right; 
+	margin: 0; 
+	padding: 0;
+}
+p { 
+	margin-top: 0; 
+	text-align: justify;
+	}
+    a:link { 
+        font-weight: bold; 
+        text-decoration: none; 
+        color: #db111b;
+        }
+    a:visited { 
+        font-weight: bold; 
+        text-decoration: none; 
+        color: #041fb6;
+        }
+    a:hover, a:focus, a:active { 
+        text-decoration: underline; 
+        color: #b6ba85;
+        }
