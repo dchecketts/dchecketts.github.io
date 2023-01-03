@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en-us"></html>
-
+<!-- reference stylesheet and generate navbar -->
 <head>
     <meta charset="utf-8" />
     <title>Home</title>
     <link rel="stylesheet" href="styles/home-style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 </head>
-<nav>
-    <a href="home.html">
-        <i class="material-icons">home</i>
-    </a>
-</nav>
+<ul>
+    <li> <a class="active" href="home.html">Home</a></li>
+    <li class="dropdown">
+        <a href="assignments.html" class="dropbtn">Assignments</a>
+        <div class="dropdown-content">
+          <a href="aboutme.html">About Me</a>
+          <a href="wdd130/wwr/site-plan-rafting.html">RS Plan</a>        </div>
+      </li>
+    <li class="dropdown">
+        <a href="updates.html" class="dropbtn">Updates</a>
+    <div class="dropdown-content">
+        <a href="updates.html">Version 1</a>
+        <a href="updates.html">Version 2</a>
+    </div></li>
+    <li style="float:right"> <a href="aboutme.html">About</a></li>
+</ul>
+<!-- content below -->
 <body>
     <header>
         <h1>Main Page</h1>
-        <p>This part is the main page for my site.</p>
-        <h2>Links</h2>
-        <a href="error.html"> About Me</a>
-        <a href="wdd130/wwr/site-plan-rafting.html">Site Plan Rafting</a>
+        <p>Greetings! Feel free to take a look around.</p>
     </header>
 </body>
