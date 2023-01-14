@@ -1,0 +1,203 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Rajdhani:wght@500&display=swap');
+
+:root {
+    /* colors */
+    --primary-color: #03045e;
+    --secondary-color: #0077b6;
+    --accent1-color: #00b4d8;
+    --accent2-color: #90e0ef;
+
+    /* fonts */
+    --heading-font: "Poppins";
+    --paragraph-font: "Rajdhani", Helvetica, sans-serif;
+
+    /* conditional colors */
+    --headline-color-on-white: #03045e;
+    --headline-color-on-color: white;
+    --paragraph-color-on-white: #0077b6;
+    --paragraph-background-color: #00b4d8;
+    --nav-link-color: black;
+    --nav-background-color: #0077b6;
+    --nav-hover-link-color: white;
+    --nav-hover-background-color: #0B1032;
+}
+
+/* modifyable CSS */
+
+nav {
+    top: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--secondary-color);
+  } 
+  li {
+    float: left;
+  }
+  li a {
+    display: block;
+    color: black;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  li a:hover {
+    background-color: var(--accent1-color);
+  }
+  img {
+    max-width: 25%;
+    height: auto;
+  }
+  .active {
+    background-color: var(--accent2-color);
+  }
+.hero {
+    background: url(../images/white-water-rapids-background-14232217.jpg);
+    background-size: cover;
+    text-align: center;
+}
+  .hero-content {
+    padding: 0;
+  }
+.call {
+    background-color: var(--accent1-color);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.join {
+    background-color: var(--accent1-color);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+table {
+    width: 100%;
+    text-align: center;
+    padding: 0%;
+}
+  th img {
+    max-width: 50%;
+    height: auto;
+  }
+  td img {
+    max-width:  15%;
+    height: auto;
+  }
+  td p {
+    font-family: var(--paragraph-font);
+    color: var(--paragraph-color-on-white);
+    padding: 0;
+  }
+/* Page map */
+.sitemap {
+    display: grid;
+    justify-content: center;
+  
+    grid-template-columns: repeat(6, 15%);
+    grid-template-rows: 3em 1.5em 1.5em 3em;
+    grid-template-areas: ". . home home . ."
+      ". . . top . ."
+      ". left left right right ."
+      "page2 page2 . . page3 page3";
+  }
+  .sitemap > div {
+    text-align: center;
+  }
+  .sm-home {
+    grid-area: home;
+    background-color: #ccc;
+    line-height: 3em;
+  }
+  .sm-page2 {
+    grid-area: page2;
+    background-color: #ccc;
+    line-height: 3em;
+  }
+  .sm-page3 {
+    grid-area: page3;
+    background-color: #ccc;
+    line-height: 3em;
+  }
+  .top {
+    grid-area: top;
+    border-left: 1px solid;
+  }
+  .left {
+    grid-area: left;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+  .right {
+    grid-area: right;
+    border-top: 1px solid;
+    border-right: 1px solid;
+  }
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--headline-color-on-white);
+}
+h2 {
+  text-align: center;
+}
+hr {
+    height: 3px;
+    margin: 35px 0;
+    background: var(--accent1-color);
+  }
+header {
+    padding: 1em;
+    text-align: center;
+    color: var(--headline-color-on-color);
+    background-color: var(--paragraph-background-color);
+}
+header > h1, header > h2 {
+    color: var(--headline-color-on-color);
+}
+p {
+    font-family: var(--paragraph-font);
+    color: var(--paragraph-color-on-white);
+    padding: 1em;
+}
+.colors {
+    width: 100%;
+    min-width: 350px;
+    margin: 30px auto;
+    text-align: center;
+}
+.colors th {
+    background-color: #999;
+}
+.colors td{
+    width: 25%;
+    height: 3em;
+}
+.primary {
+    background-color: var(--primary-color);
+}
+.secondary {
+    background-color: var(--secondary-color);
+}
+.accent1 {
+    background-color: var(--accent1-color);
+}
+.accent2{
+    background-color: var(--accent2-color);
+}
+p.colored {
+    background-color: var(--paragraph-background-color);
+    color: var(--paragraph-color-on-color);
+}
