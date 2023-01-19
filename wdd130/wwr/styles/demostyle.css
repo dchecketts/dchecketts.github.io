@@ -1,0 +1,50 @@
+.navigation {
+    border-style: solid;
+    border-color: blue;
+    text-align: center;
+}
+.image-scroller {
+    border-style: double;
+    border-color: red;
+    text-align: center;
+}
+.left {
+    border-style: solid;
+    border-color: green;
+    text-align: center;
+    width: 30%;
+}
+.right {
+    border-style: solid;
+    border-color: green;
+    text-align: center;
+    width: 30%;
+}
+.gallery {
+    padding: 25px 50px 25px 50px;
+    border-style: solid;
+    text-align: center;
+}
+.gallery-row {
+    border-style: solid;
+    border-color: orange;
+    padding: 50px;
+}
+.gallery-child {
+    border-style: dotted;
+    border-color: yellow;
+    width: 20%;
+    display: inline-block;
+}
+.foot {
+    border-style: solid;
+    border-color: blue;
+    padding: 50px;
+    display: flex;
+}
+.foot-child {
+    border-style: dotted;
+    border-color: green;
+    width: 25%;
+    flex: auto;
+}
