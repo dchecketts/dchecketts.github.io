@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Sofia+Sans:wght@500&display=swap');
+
+/* Color palette: https://coolors.co/eb113a-fb3765-da979e-3f3f37 */
+
+:root {
+    /* colors */
+    --primary-color: #eb113a;
+    --secondary-color: #fb3765;
+    --accent1-color: #da979e;
+    --accent2-color: #3f3f37;
+
+    /* fonts */
+    --heading-font: "Sofia Sans";
+    --paragraph-font: "Open Sans", Helvetica, sans-serif;
+}
+
+body {
+    font-size: 18px;
+    padding: 25px;
+    text-align: center;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    text-align: center;
+}
+p, a {
+  font-family: var(--paragraph-font);
+  text-align: left;
+}
+p {
+    padding: 10px;
+}
+.resources {
+    float: right;
+    display: block;
+
+    border-style: solid;
+}
+.resources ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+.resources li a {
+    display: block;
+    text-align: center;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.resources li a:hover {
+    background-color: #555;
+    color: white;
+}
+.navigational {
+    background-color: #dadada;
+}
+.roofed {
+    border-style: solid none;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.flex-container {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.central {
+    width: 75%;
+    padding: 25px;
+}
+.button {
+    background-color: var(--accent1-color); /* Green */
+    border-radius: 8px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+  }
+  .button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+.credit {
+    float: right;
+    position: absolute;
+    text-align: center;
+    bottom: 50px;
+    width: 15%;
+}
+.divider{
+    width:auto;
+    height:5px;
+    display:inline-block;
+}
