@@ -30,6 +30,13 @@
     text-align: center;
 }
 
+.nav-child {
+    border-style: double;
+    border-color: orange;
+    width: 25%;
+    text-align: center;
+}
+
 .hero {
     text-align: center;
     padding-bottom: 20%;
@@ -76,5 +83,27 @@
 .foot {
     border-style: solid;
     border-color: blue;
+}
+
+.left-foot{
+    border-style: dashed;
+    width: 66%;
+    display: inline;
+    float: left;
     text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.left-foot p {
+    border-style: double;
+    display: inline;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: center;
+}
+.right-foot {
+    border-style: dotted;
+    width: 33%;
+    display: inline;
+    float: right;
 }
