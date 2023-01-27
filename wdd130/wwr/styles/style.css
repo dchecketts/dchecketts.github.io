@@ -1,0 +1,89 @@
+:root {
+    /* Color palette */
+    --primary-color: #03045e   ;
+    --secondary-color: #0077b6 ;
+    --accent1-color: #00b4d8;
+    --accent2-color: #90e0ef;
+  
+    /* Fonts */
+    --heading-font: "Poppins";
+    --paragraph-font: "Rajdhani", Helvetica, sans-serif;
+  
+    
+    --headline-color-on-white: #03045e;
+    --headline-color-on-color: white;
+    --paragraph-color-on-white: #0077b6; 
+    --paragraph-color-on-color: white; 
+    --paragraph-background-color: #00b4d8  ;
+    --nav-link-color: black;
+    --nav-background-color: #0077b6;
+    --nav-hover-link-color: white;
+    --nav-hover-background-color: #0B1032;
+  }
+
+#content {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+nav a {
+    text-align: center;
+    color: white;
+}
+#hero-msg h1, #hero-msg h4 {
+    text-align: center;
+}
+.button-box {
+    text-align: center;
+}
+main section {
+    text-align: center;
+}
+#background {
+    height: 275px;
+}
+body {
+    background-color: white;
+}
+header {
+    background-color: var(--primary-color);
+}
+nav a:hover {
+    background-color: var(--accent2-color);
+    color: black;
+}
+.book, .join {
+    background-color: var(--accent1-color);
+    color: var(--primary-color);
+}
+.book:hover, .join:hover {
+    background-color: var(--accent2-color);
+    color: var(--secondary-color);
+}
+#background {
+    background-color: var(--secondary-color);
+}
+.msg {
+    background-color: var(--secondary-color);
+}
+footer {
+    background-color: var(--primary-color);
+    color: var(--accent2-color);
+}
+.home-title {
+    color: var(--primary-color);
+}
+h4 {
+    color: var(--secondary-color);
+}
+.msg h2 {
+    color: var(--primary-color);
+}
+.msg p {
+    color: black;
+}
+footer a {
+    color: var(--accent1-color);
+}
+footer a:hover {
+    color: var(--accent2-color);
+}
