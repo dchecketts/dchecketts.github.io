@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+    height: 100vh;
+    width: auto;
+    background-color: #737373;
+    margin: 0;
+    padding: 0;
+}
+body img {
+    width: 100%;
+    height: auto;
+}
+div img {
+    margin: 3% 5%;
+    display: inline;
+    width: 20%;
+    height: auto;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 10px;
+    border-color: #444444;
+}
