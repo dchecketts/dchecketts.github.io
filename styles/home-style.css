@@ -1,4 +1,7 @@
-/* This CSS file is to be modified with desktop in mind */
+body {
+  margin: 0;
+  padding: 0;
+}
 nav {
   top: 0;
   list-style-type: none;
