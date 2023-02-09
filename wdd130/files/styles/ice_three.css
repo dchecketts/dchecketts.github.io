@@ -1,0 +1,24 @@
+h1 {
+    z-index: 2;
+    border-style: dashed;
+}
+img {
+    height: 50vh;
+    width: auto;
+    border-style: double;
+}
+.part {
+    margin: 0;
+    padding-top: 45vh;
+    width: 45vh;
+    border-style: dotted;
+}
+.grid-container {
+    z-index: 1;
+    display: inline-grid;
+    gap: 0;
+    grid-template-columns: auto auto auto;
+}
+.grid-item {
+
+}

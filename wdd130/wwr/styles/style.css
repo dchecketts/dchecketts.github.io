@@ -31,11 +31,16 @@ header {
 }
 body {
     background-color: white;
+    font-family: var(--paragraph-font);
+    font-size: 22px;
+    padding: 0;
+    margin: 0;
 }
 nav a {
     text-align: center;
     color: white;
     text-decoration: none;
+    padding: 35px;
 }
 nav a:hover {
     background-color: var(--accent2-color);
@@ -43,10 +48,14 @@ nav a:hover {
 }
 h4 {
     color: var(--secondary-color);
+    font-family: var(--heading-font);
+    font-size: 2em;
 }
 footer {
     background-color: var(--primary-color);
     color: var(--accent2-color);
+    padding: 25px 50px;
+    margin-top: 200px;
 }
 footer a {
     color: var(--accent1-color);
@@ -61,6 +70,12 @@ footer p {
 footer p a:hover {
     text-decoration: underline;
 }
+footer .social img {
+    padding-top: 15px;
+}
+main section img {
+    box-sizing: border-box;
+}
 
 /* IDs */
 #content {
@@ -69,6 +84,8 @@ footer p a:hover {
 }
 #hero-msg h1, #hero-msg h4 {
     text-align: center;
+    font-family: var(--heading-font);
+    font-size: 2em;
 }
 #hero-img {
     width: 100%;
@@ -76,6 +93,9 @@ footer p a:hover {
 #background {
     background-color: var(--secondary-color);
     height: 275px;
+}
+#logo_link {
+    padding-top: 5px;
 }
 
 /* classes */
@@ -86,6 +106,10 @@ footer p a:hover {
     background-color: var(--accent1-color);
     color: var(--primary-color);
     text-decoration: none;
+    font-size: 18px;
+    padding: 15px 30px;
+    margin-top: 50px;
+    border-radius: 5px;
 }
 .book:hover, .join:hover {
     background-color: var(--accent2-color);
@@ -93,21 +117,37 @@ footer p a:hover {
 }
 .home-title {
     color: var(--primary-color);
+    font-family: var(--heading-font);
+    font-size: 2em;
+    margin-top: 10px;
 }
 .msg {
     background-color: var(--secondary-color);
+    line-height: 1.5em;
+    padding: 35px;
 }
 .msg h2 {
     color: var(--primary-color);
+    font-family: var(--heading-font);
 }
 .msg p {
     color: black;
+    font-size: .8em;
+    padding-bottom: 15px;
 }
 .logo {
     width: 80px;
+    background-color: white;
 }
 .icon {
     width: 80px;
+    padding-top: 10px;
+}
+.rivers-card, .camping-card, .rapids-card {
+    margin: 200px 0;
+}
+.card-img {
+    border: 10px solid var(--secondary-color);
 }
 
 
