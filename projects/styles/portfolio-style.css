@@ -38,7 +38,7 @@ footer {
     background-color: black;
     bottom: 0;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0px;
 }
 img {
     width: 25vw;
@@ -51,21 +51,21 @@ img {
     background-color: red;
 }
 .flex-container {
-    margin: 8px;
+    margin: 8px 0px;
+    width: 100vw;
+    height: auto;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 .display-item {
-    display: flex;
+    display: inline;
     text-align: center;
-    padding: 20px;
-    width: 100vw;
-    width: auto;
-    height: auto;
+    padding: 15px;
     border-style: double;
 }
 .description {
+    display: inline;
     padding-left: 10px;
     text-align: left;
 }
