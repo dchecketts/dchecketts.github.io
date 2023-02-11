@@ -1,0 +1,58 @@
+/* import font */
+/* Color Palette */
+
+:root {
+    --font-to-use: sans-serif;
+}
+
+body {
+    font-family: var(--font-to-use);
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+nav{
+    top: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: sticky;
+    overflow: hidden;
+    background-color: black;
+}
+li {
+    float: left;
+}
+li a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: gray;
+}
+footer {
+    color: white;
+    background-color: black;
+    bottom: 0;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Classes */
+.active {
+    color: black;
+    background-color: red;
+}
+.flex-container {
+    margin: 8px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.display-item {
+    text-align: center;
+    padding: 20px;
+    border-style: double;
+}
