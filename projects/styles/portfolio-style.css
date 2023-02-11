@@ -54,11 +54,15 @@ img {
     margin: 8px;
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 .display-item {
     display: flex;
     text-align: center;
     padding: 20px;
+    width: 100vw;
+    width: auto;
+    height: auto;
     border-style: double;
 }
 .description {
