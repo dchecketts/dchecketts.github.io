@@ -1,6 +1,18 @@
+body {
+    position: relative;
+}
 h1 {
+    position: absolute;
     z-index: 2;
     border-style: dashed;
+    font-weight: bold;
+}
+p {
+    color: #9d0e10;
+    font-weight: bold;
+    font-size: 5em;
+    padding: 0;
+    margin: 0;
 }
 img {
     height: 50vh;
@@ -9,16 +21,19 @@ img {
 }
 .part {
     margin: 0;
-    padding-top: 45vh;
+    padding: 0;
+    padding-top: 30vh;
     width: 45vh;
+    background-color: #b9b8b9;
     border-style: dotted;
 }
 .grid-container {
+    position: absolute;
     z-index: 1;
     display: inline-grid;
     gap: 0;
     grid-template-columns: auto auto auto;
 }
 .grid-item {
-
+    text-align: center;
 }
