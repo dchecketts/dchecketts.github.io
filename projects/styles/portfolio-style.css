@@ -52,7 +52,12 @@ footer {
     flex-flow: row wrap;
 }
 .display-item {
+    display: flex;
     text-align: center;
     padding: 20px;
     border-style: double;
+}
+.description {
+    padding-left: 10px;
+    text-align: left;
 }
