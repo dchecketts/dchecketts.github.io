@@ -51,6 +51,9 @@ h4 {
     font-family: var(--heading-font);
     font-size: 2em;
 }
+h2 { 
+    margin: 0;
+}
 footer {
     background-color: var(--primary-color);
     color: var(--accent2-color);
