@@ -103,7 +103,7 @@ main section img {
     width: 100%;
 }
 #background {
-    background-color: var(--secondary-color);
+    background-color: var(--accent1-color);
     height: 275px;
     grid-area: 4/1/9/11;
 }
