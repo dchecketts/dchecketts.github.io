@@ -28,6 +28,8 @@ main section {
 }
 header {
     background-color: var(--primary-color);
+    display: grid;
+    grid-template-columns: 150px auto;
 }
 body {
     background-color: white;
@@ -35,6 +37,10 @@ body {
     font-size: 22px;
     padding: 0;
     margin: 0;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
 }
 nav a {
     text-align: center;
@@ -59,6 +65,9 @@ footer {
     color: var(--accent2-color);
     padding: 25px 50px;
     margin-top: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 footer a {
     color: var(--accent1-color);
@@ -96,9 +105,30 @@ main section img {
 #background {
     background-color: var(--secondary-color);
     height: 275px;
+    grid-area: 4/1/9/11;
 }
 #logo_link {
     padding-top: 5px;
+    justify-self: center;
+    align-self: center;
+}
+#hero {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    margin-top: -100px;
+}
+#hero-box {
+    grid-column: 1/4;
+    grid-row: 1/3;
+    z-index: -1;
+}
+#hero-msg {
+    grid-column: 1/4;
+    grid-row: 1/3;
+    margin-top: 100px;
+}
+#hero-msg h4 {
+    color: white;
 }
 
 /* classes */
@@ -151,11 +181,79 @@ main section img {
 }
 .card-img {
     border: 10px solid var(--secondary-color);
+    transition: transform .5s;
+    box-shadow: 5px 5px 10px #6f7364;
+}
+.card-img:hover {
+    opacity: .6;
+    transform: scale(1.1);
+}
+.card-img, .mountains {
+    width: 100%;
+}
+.home-grid {
+    display: grid;
+    height: 200vh;
+    width: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.rivers-card {
+    grid-area: 2/2/3/4;
+}
+.camping-card {
+    grid-area: 2/5/3/7;
+}
+.rapids-card {
+    grid-area: 2/8/3/10;
+}
+.mountains {
+    grid-area: 5/2/8/7;
+    box-shadow: 5px 5px 10px #6f7364;
+}
+.msg {
+    grid-area: 6/6/7/10;
+    box-shadow: 5px 5px 10px #6f7364;
 }
 
-
-/* Rounded social icons */
-/* 
-.social img {
-    border-radius: 50%;
-} */
+@media screen and (max-width: 900px) {
+    #hero, .home-grid {
+        display: block;
+        height: auto;
+    }
+    nav, footer {
+        flex-direction: column;
+    }
+    nav a {
+        display: block;
+        padding: 15px;
+    }
+    #hero {
+        margin-top: 0;
+    }
+    #hero-msg {
+        margin-top: 0;
+    }
+    #hero-msg h4 {
+        display: none;
+    }
+    .home-title {
+        font-size: 25px;
+        color: #6f7364;
+    }
+    .rivers-card, .camping-card, .rapids-card { 
+        margin: 50px auto;
+        width: 60%;
+    }
+    #background {
+        display: none;
+    }
+    .mountains, .msg {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+    }
+    footer {
+        margin-top: 25px;
+    }
+}
