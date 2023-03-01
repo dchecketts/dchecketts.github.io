@@ -104,7 +104,7 @@ main section img {
 }
 #background {
     background-color: var(--accent1-color);
-    height: 275px;
+    height: 100%;
     grid-area: 4/1/9/11;
 }
 #logo_link {
@@ -155,9 +155,12 @@ main section img {
     margin-top: 10px;
 }
 .msg {
+    border-radius: 10px;
     background-color: var(--secondary-color);
     line-height: 1.5em;
     padding: 35px;
+    grid-area: 6/6/7/10;
+    box-shadow: 5px 5px 10px #6f7364;
 }
 .msg h2 {
     color: var(--primary-color);
@@ -210,10 +213,7 @@ main section img {
 .mountains {
     grid-area: 5/2/8/7;
     box-shadow: 5px 5px 10px #6f7364;
-}
-.msg {
-    grid-area: 6/6/7/10;
-    box-shadow: 5px 5px 10px #6f7364;
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 900px) {
