@@ -149,7 +149,7 @@ main section img {
     color: var(--secondary-color);
 }
 .home-title {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-family: var(--heading-font);
     font-size: 2em;
     margin-top: 10px;
