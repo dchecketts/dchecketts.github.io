@@ -1,7 +1,7 @@
 /* if you are using any Google fonts change the font names below to your fonts. 
 Any spaces in your font name should be replaced with a +. 
 Fonts are separated by a | */
-@import url('https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Lato');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
 
 :root {
   /* change the values below to your colors from your palette */
@@ -18,8 +18,8 @@ Fonts are separated by a | */
   --headline-color-on-white: #000000;  /* headlines on a white background */ 
   --headline-color-on-color: #efefef; /* headlines on a colored background */ 
   --paragraph-color-on-white: #000000; /* paragraph text on a white background */ 
-  --paragraph-color-on-color: #efefef; /* paragraph text on a colored background */ 
-  --paragraph-background-color: #efefef  ;
+  --paragraph-color-on-color: #000000; /* paragraph text on a colored background */ 
+  --paragraph-background-color: #f61067  ;
   --nav-link-color: #f61067;
   --nav-background-color: #5a4ae3;
   --nav-hover-link-color: #5a4ae3;
