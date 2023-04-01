@@ -198,8 +198,8 @@ main section img {
     display: grid;
     height: 200vh;
     width: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(9, 1fr);
 }
 .rivers-card {
     grid-area: 2/2/3/4;
@@ -214,6 +214,34 @@ main section img {
     grid-area: 5/2/8/7;
     box-shadow: 5px 5px 10px #6f7364;
     border-radius: 10px;
+}
+
+/* rivers page */
+.rivers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.river-title {
+    grid-column: 1/-1;
+}
+#salmon-img {
+    grid-column: 3/4;
+}
+.salmon {
+    /* grid-column: 1/3; */
+}
+#desolation-img {
+    grid-columnu: 3/4;
+}
+.desolation {
+    grid-column: 1/3;
+}
+#grand-img {
+    grid-column: 3/4;
+    grid-row: 3;
+}
+.grand {
+    grid-column: 1/3;
 }
 
 @media screen and (max-width: 900px) {
