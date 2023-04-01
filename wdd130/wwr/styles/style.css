@@ -32,11 +32,14 @@ header {
     grid-template-columns: 150px auto;
 }
 body {
-    background-color: white;
+    background-color: var(--accent2-color);
     font-family: var(--paragraph-font);
     font-size: 22px;
-    padding: 0;
+    padding: 0 100px;
     margin: 0;
+}
+#content {
+    background-color: white;
 }
 nav {
     display: flex;
@@ -245,6 +248,7 @@ main section img {
 #grand-img {
     grid-column: 1/2;
     grid-row: 4;
+    max-width: 300px;
 }
 .grand {
     text-align: left;
@@ -252,7 +256,7 @@ main section img {
     grid-row: 4;
 }
 
-/* Contact Us */
+/* ====================================== Contact Us ====================================== */
 form {
     /* Center the form on the page */
     margin: 100px auto;
