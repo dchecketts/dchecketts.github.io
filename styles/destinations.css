@@ -50,3 +50,42 @@ li a {
 .active {
     background-color: green;
 }
+
+/* Body text */
+h1, h2, p, a {
+    font-family: sans-serif;
+}
+
+/* home specific */
+.greeting {
+    text-align: center;
+}
+.food img, .place img {
+    size: 50%;
+}
+.categories {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+.food{
+    grid-area: 1/1/6/6;
+    color: white;
+}
+.places {
+    grid-area: 1/6/6/6;
+    color: white;
+}
+.text {
+    padding: 5%;
+    align-self: center;
+    justify-content: center;
+}
+
+.button {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}
