@@ -12,21 +12,38 @@
             <img class="logo" src="./images/logo.png" alt="Dry Oar Logo">
         </a>
         <nav>
-            <a href="./index.html">Home</a>
-            <a href="./rivers.html">Rivers</a>
-            <a href="./faq.html">FAQ</a>
-            <a href="./blog.html">Blog</a>
-            <a href="./contactus.html">Contact Us</a>
+                <a href="index.html">Home</a>
+                <a href="rivers.html">Rivers</a>
+                <a href="site-plan-rafting.html">Site Plan</a>
+                <a href="contactus.html">Contact Us</a>
         </nav>
     </header>
     <body>
-        <h1>Contact Us</h1>
-        <p>Details on how to contact the company and book a trip.</p>
-        <h1>Rates / Dates</h1>
-        <p>GRAND CANYON THREE-NIGHT TRIP: 2016 Pricing and Dates Grand Canyon 3 night trips: $1,475 April 30 May 13, 20, 27, 30 June 3, 10, 17, 24, 28 July 1, 8, 15, 22, 29 August 5, 12, 19, 26 September 9, 17</p>
-        <p>GRAND CANYON SIX-NIGHT TRIP: (The dates listed will be the date that you spend the night in Marble Canyon. The launch date is the following day.) 2016 Pricing and Dates Grand Canyon 6 night trips: $2,550 April 25 May 8, 15, 22, 25, 29 June 5, 12, 19, 23, 26 July 3, 10, 17, 24, 31 August 7, 14, 21 September 4, 12</p>
-        <p>Salmon River 5 night trip (The dates listed will be the date that you spend the night in Salmon. The launch date is the following day.) 2016 Pricing and Dates Regular Rate: $1,540 Trip Dates June 3, 10, 17, 24 July 2</p>
-        <p>Desolation 6 night Trip 2016 Pricing and Dates Regular Rate: $1,790 Trip Dates July 10, 18, 26 Aug 3, 11, 19, 27 Sept 4</p>
+        <h1 class="contact">Contact Us</h1>
+        <div id="feedback"></div>
+            <form action="/my-handling-form-page" method="post">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="user_name" />
+                </div>
+               
+                <div>
+                    <label for="mail">Email:</label>
+                    <input type="email" id="mail" name="user_email" />
+                </div>
+
+                <div>
+                    <label for="'msg">Message:</label>
+                    <textarea id="msg" name="user_message"></textarea>
+                </div>
+                    
+                <button type="submit">Send your message</button>  
+            </form>
+        <h1 class="contact">Rates / Dates</h1>
+        <p class="contact-us">GRAND CANYON THREE-NIGHT TRIP: 2016 Pricing and Dates Grand Canyon 3 night trips: $1,475 April 30 May 13, 20, 27, 30 June 3, 10, 17, 24, 28 July 1, 8, 15, 22, 29 August 5, 12, 19, 26 September 9, 17</p>
+        <p class="contact-us">GRAND CANYON SIX-NIGHT TRIP: (The dates listed will be the date that you spend the night in Marble Canyon. The launch date is the following day.) 2016 Pricing and Dates Grand Canyon 6 night trips: $2,550 April 25 May 8, 15, 22, 25, 29 June 5, 12, 19, 23, 26 July 3, 10, 17, 24, 31 August 7, 14, 21 September 4, 12</p>
+        <p class="contact-us">Salmon River 5 night trip (The dates listed will be the date that you spend the night in Salmon. The launch date is the following day.) 2016 Pricing and Dates Regular Rate: $1,540 Trip Dates June 3, 10, 17, 24 July 2</p>
+        <p class="contact-us">Desolation 6 night Trip 2016 Pricing and Dates Regular Rate: $1,790 Trip Dates July 10, 18, 26 Aug 3, 11, 19, 27 Sept 4</p>
     </body>
     <footer>
         <p>Dry Oar © 2023 - Daniel Checketts</p>
@@ -44,4 +61,21 @@
             </a>
         </div>
     </footer>
+    <script>
+        // get the feedback div element so we can do something with it.
+        const feedbackElement = document.getElementById('feedback');
+        // get the form so we can read what was entered in it.
+        const formElement = document.forms[0];
+        // add a 'listener' to wait for a submission of our form. When that happens run the code below.
+        formElement.addEventListener('submit', function(e) {
+            // stop the form from doing the default action.
+            e.preventDefault();
+            // set the contents of our feedback element to a message letting the user know the form was submitted successfully. Notice that we pull the name that was entered in the form to personalize the message!
+            feedbackElement.innerHTML = 'Hello '+ formElement.user_name.value +'! Thank you for your message. We will get back with you as soon as possible!';
+            // make the feedback element visible.
+            feedbackElement.style.display = "block";
+            // add a class to move everything down so our message doesn't cover it.
+            document.body.classList.toggle('moveDown');
+        });
+    </script>
 </html>
