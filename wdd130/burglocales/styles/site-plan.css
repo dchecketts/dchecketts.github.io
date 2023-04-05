@@ -91,6 +91,11 @@ p {
   background-color: var(--secondary-color);
   color: var(--paragraph-color-on-color);
 }
+
+td.colored {
+  color: var(--primary-color)
+}
+
 .accent1 {
   background-color: var(--accent1-color);
 }
@@ -115,6 +120,7 @@ nav  {
 
 }
 nav a {
+  font-family: var(--heading-font);
   padding:1em;
   min-width: 120px;
   text-decoration: none;
