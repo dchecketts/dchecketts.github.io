@@ -5,41 +5,45 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Contact Us</title>
+        <link rel="stylesheet" href="./styles/style.css">
     </head>
-    <header>
-        <nav>
-            <a href="./index.html">Home</a>
-            <a href="./resturants.html">Food</a>
-            <a href="./activities.html">Fun</a>
-        </nav>
-    </header>
     <body>
-        <h1 class="contact">Contact Us</h1>
-        <div id="feedback"></div>
-            <form action="/my-handling-form-page" method="post">
-                <div>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="user_name" />
-                </div>
-               
-                <div>
-                    <label for="mail">Email:</label>
-                    <input type="email" id="mail" name="user_email" />
-                </div>
+        <header>
+            <nav>
+                <img src="./images/logos/side-burglocales-logo-transparent.png" alt="Logo">
+                <a href="./index.html">Home</a>
+                <a href="./resturants.html">Food</a>
+                <a href="./activities.html">Fun</a>
+            </nav>
+        </header>
+        <main>
+            <h1 class="contact">Contact Us</h1>
+            <div id="feedback"></div>
+                <form action="/my-handling-form-page" method="post">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="user_name" />
+                    </div>
+                
+                    <div>
+                        <label for="mail">Email:</label>
+                        <input type="email" id="mail" name="user_email" />
+                    </div>
 
-                <div>
-                    <label for="'msg">Message:</label>
-                    <textarea id="msg" name="user_message"></textarea>
-                </div>
-                    
-                <button type="submit">Send your message</button>  
-            </form>
+                    <div>
+                        <label for="'msg">Message:</label>
+                        <textarea id="msg" name="user_message"></textarea>
+                    </div>
+                        
+                    <button type="submit">Send your message</button>  
+                </form>
+            </main>
+        <footer>
+            <p>Burg Locales &copy; 2023</p>
+            <a href="./site-plan.html">Site Plan</a>
+            <a href="./contact-us.html">Contact Us</a>
+        </footer>
     </body>
-    <footer>
-        <p>Burg Locales &copy; 2023</p>
-        <a href="./site-plan.html">Site Plan</a>
-        <a href="./contact-us.html">Contact Us</a>
-    </footer>
     <script>
         // get the feedback div element so we can do something with it.
         const feedbackElement = document.getElementById('feedback');
