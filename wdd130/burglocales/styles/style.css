@@ -157,6 +157,7 @@ main.sub div:nth-of-type(2) h3, main.sub div:nth-of-type(2) p {
 main.contact {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    height: 74vh;
 }
 main.contact h1 {
     grid-column: span 5;
