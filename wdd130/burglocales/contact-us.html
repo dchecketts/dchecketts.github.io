@@ -16,9 +16,9 @@
                 <a href="./activities.html">Fun</a>
             </nav>
         </header>
-        <main>
-            <h1 class="contact">Contact Us</h1>
-            <div id="feedback"></div>
+        <main class="contact">
+            <h1>Contact Us</h1>
+            <div id="feedback">
                 <form action="/my-handling-form-page" method="post">
                     <div>
                         <label for="name">Name:</label>
@@ -34,11 +34,12 @@
                         <label for="'msg">Message:</label>
                         <textarea id="msg" name="user_message"></textarea>
                     </div>
-                        
-                    <button type="submit">Send your message</button>  
+                    
+                    <div><button type="submit">Send your message</button></div>
                 </form>
                 <!-- Trigger/Open The Modal -->
-                <button id="myBtn"> Thanks, visitor!</button>
+                <div><button id="myBtn"> Thanks, visitor!</button></div>
+            </div>
 
                 <!-- The Modal -->
                 <div id="myModal" class="modal">
