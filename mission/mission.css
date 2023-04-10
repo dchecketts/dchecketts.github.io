@@ -84,6 +84,8 @@ a {
     margin: 50px;
     align-self: center;
     justify-self: center;
+    max-width: 100%;
+    height: auto;
 }
 
 /* Mobile Version */
@@ -151,5 +153,7 @@ a {
         margin: 50px;
         align-self: center;
         justify-self: center;
+        max-width: 100%;
+        height: auto;
     }
 }
