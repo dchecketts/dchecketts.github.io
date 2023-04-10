@@ -9,7 +9,7 @@
 
     /* Fonts */
     --heading-font: "Roboto Slab"
-    --paragraph-font: "Roboto", Lato, Helvetica, sans-serif;
+    --paragraph-font: sans-serif;
 
     /* Colors from above */
     --headline-color-on-white: var(--secondary-color);  /* Headlines on a white background */ 
@@ -27,8 +27,8 @@ body {
     text-align: center;
     background-color: var(--primary-color);
 }
-p, a {
-    font-family: var(--paragraph-font);
+p, a, li, ul {
+    font-family: sans-serif;
 }
 
 
@@ -96,8 +96,8 @@ a {
         text-align: center;
         background-color: var(--primary-color);
     }
-    p, a {
-        font-family: var(--paragraph-font);
+    p, a, li, ul {
+        font-family: sans-serif;
     }
     main.page {
         display: grid;
