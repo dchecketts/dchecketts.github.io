@@ -11,7 +11,7 @@ const navBar = document.querySelector(".navigation");
 navBar.insertAdjacentHTML("afterbegin", `<ul class="navList"></ul>`);
 const navList = document.querySelector(".navList");
 navItems.forEach(item => {
-    navList.insertAdjacentHTML("beforeend", `<li class="navItem ${item}"><a href="#">${item}</a></li>`);
+    navList.insertAdjacentHTML("beforeend", `<li class="navItem"><a href="#" class="${item}">${item}</a></li>`);
     } 
 );
 
