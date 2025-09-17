@@ -18,10 +18,11 @@ navItems.forEach(item => {
     navList.insertAdjacentHTML("beforeend", `<li class="navItem"><a href="#" class="${item}">${item}</a></li>`);
     } 
 );
-document.querySelectorAll('a.Github').forEach(link => {
-    link.setAttribute("target", "_blank");
-    link.setAttribute("rel", "noopener noreferrer");
-});
+const githubLink = document.querySelector('.Github');
+if (githubLink) {
+    githubLink.setAttribute("target", "_blank");
+    githubLink.setAttribute("rel", "noopener noreferrer");
+  }
 
 // Set href attributes for each navigation item (Update URLs as needed) NOTE: If you edit the array of navigation items, be sure to update this section too.
 document.querySelector(".Home").setAttribute("href", "/");
