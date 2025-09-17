@@ -20,7 +20,7 @@ navItems.forEach(item => {
 );
 
 // Set href attributes for each navigation item (Update URLs as needed) NOTE: If you edit the array of navigation items, be sure to update this section too.
-document.querySelector(".Home").setAttribute("href", "/index.html");
+document.querySelector(".Home").setAttribute("href", "/");
 document.querySelector(".Blog").setAttribute("href", "../blog");
 document.querySelector(".Photos").setAttribute("href", "../photos");
 document.querySelector(".Projects").setAttribute("href", "../projects");

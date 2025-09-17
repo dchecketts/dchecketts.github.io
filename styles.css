@@ -1,51 +1,84 @@
+:root {
+    --primary: #121212;
+    --secondary: #1A1A1A;
+    --tertiary: #282828;
+    --accent1: #383838;
+    --accent2: #3C3C3C;
+    --text: #F5F5F5;
+    --text-accent: #E0E0E0;
+    --text-accent2: #B0B0B0;
+    --font1: 'Roboto', sans-serif;
+    --font2: 'Open Sans', sans-serif;
+}
+
 body {
-    margin: 0px;
-    font-family: sans-serif;
-}
-.container {
-            display: flex;
-            height: 100vh; /* Full height */
-            margin: 0px;
-        }
-        .vertical-menu {
-            display: flex;
-            height: 100vh;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 100px; /* Fixed width for menu */
-            background: #ffffff;
-            padding: 0px;
-            /* border-right: 5px solid #ccc; */
-            text-align: center;
-        }
-        main {
-            background-color: black;
-            color: white;
-            flex: 1; /* Take remaining width */
-            padding: 20px;
-        }
-        main a {
-            color: white;
-        }
-        main h2 a, main p a {
-            text-decoration: none;
-        }
-
-.vertical-menu a {
-  background-color: #ffffff; /* Grey background color */
-  color: black; /* Black text color */
-  display: block; /* Make the links appear below each other */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove underline from links */
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary);
+    color: var(--text);
+    font-family: var(--font1);
 }
 
-.vertical-menu a:hover {
-  background-color: #ccc; /* Dark grey background on mouse-over */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font2);
 }
 
-.vertical-menu a.active {
-  background-color: #494c59; /* Add a green color to the "active/current" link */
-  color: white;
+a {
+    color: var(--text-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--text-accent2);
+}
+
+header {
+    background-color: var(--secondary);
+    padding: 1em;
+    text-align: center;
+}
+
+nav {
+    background-color: var(--tertiary);
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+nav a {
+    margin: 0 1em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline;
+}
+
+main {
+    padding: 1em;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--secondary);
+    padding: 1em;
+    text-align: center;
+    font-size: 0.9em;
 }
 
 .blogger {
@@ -55,15 +88,12 @@ body {
 
 }
 .post-list {
-    /* border: 3px dashed white; */
     margin: auto;
     width: 90%;
-    /* background-color: rgba(255, 255, 255, 0.5); */
     border: 5px outset grey;
 }
 .post-odd {
     margin: 10px;
-    /* border-style: dotted; */
     text-align: right;
     padding: 10px;
 }
