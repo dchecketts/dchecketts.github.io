@@ -55,6 +55,7 @@ nav a:hover {
 nav ul {
     list-style-type: none;
     padding: 0;
+    text-align: center;
 }
 
 nav li {
@@ -66,7 +67,11 @@ main {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: var(--secondary);
     padding: 1em;
     text-align: center;
-    font-size: 0.9em; }
+    font-size: 0.9em; 
+}
