@@ -16,10 +16,10 @@ navItems.forEach(item => {
 );
 
 // Set href attributes for each navigation item (Update URLs as needed) NOTE: If you edit the array of navigation items, be sure to update this section too.
-document.querySelector(".Home").setAttribute("href", "index.html");
-document.querySelector(".Blog").setAttribute("href", "blog.html");
-document.querySelector(".Photos").setAttribute("href", "photos.html");
-document.querySelector(".Projects").setAttribute("href", "projects.html");
-document.querySelector(".About").setAttribute("href", "about.html");
+document.querySelector(".Home").setAttribute("href", "/index.html");
+document.querySelector(".Blog").setAttribute("href", "/blog.html");
+document.querySelector(".Photos").setAttribute("href", "/photos.html");
+document.querySelector(".Projects").setAttribute("href", "/projects.html");
+document.querySelector(".About").setAttribute("href", "/about.html");
 document.querySelector(".Github").setAttribute("href", "https://github.com/dchecketts");
 document.querySelector(".Contact").setAttribute("href", "mailto:danielkchecketts@gmail.com");
