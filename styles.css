@@ -1,15 +1,39 @@
+/* Variables! */
 :root {
-    --primary: #121212;
-    --secondary: #1A1A1A;
-    --tertiary: #282828;
+    --primary: #e1e1e1;
+    --secondary: #a3a3a3;
+    --tertiary: #b5b5b5;
     --accent1: #383838;
     --accent2: #3C3C3C;
-    --text: #F5F5F5;
-    --text-accent: #E0E0E0;
-    --text-accent2: #B0B0B0;
+    --text: #121212;
+    --text-accent: #2b2b2b;
+    --text-accent2: #2c2c2c;
+
     --font1: 'Roboto', sans-serif;
     --font2: 'Open Sans', sans-serif;
+
+    --primary-dark: #121212;
+    --secondary-dark: #1A1A1A;
+    --tertiary-dark: #282828;
+    --accent-dark: #383838;
+    --accent-dark2: #3C3C3C;
+    --text-dark: #F5F5F5;
+    --text-accent-dark: #E0E0E0;
+    --text-accent-dark2: #B0B0B0;
 }
+
+
+/* 
+To-do:
+
+- Build CSS from the ground up in light mode
+    - Build page for mobile first
+    - @media for desktop
+-build .dark theming
+*/
+
+
+/* Basic CSS */
 
 body {
     margin: 0;
@@ -18,59 +42,14 @@ body {
     color: var(--text);
     font-family: var(--font1);
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font2);
-}
-
-a {
-    color: var(--text-accent);
-    text-decoration: none;
-}
-
-a:hover {
-    color: var(--text-accent2);
-}
-
 header {
     background-color: var(--secondary);
     padding: 1em;
     text-align: center;
 }
-
-nav {
-    background-color: var(--tertiary);
-    padding: 0.5em;
-    margin-bottom: 1em;
-}
-
-nav a {
-    margin: 0 1em;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
-}
-
-nav li {
-    display: inline;
-}
-
 main {
     padding: 1em;
 }
-
 footer {
     position: fixed;
     bottom: 0;
@@ -80,25 +59,70 @@ footer {
     text-align: center;
     font-size: 0.9em;
 }
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font2);
+}
+nav {
+    background-color: var(--tertiary);
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+nav li {
+    display: inline-block;
+    padding: 0.5em;
+    border-style: solid;
+    border-color: var(--secondary);
+}
+nav a {
+    margin: 0 1em;
+    text-decoration: none;
+}
 
-.blogger {
-    border-top: 3px double white;
-    margin: auto;
-    width: 100%;
 
+a {
+    color: var(--text-accent);
 }
-.post-list {
-    margin: auto;
-    width: 90%;
-    border: 5px outset grey;
-}
-.post-odd {
-    margin: 10px;
-    text-align: right;
-    padding: 10px;
-}
-.post-even {
-    margin: 10px;
-    padding: 10px;
-    border-bottom: 2px dotted white;
+
+
+/* Desktop */
+@media screen and (min-width: 500px) {
+    a {
+        color: var(--text-accent);
+        text-decoration: none;
+    }
+    a:hover {
+        color: var(--text-accent2);
+    }
+    nav a:hover {
+        text-decoration: underline;
+    }
+        .blogger {
+            border-top: 3px double white;
+            margin: auto;
+            width: 100%;
+    
+        }
+    
+        .post-list {
+            margin: auto;
+            width: 90%;
+            border: 5px outset grey;
+        }
+    
+        .post-odd {
+            margin: 10px;
+            text-align: right;
+            padding: 10px;
+        }
+    
+        .post-even {
+            margin: 10px;
+            padding: 10px;
+            border-bottom: 2px dotted white;
+        }
 }
