@@ -3,7 +3,8 @@
     "start": "eleventy --serve",
     "build": "npm-run-all build:11ty build:css",
     "build:11ty": "eleventy",
-    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./_site/style.css --watch"
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./_site/style.css --minify",
+    "watch:css": "npx @tailwindcss/cli -i ./src/input.css -o ./_site/style.css --watch"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
