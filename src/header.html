@@ -1,0 +1,32 @@
+---
+permalink: /header.html
+---
+
+<header class="bg-white shadow">
+    {% set newestPost = collections.posts[0] %}
+    <nav class="max-w-3xl mx-auto p-6 flex justify-between items-center">
+        <div id="logo">
+            <a href="#" class="text-xl font-bold">Vibe Coding</a>
+        </div>
+
+        <div id="main-nav" class="flex space-x-4">
+
+            <a href="/" class="text-gray-600 hover:text-black">
+                Home
+            </a>
+
+            <a href="/about/" 
+            hx-get="/about/" 
+            hx-target="#content" 
+            hx-select="#content">
+                About
+            </a>
+            <a href="{{ newestPost.url }}" class="text-gray-600 hover:text-black"
+            hx-get="{{ newestPost.url }}"
+            hx-target="#content"
+            hx-select="#content">
+                Newest
+            </a>
+        </div>
+    </nav>
+</header>

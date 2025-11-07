@@ -1,0 +1,19 @@
+---
+layout: base.html
+title: Vibe Coding
+---
+
+<header
+    hx-get="/header.html"
+    hx-trigger="load"
+    hx-swap="outerHTML"></header>
+<main id="content"
+    hx-get="/pages/home.html"
+    hx-trigger="load"
+    hx-swap="innerHTML">
+    <p>Content loading...</p>
+</main>
+<footer
+    hx-get="/footer.html"
+    hx-trigger="load"
+    hx-swap="outerHTML"></footer>

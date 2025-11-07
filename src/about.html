@@ -1,0 +1,14 @@
+---
+layout: base.html
+title: About Me
+permalink: /about/
+---
+
+<header hx-get="/header.html" hx-trigger="load" hx-swap="outerHTML"></header>
+
+<div id="content">
+    <h1 class="text-3xl font-bold mb-4">About Me</h1>
+    <p>This is the about page, also loaded by HTMX.</p>
+</div>
+
+<footer hx-get="/footer.html" hx-trigger="load" hx-swap="outerHTML"></footer>
