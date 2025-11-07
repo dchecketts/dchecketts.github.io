@@ -2,17 +2,19 @@
 permalink: /pages/home.html
 ---
 
-<h1 class="text-3xl font-bold mb-4">Blog Posts</h1>
+<main id="content" class="flex-col justify-center">
+    <h1 class="text-3xl font-bold mb-4">Blog Posts</h1>
 
-<div class="space-y-6">
+    <div class="space-y-6">
 
-    {%- for post in collections.posts -%}
-    <div class="bg-white p-4 border rounded-lg shadow">
-        <h2 class="text-2xl font-bold">{{ post.data.title }}</h2>
-        <p class="text-gray-600">{{ post.data.description }}</p>
-        <p class="text-sm mt-2">Tags: {{ post.data.tags | join(", ") }}</p>
-        <a href="{{ post.url }}" class="text-blue-600">Read more...</a>
+        {%- for post in collections.posts -%}
+        <div class="bg-white p-4 border rounded-lg shadow">
+            <h2 class="text-2xl font-bold">{{ post.data.title }}</h2>
+            <p class="text-gray-600">{{ post.data.description }}</p>
+            <p class="text-sm mt-2">Tags: {{ post.data.tags | join(", ") }}</p>
+            <a href="{{ post.url }}" class="text-blue-600">Read more...</a>
+        </div>
+        {%- endfor -%}
+
     </div>
-    {%- endfor -%}
-
-</div>
+</main>
