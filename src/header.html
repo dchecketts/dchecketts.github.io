@@ -40,6 +40,11 @@ permalink: /header.html
                 About
             </a>
 
+            <a href="#" class="text-gray-600 hover:text-black"
+            hx-get="/now/"
+            hx-target="#content"
+            hx-select="#content">Now</a>
+
             <a href="{{ newestPost.url }}" class="text-gray-600 hover:text-black"
             hx-get="{{ newestPost.url }}"
             hx-target="#content"
