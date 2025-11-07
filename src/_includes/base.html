@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     
     {% if eleventy.env.runMode == "serve" %}
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     {% else %}
     <link rel="stylesheet" href="/style.css">
     {% endif %}
