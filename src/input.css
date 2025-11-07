@@ -2,4 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Enable Tailwind Typography for markdown content */
+@layer components {
+    .prose {
+        @apply max-w-none;
+    }
+}
+
 /* Add custom styles below */

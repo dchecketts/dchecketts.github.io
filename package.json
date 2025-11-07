@@ -1,13 +1,14 @@
 {
   "scripts": {
     "start": "eleventy --serve",
-    "build:css": "tailwindcss -i ./src/input.css -o ./_site/style.css --minify",
-    "watch:css": "tailwindcss -i ./src/input.css -o ./_site/style.css --watch",
+    "build:css": "tailwindcss -i ./src/input.css -o ./src/styles/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./src/styles/tailwind.css --watch",
     "dev": "npm run build:css && start npm run watch:css && eleventy --serve",
     "build": "npm run build:css && eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
+    "@tailwindcss/typography": "^0.5.19",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17"
