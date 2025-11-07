@@ -1,5 +1,6 @@
 module.exports = {
     content: [
+        // Scan all your template files
         './src/**/*.{njk,md,html}',
     ],
     theme: {
