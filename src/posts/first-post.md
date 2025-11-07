@@ -3,7 +3,7 @@ title: "Cozy, isn't it?"
 description: "I've had my own site on GitHub Pages for a while, so what's different now?"
 tags: ["htmx", "tailwind", "site"]
 image: "/images/first-post.png"
-date: 2025-07-11
+date: 2025-11-07
 
 ---
 

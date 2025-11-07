@@ -25,7 +25,7 @@ title: "Post Title"
 description: "A short description of the post"
 tags: ["htmx", "tailwind", "markdown"]
 image: "/images/thumbnail.png"
-date: YYYY-DD-MM
+date: YYYY-MM-DD
 
 ---
 ```
