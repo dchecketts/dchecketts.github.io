@@ -2,6 +2,8 @@
   "scripts": {
     "start": "eleventy --serve",
     "build:css": "tailwindcss -i ./src/input.css -o ./_site/style.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./_site/style.css --watch",
+    "dev": "npm run build:css && start npm run watch:css && eleventy --serve",
     "build": "npm run build:css && eleventy"
   },
   "devDependencies": {

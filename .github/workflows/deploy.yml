@@ -22,9 +22,9 @@ jobs:
           node-version: "18"
           cache: "npm"
       - name: Install dependencies
-        run: npm install
-      - name: Build your Eleventy site
-        run: npm run build # This runs "eleventy"
+        run: npm ci
+      - name: Build site (Tailwind & Eleventy)
+        run: npm run build # This runs Tailwind CSS build then Eleventy
       - name: Upload the built site
         uses: actions/upload-pages-artifact@v3
         with:
