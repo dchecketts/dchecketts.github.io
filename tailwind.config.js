@@ -1,13 +1,13 @@
 module.exports = {
     content: [
-        // 1. Scan files directly in the src folder
-        './src/*.{njk,md,html}',
-
-        // 2. Scan files in all subfolders of src
-        './src/**/*.{njk,md,html}',
+        // This tells Tailwind to scan the *final, built* HTML.
+        './_site/**/*.html',
+        './_site/*.html',
     ],
     theme: {
         extend: {},
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
   };
