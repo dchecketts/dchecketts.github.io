@@ -2,8 +2,11 @@
 
 A personal site to show off some things I've learned with programming things.
 
- !!! warning ""
+ !!! warning ""  
     I'm using the Markdown Extended VS Code extension to mess with how markdown works, and I'm not sure how well that'll play with Eleventy, but let's see how things go.
+
+!!! note Note  
+    As it turns out, Github doesn't work with admonitions
 
 ## Tools
 
