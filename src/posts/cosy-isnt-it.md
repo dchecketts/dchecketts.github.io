@@ -33,4 +33,8 @@ At the same time, I was taking a course about interactive web design, and built 
 
 ### And what's going on now?
 
-The big thing that really enabled me to start understanding how HTMX and Tailwind worked was beginning a course featuring AI. That course focused on teaching students how to use AI effectively and ethically. One of the projects that we worked on was creating our own AI Agents, and I immediately began working on one that would be able to help me understand and practice HTMX and Tailwind. After a few flubs (Mostly trying to coax it away from giving me chunks of code), I had a decent tutor. A couple of hours later, I understood the basics of Tailwind style classes, and the basics of HTMX.
+The big thing that really enabled me to start understanding how HTMX and Tailwind worked was beginning a course featuring AI. That course focused on teaching students how to use AI effectively and ethically. One of the projects that we worked on was creating our own AI Agents, and I immediately began working on one that would be able to help me understand and practice HTMX and Tailwind. After a few flubs (Mostly trying to coax it away from giving me chunks of code), I had a decent tutor. A couple of hours later, I understood the basics of Tailwind style classes, as well as the fundamentals of HTMX.
+
+Now, my site uses 11ty to generate a static site with HTMX grabbing modules to build content.
+
+At this point, I'm just building up the basics of my site, and then I'll work on the appearance. Currently, it uses the Tailwind CDN, but I need to get it so that when 11ty builds the site, it also builds the CSS used.

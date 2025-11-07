@@ -7,15 +7,19 @@
     <title>{{ title | default("My HTMX Site") }}</title>
 
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 
 </head>
+
+<header hx-get="/header.html" hx-trigger="load" hx-swap="outerHTML"></header>
+
 
 <body class="bg-slate-100 font-sans">
 
     {{ content | safe }}
 
 </body>
+
+<footer hx-get="/footer.html" hx-trigger="load" hx-swap="outerHTML"></footer>
 
 </html>
