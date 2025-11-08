@@ -1,20 +1,19 @@
 {
+  "name": "dchecketts.github.io",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
     "start": "eleventy --serve",
-    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./src/styles/tailwind.css --minify",
-    "watch:css": "npx @tailwindcss/cli -i ./src/input.css -o ./src/styles/tailwind.css --watch",
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./src/styles/tailwind.css --minify",
+    "watch:css": "npx tailwindcss -i ./src/input.css -o ./src/styles/tailwind.css --watch",
     "dev": "npm run build:css && start npm run watch:css && eleventy --serve",
     "build": "npm run build:css && eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "@tailwindcss/typography": "^0.5.19",
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.17"
-  },
-  "dependencies": {
-    "@tailwindcss/cli": "^4.1.17",
-    "@tailwindcss/postcss": "^4.1.17"
+    "tailwindcss": "^3.3.5",
+    "@tailwindcss/typography": "^0.5.10",
+    "postcss": "^8.4.31",
+    "autoprefixer": "^10.4.16"
   }
 }

@@ -1,11 +1,10 @@
-@import "tailwindcss/preflight";
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
 /* Enable Tailwind Typography for markdown content */
-@layer components {
-    .prose {
-        @apply max-w-none;
-    }
+.prose {
+    max-width: none;
 }
 
 /* Add custom styles below */
