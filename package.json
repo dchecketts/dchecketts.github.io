@@ -1,8 +1,8 @@
 {
   "scripts": {
     "start": "eleventy --serve",
-    "build:css": "tailwindcss -i ./src/input.css -o ./src/styles/tailwind.css --minify",
-    "watch:css": "tailwindcss -i ./src/input.css -o ./src/styles/tailwind.css --watch",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./src/styles/tailwind.css --minify",
+    "watch:css": "npx @tailwindcss/cli -i ./src/input.css -o ./src/styles/tailwind.css --watch",
     "dev": "npm run build:css && start npm run watch:css && eleventy --serve",
     "build": "npm run build:css && eleventy"
   },
