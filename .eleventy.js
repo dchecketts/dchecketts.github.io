@@ -2,6 +2,17 @@ module.exports = function (eleventyConfig) {
 
     const fs = require('fs');
     const path = require('path');
+    // Shared rewrite helper to normalize src/href paths in HTML content.
+    // Converts occurrences like:
+    //   src="/src/...    -> src="/...    (strip leading /src/)
+    //   src="../...      -> src="/...    (collapse parent-relative paths to root)
+    // Works for href as well.
+    function rewriteSrcHref(content) {
+        if (typeof content !== 'string') return content;
+        return content
+            .replace(/(src|href)="\/(src)\//g, '$1="/')
+            .replace(/(src|href)="(?:\.\.\/)+/g, '$1="/');
+    }
     // detect production vs development so we can show drafts in dev
     const isProduction = process.env.ELEVENTY_ENV === 'production' || process.env.NODE_ENV === 'production' || !!process.env.GITHUB_ACTIONS;
     // In production we will prevent unpublished posts from being written by
@@ -85,9 +96,11 @@ module.exports = function (eleventyConfig) {
         // Only run this transform on HTML files
         if (outputPath && outputPath.endsWith(".html")) {
 
-            // Find all instances of src="/src/ and href="/src/
-            // and replace them with just src="/ and href="/
-            let newContent = content.replace(/(src|href)="\/(src)\//g, '$1="/');
+            // Replace occurrences like src="/src/... -> src="/... and
+            // src="../images/... -> src="/images/... (same for href).
+            // - First replace any leading "/src/" that came from in-repo paths.
+            // - Then replace any number of "../" segments with a leading "/".
+            let newContent = rewriteSrcHref(content);
 
             return newContent;
         }
@@ -105,12 +118,52 @@ module.exports = function (eleventyConfig) {
             callbacks: {
                 ready: function (err, bs) {
                     bs.addMiddleware('*', function (req, res) {
+                        // Serve files from the generated _site, but rewrite HTML
+                        // responses to normalize src/href paths (same rules as our
+                        // build transform). If the requested file doesn't exist,
+                        // return the generated 404.html if present.
                         try {
-                            const content404 = fs.readFileSync(path.join(process.cwd(), '_site', '404.html'));
+                            // Normalize request URL and strip querystring
+                            const reqUrl = req.url.split('?')[0];
+                            let targetPath = path.join(process.cwd(), '_site', reqUrl);
+
+                            // If the request is a directory (ends with /) serve index.html
+                            if (reqUrl.endsWith('/')) {
+                                targetPath = path.join(process.cwd(), '_site', reqUrl, 'index.html');
+                            } else {
+                                // If there's no extension, try adding .html
+                                if (!path.extname(targetPath)) {
+                                    const tryHtml = targetPath + '.html';
+                                    if (fs.existsSync(tryHtml)) targetPath = tryHtml;
+                                }
+                            }
+
+                            if (fs.existsSync(targetPath) && fs.statSync(targetPath).isFile()) {
+                                const ext = path.extname(targetPath).toLowerCase();
+                                if (ext === '.html') {
+                                    let content = fs.readFileSync(targetPath, 'utf8');
+                                    // Apply same rewrites as the build transform
+                                    content = rewriteSrcHref(content);
+
+                                    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+                                    res.end(content);
+                                    return;
+                                }
+
+                                // Non-HTML: stream file directly
+                                const stream = fs.createReadStream(targetPath);
+                                res.writeHead(200);
+                                stream.pipe(res);
+                                return;
+                            }
+
+                            // File missing: serve 404.html if available
+                            const content404 = fs.readFileSync(path.join(process.cwd(), '_site', '404.html'), 'utf8');
                             res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
                             res.end(content404);
                         } catch (e) {
-                            // If 404.html isn't present yet, fallback to default behavior
+                            // If 404.html isn't present yet or another error occurrs,
+                            // fallback to a plain 404 text response.
                             res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
                             res.end('404 Not Found');
                         }
