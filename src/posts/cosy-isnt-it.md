@@ -4,6 +4,7 @@ description: "I've had my own site on GitHub Pages for a while, so what's differ
 tags: ["htmx", "tailwind", "site"]
 image: "/images/first-post.png"
 date: 2025-11-07
+published: true
 
 ---
 
@@ -19,7 +20,7 @@ This site was incredibly basic. Just a sort of experiment I had going on in my f
 
 During my mission, I had a couple of times where I could sit down and think about what I really wanted to do with my life. Education, long-term career, etc. Before my mission, I had figured out that I liked working with code, and I thought what my Dad had done was pretty cool. I started off majoring in CIT (Though I had been exploring different stuff in STEM my first semester), but I found that I didn't nearly enjoy writing essays and big presentations as much.
 
-![The Beautiful State of Oregon](/src/images/20241003_151747.jpg "A picture I took while serving in a smaller community.")
+![The Beautiful State of Oregon](../assets/images/20241003_151747.jpg "A picture I took while serving in a smaller community.")
 
 As a result, I took to looking through what majors I had to choose from where I could spend the most time working with code instead of doing other things. I knew that I liked working with HTML, CSS, and Python, so that gave me a bit of guidance. I ended up choosing to switch to an associate's degree in Web Design & Development. Over the summer between my return and college, I rebuilt the site to be a really basic site that was similar to this, but entirely manual. (Where I quickly learned that poorly designed sites make for unenjoyable maintenance, which rather quickly leads to poor maintenance)
 

@@ -16,15 +16,20 @@
 
 </head>
 
-<header hx-get="/header.html" hx-trigger="load" hx-swap="outerHTML"></header>
-
-
 <body class="bg-slate-100 font-sans">
 
-    {{ content | safe }}
+    {# Server-include the header so it's rendered at build time and no wrapper page under _pages is required. #}
+    {% include "header.html" %}
+
+    <main id="content" class="max-w-5xl mx-auto p-6">
+        {% block content %}
+            {{ content | safe }}
+        {% endblock %}
+    </main>
+
+    {# Server-include footer so it's rendered at build time (no wrapper page required). #}
+    {% include "footer.html" %}
 
 </body>
-
-<footer hx-get="/footer.html" hx-trigger="load" hx-swap="outerHTML"></footer>
 
 </html>

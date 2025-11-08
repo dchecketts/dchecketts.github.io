@@ -1,11 +1,16 @@
 ---
-layout: base.html
+layout: false
 title: Vibe Coding
+permalink: /
 ---
 
+{% extends "base.html" %}
+
+{% block content %}
 <main id="content"
     hx-get="/pages/home.html"
     hx-trigger="load"
     hx-swap="outerHTML">
     <p>Content loading...</p>
 </main>
+{% endblock %}

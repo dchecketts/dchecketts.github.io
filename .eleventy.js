@@ -1,16 +1,62 @@
 module.exports = function (eleventyConfig) {
 
-    eleventyConfig.addPassthroughCopy({ "src/_includes/header.html": "/header.html" });
+    const fs = require('fs');
+    const path = require('path');
+    // detect production vs development so we can show drafts in dev
+    const isProduction = process.env.ELEVENTY_ENV === 'production' || process.env.NODE_ENV === 'production' || !!process.env.GITHUB_ACTIONS;
+    // In production we will prevent unpublished posts from being written by
+    // setting their `permalink` to false via global computed data. In
+    // development we leave permalinks alone so drafts are visible locally.
+
+    // Allow Eleventy to process header.html so Nunjucks templating is executed.
     eleventyConfig.addPassthroughCopy({ "src/_includes/footer.html": "/footer.html" });
-    eleventyConfig.addPassthroughCopy("src/images");
-    eleventyConfig.addPassthroughCopy({ "src/styles/tailwind.css": "/style.css" });
+    eleventyConfig.addPassthroughCopy("src/assets/images");
+    // Copy the generated Tailwind CSS file into the site root as style.css
+    eleventyConfig.addPassthroughCopy({ "src/assets/styles/tailwind.css": "/style.css" });
 
     // This creates a "collection" of all files in the "posts" folder
     eleventyConfig.addCollection("posts", function (collectionApi) {
-        return collectionApi.getFilteredByGlob("src/posts/*.md").sort(function (a, b) {
-            // Sort by date, newest first
-            return b.data.date - a.data.date;
+        // Only exclude unpublished posts when running a production build. In development
+        // we want to see drafted posts locally (so npm run dev shows everything).
+        // NOTE: unpublishedUrls is still collected so the afterBuild hook can remove
+        // outputs when running in production.
+        const all = collectionApi.getFilteredByGlob("src/posts/*.md");
+
+        // Track unpublished posts for potential use, but do not remove files
+        // here — permalink handling will prevent generation in production.
+
+        // If we're in production builds, filter out drafts/unpublished posts so they
+        // don't show on the public site. During development return everything so
+        // you can preview drafts locally with `npm run dev`.
+        const published = isProduction ? all.filter(item => {
+            const data = item.data || {};
+            if (data.draft === true) return false;
+            if (data.published === false) return false;
+            return true;
+        }) : all;
+
+        return published.sort(function (a, b) {
+            // Sort by date, newest first. Be defensive: convert to timestamps and fallback when missing.
+            const aDate = a && a.data && a.data.date ? new Date(a.data.date).getTime() : 0;
+            const bDate = b && b.data && b.data.date ? new Date(b.data.date).getTime() : 0;
+
+            if (bDate === aDate) {
+                // If dates are equal, sort by inputPath so order is deterministic
+                if (a.inputPath && b.inputPath) return b.inputPath.localeCompare(a.inputPath);
+                return 0;
+            }
+
+            return bDate - aDate;
         });
+    });
+
+    // We'll use a global `eleventyComputed` data file to control permalinks for
+    // unpublished posts in production so they're not written at all. See
+    // src/_data/eleventyComputed.js for the implementation.
+
+    // Create a collection for pages
+    eleventyConfig.addCollection("pages", function (collectionApi) {
+        return collectionApi.getFilteredByGlob("src/_pages/**/*.{html,md}");
     });
 
     eleventyConfig.addFilter("postDate", (dateObj) => {
@@ -20,6 +66,18 @@ module.exports = function (eleventyConfig) {
             month: 'long',
             day: 'numeric',
             timeZone: 'UTC'
+        });
+    });
+
+    // Add a custom filter for formatting dates in 12-hour time without timezone
+    eleventyConfig.addFilter("prettyDate", (dateObj) => {
+        return new Date(dateObj).toLocaleString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
         });
     });
 
@@ -37,6 +95,30 @@ module.exports = function (eleventyConfig) {
         // Return the content unchanged for other file types
         return content;
     });
+    
+    // During local development, make the dev server serve the generated
+    // `404.html` for any unknown path (so client-side navigation and direct
+    // unknown URLs show the same 404 page as production). This uses
+    // BrowserSync middleware and only activates when not in production.
+    if (!isProduction) {
+        eleventyConfig.setBrowserSyncConfig({
+            callbacks: {
+                ready: function (err, bs) {
+                    bs.addMiddleware('*', function (req, res) {
+                        try {
+                            const content404 = fs.readFileSync(path.join(process.cwd(), '_site', '404.html'));
+                            res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+                            res.end(content404);
+                        } catch (e) {
+                            // If 404.html isn't present yet, fallback to default behavior
+                            res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+                            res.end('404 Not Found');
+                        }
+                    });
+                }
+            }
+        });
+    }
     // 👆 END OF NEW BLOCK 👆
 
     return {
@@ -45,6 +127,8 @@ module.exports = function (eleventyConfig) {
             output: "_site",
             includes: "_includes"
         },
-        htmlTemplateEngine: "njk"
+        htmlTemplateEngine: "njk",
+        templateFormats: ["html", "njk", "md"],
+        markdownTemplateEngine: "njk"
     };
 };
