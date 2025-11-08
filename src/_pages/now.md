@@ -34,8 +34,8 @@ While researching Eleventy, I came across [simpixelated.com](simpixelated.com "A
 - Reading: Working my way through a couple of things.
   - *Hypermedia Systems* by Carson Gross, Adam Stepinski, and Deniz Akşimşek. Good book on HTMX.
   - *Project Hail Mary* by Andy Weir. Pretty excited for [the movie](https://www.youtube.com/watch?v=m08TxIsFTRI "Youtube trailer for Project Hail Mary").
-- Watching: Currently on a **Star Wars: The Clone Wars** Binge. Just restarted the series to introduce my girlfriend to them.
-- Playing: Dishonored. I'm pretty close to the end of the game.
+- Watching: Currently on a *Star Wars: The Clone Wars* Binge. Just restarted the series to introduce my girlfriend to them.
+- Playing: *Dishonored*. I'm pretty close to the end of the game.
 
 </article>
 
