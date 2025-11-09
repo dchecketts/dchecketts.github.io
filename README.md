@@ -1,19 +1,12 @@
 # dchecketts.github.io
 
-A personal site to show off some things I've learned with programming things.
-
- !!! warning ""  
-    I'm using the Markdown Extended VS Code extension to mess with how markdown works, and I'm not sure how well that'll play with Eleventy, but let's see how things go.
-
-!!! note Note  
-    As it turns out, Github doesn't work with admonitions
+Just a small blog about things I find interesting, updated sporadically. Also a portfolio of some of the stuff I've worked on.
 
 ## Tools
 
-- **Eleventy** for static site generation
-- **Tailwind** for styling
-- **HTMX** for interactivity
-- **Sublime Text** for writing the markdown files
+- **Eleventy** for static site generation.
+- **Tailwind** for styling.
+- **HTMX** for interactivity.
 
 ## Post formatting
 

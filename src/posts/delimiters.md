@@ -32,7 +32,7 @@ def function(first_param:int, second_param):
 
 It can be used in two ways, `function(1, "String")`, or `function(second_param="String", first_param=1)`. The first way uses the arguments as *positional arguments*, meaning that it relies on the order that they are given to the function. The second way uses their *key* to specify where each variable goes. Using those characters (/ and *,) 
 
-Here's an example function, where we'll look at how specifications work
+Here's an event logger function, where we'll look at how specifications work.
 
 ```python
 def log_event(message, /, level="INFO", *, logger_id="default_logger"):
