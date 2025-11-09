@@ -20,3 +20,22 @@ sorted(iterable, /, *, key=None, reverse=False)
 ```
 
 The [documentation](docs.python.org/3/library/functions.html#sorted "Link to the official documentation about the sorted function") explains what it does pretty well, but the thing that I was curious about was why / and * were in with the arguments. That question ended up being a lot more interesting than I had expected.
+
+## And what's the deal?
+
+When you write your own function, you can give it arguments, set defaults for them, and specify types. The example below is a function that adds two arguments, with the first specified to be an integer type.
+
+```python
+def function(first_param:int, second_param):
+    return first_param + second_param
+```
+
+It can be used in two ways, `function(1, "String")`, or `function(second_param="String", first_param=1)`. The first way uses the arguments as *positional arguments*, meaning that it relies on the order that they are given to the function. The second way uses their *key* to specify where each variable goes. Using those characters (/ and *,) 
+
+Here's an example function, where we'll look at how specifications work
+
+```python
+def log_event(message, /, level="INFO", *, logger_id="default_logger"):
+    """Logs a message with a specific level and logger ID."""
+    print(f"[{logger_id}] {level}: {message}")
+```
