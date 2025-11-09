@@ -16,6 +16,12 @@
           "-webkit-text-size-adjust"
         ]
       }
+    ],
+    "axe/text-alternatives": [
+      "default",
+      {
+        "frame-title": "off"
+      }
     ]
   }
 }
