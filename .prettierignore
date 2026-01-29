@@ -1,0 +1,6 @@
+# Ignore formatting Tailwind CSS because it's a generated file.
+src/styles/tailwind.css
+
+# Ignore build output
+dist/
+node_modules/

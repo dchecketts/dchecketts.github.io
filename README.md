@@ -1,55 +1,16 @@
-# dchecketts.github.io
+# Daniel Checketts
 
-Just a small blog about things I find interesting, updated sporadically. Also a portfolio of some of the stuff I've worked on.
+I built this using a template that I made. WHile this serves as a personal site, it will also serve as a means of testing that template.
 
-## Tools
+## Basic Commands
 
-- **Eleventy** for static site generation.
-- **Tailwind** for styling.
-- **HTMX** for interactivity.
+- `npm run dev`: Type this command into the terminal to see changes live while working in your development environment.
+- `npm run dev-tailwind`: Same as above, but to be used if you are using TailwindCSS.
+- `npm run tidy`: Standardize file formatting throughout the project to minimize merge conflicts.
+- `npm run build`: Used to build the site into what would be served via your chosen web-hosting service.
 
-## Post formatting
+## File Organization
 
-All posts must be markdown documents with the following at the top:
-
-```markdown
----
-title: "Post Title"
-description: "A short description of the post"
-tags: ["htmx", "tailwind", "markdown"]
-image: "/images/thumbnail.png"
-date: YYYY-MM-DD
-
----
-```
-
-After that, you can freely write a markdown file to make a post.
-
-### Syntax Tips
-
-[MarkdownGuide.org](markdownguide.org/basic-syntax/ "Basic Syntax") has a really good page about the syntax of the markdown language. I read through that page and made this table to use.[^1]
-
-Rendered | Markdown | Keybind | Note
-:--- | :--- | :---: | :---
-Heading | `# Heading` | --- | There are six levels of headings. You must include a space between your text and the # used.
-Plain Text | `Plain Text` | --- | By default, text contained in a markdown document will be styled this way.
-Line Break | `Double space` | --- | Usually, markdown dislikes paragraphs immediately adjacent to each other and spaces at the end of lines, but this permits the proximity.
-**Bold Text** | `**Bold Text**` | --- | All text between the * will be bolded, even if you have spaces.
-*Italic Text* | `*Italic Text*` | --- | Likewise, all the text will be italicized.
-***Bold and Italic*** | `***Bold and Italic***` | --- | Combines both of the above.
-~~Strikethrough Text~~ | `~~Strikethrough Text~~` | ---- | Self-descriptive.
-Block Quotes | `>` | --- | Every line included in a block quote must begin with >. They can be nested, and can include most other markdown elements.
-Ordered List | `1.` | --- | Each item in an ordered list must have a number followed by a period, and then you can include the text you want there. Intended lists are supported.
-Unordered List | `- * +` | --- | -, *, and + can be used to create unordered lists. Just be consistent with the character you choose. Indented lists are supported. If you want to start the list item with a number (i.e. `- 1984`) You must use a \ to escape the formatting with a period. (i.e. `- 1984\.`)
-`Code` | ` `` ` | --- | Enclose the code in `. If you have code inside that you want to not be code, enclose it in ``. If you want to make a code block, use ```. With code blocks, you can specify the language used, and it will highlight with the correct syntax.
-Horizontal Rule | Lines across the page | --- | Use *** with no other characters on the line and empty lines on either side. As a general rule, have everything have empty lines on either side
-[Linked text](dchecketts.github.io "A link to my site") | `[Linked text](dchecketts.github.io "A link to my site")` | --- | Link text in the [], and the url is required in the ().You can use spaces in the []. You can add a tooltip to it by including the tooltip text in "" inside the () too. Links can be formatted with bold and italics just like normal text.
-Full URL text: <https://dchecketts.github.io> | `<https://dchecketts.github.io>` | --- | Use this to make text in a URL or email a link. It will show the whole thing and works on lines with other text.
-[Reference-style link][1] | `[Reference-style link][1] ... [1]: <https://www.markdownguide.org/basic-syntax/#reference-style-links> "Reference-style links on MarkdownGuide.org"` | --- | Doesn't look any different from normal linked text, but it improves readability of the document itself. Additionally, try to use the hexadecimal encoding for any ascii characters such as spaces or () in the link. (%20, %28 and %29 respectively)
-![A baby chicken](/src/assets/images/20250908_102638.jpg "A baby chicken") | `![A baby chicken](/images/20250908_102638.jpg "A baby chicken")` | --- | Literally just linked text with an ! in front. You can make it a link by putting it inside [] and the link in (), just like linking text.
-Escape | `\` | --- | You can use the \ to escape from \, `, *, _, {}, [], <>, (), #, +, -, ., !, and \|.
-[Link to a Header](#dcheckettsgithubio) | `[Link to a Header](#dcheckettsgithubio)` | ---- | Like linked text, you can link to a heading in your markdown document.
----- | ---- | ---- | ----
-
-[1]: <https://www.markdownguide.org/basic-syntax/#reference-style-links> "Reference-style links on MarkdownGuide.org"
-[^1]: To be honest, MarkdownGuide.org already has its own page with a quick cheat-sheet. <https://www.markdownguide.org/cheat-sheet/>
+- You can make your own CSS files to reference in src/styles.
+- You can store scripts in src/scripts.
+- Except for the homepage, each page is a folder. Main page folders such as about and faq are in src. Within each folder is a index.html to create a clean URL. (example.com/about.html -> example.com/about/)

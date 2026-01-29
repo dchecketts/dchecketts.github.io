@@ -1,0 +1,42 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main] # Runs every time you push to the main branch
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      # This replaces Husky. It checks if the code is 'tidy'.
+      # If it's not, the build fails and tells you why.
+      - name: Check Formatting
+        run: npx prettier --check "./**/*.{js,css,html}" --ignore-path .gitignore
+
+      # Build Tailwind first so the CSS exists for Vite
+      - name: Build Tailwind
+        run: npx tailwindcss -i ./src/styles/tailwind-input.css -o ./src/styles/tailwind.css
+
+      # Final production build
+      - name: Vite Build
+        run: npm run build
+
+      # Optional: Upload the result so you can download it from GitHub
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-site
+          path: dist/

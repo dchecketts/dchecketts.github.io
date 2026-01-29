@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-college: #0498d5;
+  --color-college-shade: #088ac2;
+  --color-club: #1ab369;
+  --color-club-shade: #00b297;
+  --color-undergrad: #bcd631;
+  --color-undergrad-shade: #7dc144;
+}
