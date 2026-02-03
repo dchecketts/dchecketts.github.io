@@ -1,5 +1,8 @@
 // Since the header and footer are unversal, I decided to consolidate them into a single JS file to be linked to each page
 
+// TODO
+// Add light/dark toggle that could trip Tailwind's "dark:" in the top right corner
+
 async function initHeaderFooter() {
   const header = document.querySelector('header');
   const footer = document.querySelector('footer');
@@ -9,9 +12,48 @@ async function initHeaderFooter() {
         <header class="bg-green-900 p-5 flex justify-between items-center">
             <h1 class="font-bold text-white text-5xl"><a href="/">Daniel Checketts</a></h1>
             <ul class="flex gap-3">
-                <li><a href="/" class="text-white font-semibold border-white border-2 rounded-full p-2 pl-4 pr-4 text-2xl hover:text-gray-300 hover:border-gray-300">Home</a></li>
-                <li><a href="/about/" class="text-white font-semibold border-white border-2 rounded-full p-2 pl-4 pr-4 text-2xl hover:text-gray-300 hover:border-gray-300">About</a></li>
-                <li><a href="/now/" class="text-white font-semibold border-white border-2 rounded-full p-2 pl-4 pr-4 text-2xl hover:text-gray-300 hover:border-gray-300">Now</a></li>
+                <li>
+                  <a href="/" 
+                  class="text-white 
+                  font-semibold 
+                  border-white 
+                  border-2 
+                  rounded-full 
+                  p-2 
+                  pl-4 pr-4 
+                  text-2xl 
+                  hover:text-gray-300 
+                  hover:border-gray-300">
+                  Home</a>
+                </li>
+                <li>
+                  <a href="/about/" 
+                  class="text-white 
+                  font-semibold 
+                  border-white 
+                  border-2 
+                  rounded-full 
+                  p-2 
+                  pl-4 pr-4 
+                  text-2xl 
+                  hover:text-gray-300 
+                  hover:border-gray-300">
+                  Projects</a>
+                </li>
+                <li>
+                  <a href="/now/" 
+                    class="text-white 
+                    font-semibold 
+                    border-white 
+                    border-2 
+                    rounded-full 
+                    p-2 
+                    pl-4 pr-4 
+                    text-2xl 
+                    hover:text-gray-300 
+                    hover:border-gray-300">
+                    Now</a>
+                  </li>
             </ul>
         </header>`;
   }

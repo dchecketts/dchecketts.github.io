@@ -10,12 +10,14 @@
     <!-- Optionally link to the tailwind sheet -->
     <link rel="stylesheet" href="styles/tailwind.css" />
     <link rel="stylesheet" href="/styles/main.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
   </head>
   <body>
     <header></header>
-    <main class="pt-10">
+    <main class="flex flex-col pt-10">
       <h2 class="mx-auto mb-5 max-w-fit text-4xl font-bold">Welcome!</h2>
-      <section id="about-site">
+      <section id="about-site" class="mx-40 mb-20 max-w-fit">
         <p>
           This site was built using a template that I designed. You can take a
           look at that template
@@ -36,6 +38,126 @@
           >
           utility classes to style things here.
         </p>
+      </section>
+      <section id="projects" class="mx-auto mt-5 mb-5 max-w-fit justify-center">
+        <h2 class="mb-10 ml-10 text-2xl font-semibold">My Projects</h2>
+
+        <div class="flex flex-wrap justify-center gap-5">
+          <div
+            id="info-card-1"
+            class="transform rounded-md bg-slate-100 p-5 transition-transform duration-200 hover:scale-110 hover:bg-slate-50 hover:shadow-2xl"
+            hx-get="/projects/template"
+          >
+            <h3>[Name]</h3>
+            <div class="flex">
+              <span class="max-w-50 p-5 text-justify text-wrap"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer eget libero sagittis, faucibus dolor eget, maximus
+                leo.</span
+              >
+              <img
+                src="https://picsum.photos/200"
+                alt="Alt"
+                class="rounded-sm"
+              />
+            </div>
+          </div>
+
+          <div
+            id="info-card-2"
+            class="transform rounded-md bg-slate-100 p-5 transition-transform duration-200 hover:scale-110 hover:bg-slate-50 hover:shadow-2xl"
+          >
+            <h3>[Name]</h3>
+            <div class="flex">
+              <span class="max-w-50 p-5 text-justify text-wrap"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer eget libero sagittis, faucibus dolor eget, maximus
+                leo.</span
+              >
+              <img
+                src="https://picsum.photos/200"
+                alt="Alt"
+                class="rounded-sm"
+              />
+            </div>
+          </div>
+
+          <div
+            id="info-card-3"
+            class="transform rounded-md bg-slate-100 p-5 transition-transform duration-200 hover:scale-110 hover:bg-slate-50 hover:shadow-2xl"
+          >
+            <h3>[Name]</h3>
+            <div class="flex">
+              <span class="max-w-50 p-5 text-justify text-wrap"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer eget libero sagittis, faucibus dolor eget, maximus
+                leo.</span
+              >
+              <img
+                src="https://picsum.photos/200"
+                alt="Alt"
+                class="rounded-sm"
+              />
+            </div>
+          </div>
+
+          <div
+            id="info-card-4"
+            class="transform rounded-md bg-slate-100 p-5 transition-transform duration-200 hover:scale-110 hover:bg-slate-50 hover:shadow-2xl"
+          >
+            <h3>[Name]</h3>
+            <div class="flex">
+              <span class="max-w-50 p-5 text-justify text-wrap"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer eget libero sagittis, faucibus dolor eget, maximus
+                leo.</span
+              >
+              <img
+                src="https://picsum.photos/200"
+                alt="Alt"
+                class="rounded-sm"
+              />
+            </div>
+          </div>
+
+          <div
+            id="info-card-5"
+            class="transform rounded-md bg-slate-100 p-5 transition-transform duration-200 hover:scale-110 hover:bg-slate-50 hover:shadow-2xl"
+          >
+            <h3>[Name]</h3>
+            <div class="flex">
+              <span class="max-w-50 p-5 text-justify text-wrap"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer eget libero sagittis, faucibus dolor eget, maximus
+                leo.</span
+              >
+              <img
+                src="https://picsum.photos/200"
+                alt="Alt"
+                class="rounded-sm"
+              />
+            </div>
+          </div>
+
+          <div
+            id="info-card-6"
+            class="transform rounded-md bg-slate-100 p-5 transition-transform duration-200 hover:scale-110 hover:bg-slate-50 hover:shadow-2xl"
+          >
+            <h3>[Name]</h3>
+            <div class="flex">
+              <span class="max-w-50 p-5 text-justify text-wrap"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer eget libero sagittis, faucibus dolor eget, maximus
+                leo.</span
+              >
+              <img
+                src="https://picsum.photos/200"
+                alt="Alt"
+                class="rounded-sm"
+              />
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <footer></footer>
