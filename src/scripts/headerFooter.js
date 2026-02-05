@@ -63,9 +63,9 @@ async function initHeaderFooter() {
     <footer class="bg-gray-200 text-center p-5 flex flex-col items-center dark:bg-gray-700 dark:text-white">
       <p>&copy; 2026 Daniel Checketts</p>
       <div class="flex items-center pt-2 gap-1">
-        <a href="https://github.com/dchecketts/"><img src="/images/icons/github-icon.svg" alt="Github" class="min-w-5 max-w-5"></a>
-        <a href="www.linkedin.com/in/daniel-checketts"><img src="/images/icons/linkedin-icon.png" alt="LinkedIn" class="min-w-5 max-w-5"></a>
-        <a href="mailto:danielkchecketts@gmail.com"><img src="/images/icons/mail-icon.svg" alt="Contact" class="min-w-5 max-w-5"></a>
+        <a href="https://github.com/dchecketts/"><img src="images/icons/github-icon.svg" alt="Github" class="min-w-5 max-w-5"></a>
+        <a href="www.linkedin.com/in/daniel-checketts"><img src="images/icons/linkedin-icon.png" alt="LinkedIn" class="min-w-5 max-w-5"></a>
+        <a href="mailto:danielkchecketts@gmail.com"><img src="images/icons/mail-icon.svg" alt="Contact" class="min-w-5 max-w-5"></a>
       </div>
     </footer>`;
   }
