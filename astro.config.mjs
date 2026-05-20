@@ -11,7 +11,6 @@ import htmx from 'astro-htmx';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://dchecketts.github.io',
-  base: '/dchecketts.github.io',
   vite: {
     plugins: [tailwindcss()]
   },
