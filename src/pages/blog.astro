@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import BlogCard from '../components/BlogCard.astro'
+
+const pageName = "Blog"
+
+const markdownFiles = import.meta.glob('./blog/*.mdx', { eager: true })
+const posts = Object.values(markdownFiles) as Array<{ url: string; frontmatter: { title: string; pubDate: string; description: string; tags: string[] } }>
+---
+
+<BaseLayout pageTitle = {pageName}>
+  <h1>{pageName}</h1>
+
+  <ul>
+    {posts.map((post) => (
+      <BlogCard
+        url={post.url}
+        title={post.frontmatter.title}
+        pubDate={post.frontmatter.pubDate}
+        description={post.frontmatter.description}
+        tags={post.frontmatter.tags}
+      />
+    ))}
+  </ul>
+</BaseLayout>
