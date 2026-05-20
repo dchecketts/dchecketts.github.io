@@ -1,4 +1,4 @@
-// Since the header and footer are unversal, I decided to consolidate them into a single JS file to be linked to each page
+// Since the header and footer are universal, I decided to consolidate them into a single JS file to be linked to each page
 
 // TODO
 // Add light/dark toggle that could trip Tailwind's "dark:" in the top right corner
@@ -10,7 +10,7 @@ async function initHeaderFooter() {
   function createHeader() {
     return `
         <header class="bg-green-900 p-5 flex justify-between items-center">
-            <h1 class="font-bold text-white text-5xl"><a href="/">Daniel Checketts</a></h1>
+            <span class="font-bold text-white text-5xl"><a href="/">Daniel Checketts</a></span>
             <ul class="flex gap-3">
                 <li>
                   <a href="/" 
@@ -53,6 +53,20 @@ async function initHeaderFooter() {
                     hover:text-gray-300 
                     hover:border-gray-300">
                     Now</a>
+                  </li>
+                  <li>
+                  <a href="/blog/" 
+                    class="text-white 
+                    font-semibold 
+                    border-white 
+                    border-2 
+                    rounded-full 
+                    p-2 
+                    pl-4 pr-4 
+                    text-2xl 
+                    hover:text-gray-300 
+                    hover:border-gray-300">
+                    Blog</a>
                   </li>
             </ul>
         </header>`;
