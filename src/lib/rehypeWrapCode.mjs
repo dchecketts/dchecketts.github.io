@@ -1,48 +1,83 @@
 // src/lib/rehypeWrapCode.mjs
-import { visit } from 'unist-util-visit';
-
 export default function rehypeWrapCode() {
   return (tree) => {
-    visit(tree, (node, index, parent) => {
-      // Only interested in <pre> elements
-      if (!parent || node.type !== 'element' || node.tagName !== 'pre') return;
+    function walk(node, parent) {
+      if (!node || typeof node !== 'object') return;
 
-      // Find a <code> child inside the <pre>
-      const codeChild = (node.children || []).find(
-        (c) => c.type === 'element' && c.tagName === 'code'
-      );
-      if (!codeChild) return;
+      if (node.type === 'element' && node.tagName === 'pre') {
+        const children = node.children || [];
+        const codeChild = children.find(
+          (c) => c && c.type === 'element' && c.tagName === 'code'
+        );
 
-      // Extract language from className like "language-js" or "lang-js"
-      let lang = 'text';
-      const className = codeChild.properties && codeChild.properties.className;
-      if (Array.isArray(className)) {
-        const joined = className.join(' ');
-        const m = joined.match(/(?:language|lang)-([a-zA-Z0-9_+-]+)/);
-        if (m) lang = m[1];
-      } else if (typeof codeChild.properties?.['data-language'] === 'string') {
-        lang = codeChild.properties['data-language'];
+        if (codeChild) {
+          let lang = '';
+
+          const extractFromClass = (cls) => {
+            if (!cls) return '';
+            const joined = Array.isArray(cls) ? cls.join(' ') : String(cls);
+            const m = joined.match(/(?:language|lang)-([a-zA-Z0-9_+-]+)/);
+            return m ? m[1] : '';
+          };
+
+          // 1) code class/data
+          if (codeChild.properties) {
+            lang =
+              extractFromClass(codeChild.properties.className) ||
+              String(codeChild.properties['data-language'] || '');
+          }
+
+          // 2) pre class/data
+          if (!lang && node.properties) {
+            lang =
+              extractFromClass(node.properties.className) ||
+              String(node.properties['data-language'] || '');
+          }
+
+          // 3) look at the raw code text if the fence info was preserved in the node
+          if (!lang && typeof codeChild.value === 'string') {
+            const firstLine = codeChild.value.trim().split('\n')[0] || '';
+            // very small heuristic: if the first line is something like "js" or "javascript"
+            if (/^[a-z][a-z0-9+-]*$/i.test(firstLine) && firstLine.length < 20) {
+              lang = firstLine;
+            }
+          }
+
+          lang = String(lang || '').trim().toLowerCase();
+          lang = lang.replace(/^(language|lang)-/, '');
+          if (lang === 'javascript') lang = 'javascript';
+          if (!lang) lang = 'text';
+
+          const mdxNode = {
+            type: 'mdxJsxFlowElement',
+            name: 'CodeBlock',
+            attributes: [
+              {
+                type: 'mdxJsxAttribute',
+                name: 'language',
+                value: lang
+              }
+            ],
+            children: [node]
+          };
+
+          if (parent && Array.isArray(parent.children)) {
+            const idx = parent.children.indexOf(node);
+            if (idx !== -1) {
+              parent.children.splice(idx, 1, mdxNode);
+              return;
+            }
+          }
+        }
       }
 
-      // Build an MDX JSX flow element that will render <CodeBlock language="...">...original pre...</CodeBlock>
-      const mdxNode = {
-        type: 'mdxJsxFlowElement',
-        name: 'CodeBlock',
-        attributes: [
-          {
-            type: 'mdxJsxAttribute',
-            name: 'language',
-            value: lang
-          }
-        ],
-        children: [node]
-      };
+      if (Array.isArray(node.children)) {
+        for (let i = 0; i < node.children.length; i++) {
+          walk(node.children[i], node);
+        }
+      }
+    }
 
-      // Replace the original <pre> node with the mdxJsxFlowElement
-      parent.children.splice(index, 1, mdxNode);
-
-      // Skip visiting children of the new node
-      return visit.SKIP;
-    });
+    walk(tree, null);
   };
 }
