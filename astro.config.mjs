@@ -2,13 +2,12 @@
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
-
 import mdx from '@astrojs/mdx';
 
 // @ts-ignore
 import htmx from 'astro-htmx';
 
-import rehypeWrapCode from './src/lib/rehypeWrapCode.mjs';
+import remarkWrapCode from './src/lib/remarkWrapCode.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,7 +17,6 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  // Configure markdown / shiki highlighting
   markdown: {
     shikiConfig: {
       theme: 'github-dark',
@@ -28,9 +26,11 @@ export default defineConfig({
 
   integrations: [
     mdx({
-      // Ensure Shiki highlighting is enabled and use the plugin to wrap code blocks
-      shikiConfig: { theme: 'github-dark', wrap: true },
-      rehypePlugins: [rehypeWrapCode]
+      shikiConfig: {
+        theme: 'github-dark',
+        wrap: true
+      },
+      remarkPlugins: [remarkWrapCode]
     }),
     htmx()
   ]
