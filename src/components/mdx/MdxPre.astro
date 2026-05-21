@@ -1,0 +1,89 @@
+---
+// Astro automatically passes the detected language token to data-language
+const { "data-language": language = "text" } = Astro.props;
+---
+<div class="code-container bg-gray-900 rounded-lg p-4 my-6 font-mono text-sm relative shadow-inner group overflow-hidden">
+
+  <!-- Header bar inside the block -->
+  <div class="flex justify-between items-center mb-2 pb-2 border-b border-gray-800 select-none">
+    <span class="text-xs text-gray-500 uppercase font-semibold tracking-wider">{language}</span>
+
+    <!-- Copy Button -->
+    <button
+      class="copy-btn p-1.5 rounded text-gray-400 hover:bg-gray-800 hover:text-white transition-all active:scale-95"
+      aria-label="Copy code to clipboard"
+    >
+      <svg class="copy-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+      </svg>
+      <svg class="success-icon h-4 w-4 hidden text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Render Shiki code block -->
+  <div class="overflow-x-auto pre-content text-gray-100">
+    <slot />
+  </div>
+</div>
+
+<style is:global>
+    /* Use CSS Counters to automatically add incremental line numbers */
+    .pre-content pre.astro-code {
+        background-color: transparent !important; /* Let container handle background */
+        counter-reset: line;
+        display: table;
+        width: 100%;
+    }
+
+    /* Shiki outputs each row inside a span with class "line" */
+    .pre-content pre.astro-code .line {
+        display: table-row;
+    }
+
+    /* Create the line number column using pseudo-elements */
+    .pre-content pre.astro-code .line::before {
+        counter-increment: line;
+        content: counter(line);
+        display: table-cell;
+        text-align: right;
+        padding-right: 1.25rem;
+        user-select: none;
+        opacity: 0.35;
+        font-size: 0.8rem;
+        width: 1rem;
+    }
+</style>
+
+<script>
+  // Browser script to handle copy functionality directly from Shiki's rendered output text
+  const containers = document.querySelectorAll('.code-container');
+
+  containers.forEach((container) => {
+    const button = container.querySelector('.copy-btn');
+    // Targets the inner code block rendered by Astro
+    const codeElement = container.querySelector('pre.astro-code');
+
+    if (button && codeElement) {
+      button.addEventListener('click', async () => {
+        const codeToCopy = codeElement.textContent || '';
+        const copyIcon = button.querySelector('.copy-icon');
+        const successIcon = button.querySelector('.success-icon');
+
+        try {
+          await navigator.clipboard.writeText(codeToCopy);
+          copyIcon?.classList.add('hidden');
+          successIcon?.classList.remove('hidden');
+
+          setTimeout(() => {
+            copyIcon?.classList.remove('hidden');
+            successIcon?.classList.add('hidden');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy code: ', err);
+        }
+      });
+    }
+  });
+</script>

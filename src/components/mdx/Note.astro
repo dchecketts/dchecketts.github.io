@@ -1,0 +1,18 @@
+---
+const { type = "info" } = Astro.props;
+
+const styles: Record<string, string> = {
+  warning: "bg-amber-50 border-amber-500 text-amber-900",
+  info: "bg-blue-50 border-blue-500 text-blue-900",
+  success: "bg-emerald-50 border-emerald-500 text-emerald-900"
+};
+
+const className = styles[type] ?? styles.info;
+---
+
+<div class={`p-4 border-l-4 rounded-r my-6 ${className}`}>
+  <p class="font-bold capitalize mb-1">{type}</p>
+  <div class="text-sm">
+    <slot />
+  </div>
+</div>

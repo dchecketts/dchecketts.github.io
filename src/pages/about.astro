@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Footnote from '../components/footnote.astro'
+
+const pageName = "About"
+const location = "Rexburg, Idaho"
+const date = "2026-5-21"
+
+const heading3 = "mt-5 text-xl font-bold"
+const nowList = "list-disc pl-5"
+const nowListItem = "py-2 max-w-9/10"
+---
+
+<BaseLayout pageTitle = {pageName}>
+  <h2 class="text-center font-bold text-4xl max-w-1/4 mb-5">Now</h2>
+
+  <p>Hello, I'm Daniel, and I am a web developer, student, and educator based in {location}. I operate on a core philosophy: users should only interact with the wires they absolutely need to. Whether I am organizing my physical desk, structuring a project's directory, or writing clean codebase architecture, I build for minimalism, clarity, and Locality of Behavior.</p>
+  <p>Below is a living snapshot of exactly what is occupying my time, energy, and attention right now.</p>
+
+  <section class="mx-15">
+    <h3 class={heading3}>Web Development & Technology</h3>
+    <ul class={nowList}>
+      <li class={nowListItem}>HTML-First Exploration: I’m currently rebuilding this personal website using Astro, Tailwind, and HTMX. None of these are covered in my university classes, but they perfectly fit my philosophy of keeping behavior local and avoiding unnecessary "wires" or over-complicated JavaScript pipelines.</li>
+      <li class={nowListItem}>Learning C# & Linux: In my formal studies at BYU-Idaho, I'm currently expanding my toolkit into object-oriented programming with C# and getting comfortable on the command line in Intro to Linux.</li>
+    </ul>
+
+    <h3 class={heading3}>Teaching & Content Creation</h3>
+    <ul class={nowList}>
+      <li class={nowListItem}>Guiding Future Devs: As a BYU-I Teaching Assistant, I spend my weeks helping students bridge the gap from beginner to intermediate Python, as well as introducing them to cloud ecosystems like Google Firebase and AWS.</li>
+      <li class={nowListItem}>Building a Learning Hub: I am actively developing a new Learning Section for this website. It will host coding lessons, tips, and tricks designed to help others master the technologies I work with every day, translating complex concepts into clear, digestible guides.</li>
+    </ul>
+
+    <h3 class={heading3}>Creative Projects & Hobbies</h3>
+    <ul class={nowList}>
+      <li class={nowListItem}>Prepping my First D&D Campaign: I am actively planning a homebrew expansion for Eberron: Forge of the Artificer. I’m learning the ropes of Foundry VTT and preparing to step behind the DM screen for the very first time.</li>
+      <li class={nowListItem}>Digital Intentionality: I’m working on shifting my daily habits away from my phone and onto my computer, focusing on intentional productivity whether I'm tackling homework or cleaning the apartment I share with my wife.</li>
+    </ul>
+  </section>
+
+  <Footnote>
+    Last Updated: {date}
+  </Footnote>
+  <div class="w-125 h-1 rounded-full bg-green-700 mx-auto my-10"></div>
+  <h2>How I Got Here</h2>
+  <p>Computers have always been in my DNA—my dad graduated from BYU-Idaho in Computer Information Technology and programmed throughout my childhood. While middle and high school computer classes didn't quite capture my imagination, everything changed when I arrived at BYU-I myself.</p>
+
+  <p>In an Intro to Programming course, I fell in love with Python. The class taught simple concepts like loops and logic gates, gave us a desired outcome, and granted us unlimited freedom to achieve it. That open-ended puzzle-solving hooked me.</p>
+
+  <p>My path wasn't entirely linear; educational hardships initially pushed me away from my dad's exact degree track. However, while serving a mission for The Church of Jesus Christ of Latter-day Saints, I found clarity. My mission gave me perspective on what I truly valued in my education, alongside unique opportunities to serve others using my technical instincts. For instance, when a temporary bug in Facebook Messenger began distorting shared links to vital tools like Google Forms and Sheets, I was able to help my friends by manually decrypting the broken links, translating the scrambled hexadecimal values into ASCII characters to recover the usable URLs.</p>
+
+  <p>Today, I am pursuing my BS in Web Design & Development.</p>
+</BaseLayout>

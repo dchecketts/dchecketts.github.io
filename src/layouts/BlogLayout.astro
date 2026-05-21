@@ -1,0 +1,49 @@
+---
+// src/layouts/BlogLayout.astro
+import H1 from '../components/mdx/H1.astro';
+import H2 from '../components/mdx/H2.astro';
+import H3 from '../components/mdx/H3.astro';
+import Paragraph from '../components/mdx/Paragraph.astro';
+import MdxPre from '../components/mdx/MdxPre.astro';
+import Note from '../components/mdx/Note.astro';
+import Quote from '../components/mdx/Quote.astro';
+
+import Heading from '../components/header.astro'
+import Footer from '../components/footer.astro'
+import '../styles/global.css'
+
+const { frontmatter } = Astro.props;
+
+export const components = {
+  h1: H1,
+  h2: H2,
+  h3: H3,
+  p: Paragraph,
+  pre: MdxPre,
+  Note,
+  Quote
+};
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>{frontmatter.title}</title>
+</head>
+<body class="bg-gray-50 min-h-screen text-gray-900">
+
+<Heading/>
+
+<main class="mx-10 px-4 py-12 bg-white shadow-sm my-8 rounded-xl border border-gray-100">
+  <div class="mb-8 border-b pb-4">
+    <h1 class="text-4xl font-black tracking-tight text-gray-900">{frontmatter.title}</h1>
+    {frontmatter.date && <p class="text-sm text-gray-500 mt-2">{frontmatter.date}</p>}
+  </div>
+
+  <slot />
+</main>
+
+<Footer/>
+</body>
+</html>
