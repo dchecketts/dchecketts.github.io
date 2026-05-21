@@ -1,9 +1,5 @@
 ---
 // src/layouts/BlogLayout.astro
-import H1 from '../components/mdx/H1.astro';
-import H2 from '../components/mdx/H2.astro';
-import H3 from '../components/mdx/H3.astro';
-import Paragraph from '../components/mdx/Paragraph.astro';
 import MdxPre from '../components/mdx/MdxPre.astro';
 import Note from '../components/mdx/Note.astro';
 import Quote from '../components/mdx/Quote.astro';
@@ -14,15 +10,11 @@ import '../styles/global.css'
 
 const { frontmatter } = Astro.props;
 
-export const components = {
-  h1: H1,
-  h2: H2,
-  h3: H3,
-  p: Paragraph,
-  pre: MdxPre,
-  Note,
-  Quote
-};
+// export const components = {
+//   pre: MdxPre,
+//   Note,
+//   Quote
+// };
 ---
 
 <html lang="en">
@@ -41,12 +33,35 @@ export const components = {
     {frontmatter.pubDate && <p class="text-sm text-gray-500 mt-2">{frontmatter.pubDate}</p>}
   </div>
 
-  <section class="mx-10 max-w-9/10">
-    <slot components={components} />
+  <section class="mx-10 max-w-9/10 mdx-content">
+    <slot />
   </section>
 
 </main>
 
 <Footer/>
+
+<style is:global>
+    @reference "../styles/global.css";
+    .mdx-content h1 {
+        @apply text-4xl font-extrabold text-gray-900 tracking-tight mt-8 mb-4;
+    }
+    .mdx-content h2 {
+        @apply text-2xl font-bold text-gray-800 tracking-tight mt-8 mb-4;
+    }
+    .mdx-content h3 {
+        @apply text-xl font-semibold text-gray-800 mt-6 mb-2
+    }
+    .mdx-content p {
+        @apply text-base text-gray-700 leading-relaxed mb-4;
+    }
+    .mdx-content a {
+        @apply text-blue-600 underline hover:text-blue-800;
+    }
+    .mdx-content ul {
+        @apply list-disc list-inside mb-4 pl-4;
+    }
+</style>
+
 </body>
 </html>
