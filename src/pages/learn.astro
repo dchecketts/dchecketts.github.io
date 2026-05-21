@@ -1,9 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-const pageName = "Learn"
+const pageName = "Learn to Program"
 ---
 
 <BaseLayout pageTitle = pageName>
-  <h1>{pageName}</h1>
+  <h2>{pageName}</h2>
+  <section id="introduction">
+    <span>Learning programming can be painful to begin. When I started, the most resources that I had was a few books and my dad (Who was still busy with work). While I was able to learn some things, the most that stuck with me was Python's <code>print()</code> statement. It's my goal for this section of my website to compile resources and learning experiences in an engaging medium, using the same methods that helped me really start to enjoy programming, and changes and notes for things that I wished that I had known when I started.</span>
+  </section>
+
+  <section id="list-topics">
+    <h2>Topics</h2>
+    <ul>
+      <li><a href="/learn/python">Python</a></li>
+      <li><a href="/learn/html">HTML</a></li>
+      <li><a href="/learn/css">CSS</a></li>
+      <li><a href="/learn/javascript">JavaScript</a></li>
+      <li><a href="/learn/web-bonus">Advanced Web Development</a></li>
+      <li><a href="/learn/c-sharp">C#</a></li>
+    </ul>
+  </section>
 </BaseLayout>

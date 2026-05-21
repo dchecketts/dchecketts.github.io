@@ -1,12 +1,20 @@
 ---
-const menuItem = "text-white font-semibold border-white border-2 rounded-full p-2 pl-4 pr-4 text-2xl hover:text-gray-300 hover:border-gray-300"
+const menuItem = ""
 ---
-<header class="bg-green-900 p-5 flex justify-between items-center">
-  <span class="font-bold text-white text-5xl hover:text-gray-300"><a href="/">Daniel Checketts</a></span>
 
-  <ul class="flex gap-3">
-    <li><a href="/about" class={menuItem}>Now</a></li>
-    <li><a href="/learn" class={menuItem}>Learn</a></li>
-    <li><a href="/blog" class={menuItem}>Blog</a></li>
-  </ul>
+<!-- bg-green-900 -->
+<header class="bg-green-900 text-white">
+  <div class="flex flex-col items-center">
+    <a href="/" class="m-2">
+      Daniel Checketts
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="flex flex-row items-center gap-5">
+        <li><a href="/now" class={menuItem}>Now</a></li>
+        <li><a href="/learn" class={menuItem}>Learn</a></li>
+        <li><a href="/blog" class={menuItem}>Blog</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>

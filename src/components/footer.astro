@@ -1,14 +1,20 @@
 ---
 const year = new Date().getFullYear()
+
+const linkItem = ""
 ---
 
-<footer class="bg-green-900 text-white py-12 px-6">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-200 text-sm">
+<!-- bg-green-900 -->
+<footer class="bg-green-900 text-white p-2">
+  <div class="flex">
     <p>&copy; {year} Daniel Checketts. All rights reserved.</p>
-    <div class="flex space-x-6 mt-4 md:mt-0">
-      <a href="https://www.facebook.com/manny.checketts" class="hover:text-white">Facebook</a>
-      <a href="https://www.linkedin.com/in/danielchecketts" class="hover:text-white">LinkedIn</a>
-      <a href="https://www.github.com/dchecketts" class="hover:text-white">GitHub</a>
-    </div>
+
+    <nav aria-label="Footer links">
+      <ul class="">
+        <li><a href="https://www.facebook.com/manny.checketts" class={linkItem}>Facebook</a></li>
+        <li><a href="https://www.linkedin.com/in/danielchecketts" class={linkItem}>LinkedIn</a></li>
+        <li><a href="https://www.github.com/dchecketts" class={linkItem}>GitHub</a></li>
+      </ul>
+    </nav>
   </div>
 </footer>

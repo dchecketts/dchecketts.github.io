@@ -1,67 +1,77 @@
 ---
-// src/layouts/BlogLayout.astro
-import MdxPre from '../components/mdx/MdxPre.astro';
-import Note from '../components/mdx/Note.astro';
-import Quote from '../components/mdx/Quote.astro';
-
-import Heading from '../components/header.astro'
-import Footer from '../components/footer.astro'
+import Footer from '../components/footer.astro';
+import Heading from '../components/header.astro';
 import '../styles/global.css'
 
 const { frontmatter } = Astro.props;
-
-// export const components = {
-//   pre: MdxPre,
-//   Note,
-//   Quote
-// };
 ---
 
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{frontmatter.title}</title>
 </head>
-<body class="bg-gray-50 min-h-screen text-gray-900 flex flex-col">
+<body class="">
+<Heading />
 
-<Heading/>
+<main class="">
+  <article class="">
+    <div class="">
+      <h1 class="">
+        {frontmatter.title}
+      </h1>
+      {frontmatter.pubDate && (
+        <p class="">{frontmatter.pubDate}</p>
+      )}
+    </div>
 
-<main class="mx-10 px-4 py-12 bg-white shadow-sm my-8 rounded-xl border border-gray-100 grow">
-  <div class="mb-8 border-b pb-4">
-    <h1 class="text-4xl font-black tracking-tight text-gray-900">{frontmatter.title}</h1>
-    {frontmatter.pubDate && <p class="text-sm text-gray-500 mt-2">{frontmatter.pubDate}</p>}
-  </div>
-
-  <section class="mx-10 max-w-9/10 mdx-content">
-    <slot />
-  </section>
-
+    <section class="mdx-content">
+      <slot />
+    </section>
+  </article>
 </main>
 
-<Footer/>
+<Footer />
 
-<style is:global>
-    @reference "../styles/global.css";
-    .mdx-content h1 {
-        @apply text-4xl font-extrabold text-gray-900 tracking-tight mt-8 mb-4;
-    }
-    .mdx-content h2 {
-        @apply text-2xl font-bold text-gray-800 tracking-tight mt-8 mb-4;
-    }
-    .mdx-content h3 {
-        @apply text-xl font-semibold text-gray-800 mt-6 mb-2
-    }
-    .mdx-content p {
-        @apply text-base text-gray-700 leading-relaxed mb-4;
-    }
-    .mdx-content a {
-        @apply text-blue-600 underline hover:text-blue-800;
-    }
-    .mdx-content ul {
-        @apply list-disc list-inside mb-4 pl-4;
-    }
-</style>
+<!--<style is:global>-->
+<!--    @reference "../styles/global.css";-->
 
+<!--    .mdx-content {-->
+<!--        @apply px-0 py-4 md:px-8 md:py-8;-->
+<!--    }-->
+
+<!--    .mdx-content h1 {-->
+<!--        @apply mt-8 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl;-->
+<!--    }-->
+
+<!--    .mdx-content h2 {-->
+<!--        @apply mt-8 mb-4 text-2xl font-bold tracking-tight text-gray-800 md:text-3xl;-->
+<!--    }-->
+
+<!--    .mdx-content h3 {-->
+<!--        @apply mt-6 mb-2 text-xl font-semibold text-gray-800;-->
+<!--    }-->
+
+<!--    .mdx-content p {-->
+<!--        @apply mb-4 text-base leading-relaxed text-gray-700;-->
+<!--    }-->
+
+<!--    .mdx-content a {-->
+<!--        @apply text-blue-600 underline hover:text-blue-800;-->
+<!--    }-->
+
+<!--    .mdx-content ul {-->
+<!--        @apply mb-4 list-disc list-inside;-->
+<!--    }-->
+
+<!--    .mdx-content pre {-->
+<!--        @apply overflow-x-auto rounded-lg;-->
+<!--    }-->
+
+<!--    .mdx-content img {-->
+<!--        @apply h-auto max-w-full rounded-lg;-->
+<!--    }-->
+<!--</style>-->
 </body>
 </html>

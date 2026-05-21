@@ -6,18 +6,18 @@ const pageName = "About"
 const location = "Rexburg, Idaho"
 const date = "2026-5-21"
 
-const heading3 = "mt-5 text-xl font-bold"
-const nowList = "list-disc pl-5"
-const nowListItem = "py-2 max-w-9/10"
+const heading3 = ""
+const nowList = ""
+const nowListItem = ""
 ---
 
 <BaseLayout pageTitle = {pageName}>
-  <h2 class="text-center font-bold text-4xl max-w-1/4 mb-5">Now</h2>
+  <h2 class="">{pageName}</h2>
 
   <p>Hello, I'm Daniel, and I am a web developer, student, and educator based in {location}. I operate on a core philosophy: users should only interact with the wires they absolutely need to. Whether I am organizing my physical desk, structuring a project's directory, or writing clean codebase architecture, I build for minimalism, clarity, and Locality of Behavior.</p>
   <p>Below is a living snapshot of exactly what is occupying my time, energy, and attention right now.</p>
 
-  <section class="mx-15">
+  <section class="">
     <h3 class={heading3}>Web Development & Technology</h3>
     <ul class={nowList}>
       <li class={nowListItem}>HTML-First Exploration: I’m currently rebuilding this personal website using Astro, Tailwind, and HTMX. None of these are covered in my university classes, but they perfectly fit my philosophy of keeping behavior local and avoiding unnecessary "wires" or over-complicated JavaScript pipelines.</li>
@@ -40,13 +40,4 @@ const nowListItem = "py-2 max-w-9/10"
   <Footnote>
     Last Updated: {date}
   </Footnote>
-  <div class="w-125 h-1 rounded-full bg-green-700 mx-auto my-10"></div>
-  <h2>How I Got Here</h2>
-  <p>Computers have always been in my DNA—my dad graduated from BYU-Idaho in Computer Information Technology and programmed throughout my childhood. While middle and high school computer classes didn't quite capture my imagination, everything changed when I arrived at BYU-I myself.</p>
-
-  <p>In an Intro to Programming course, I fell in love with Python. The class taught simple concepts like loops and logic gates, gave us a desired outcome, and granted us unlimited freedom to achieve it. That open-ended puzzle-solving hooked me.</p>
-
-  <p>My path wasn't entirely linear; educational hardships initially pushed me away from my dad's exact degree track. However, while serving a mission for The Church of Jesus Christ of Latter-day Saints, I found clarity. My mission gave me perspective on what I truly valued in my education, alongside unique opportunities to serve others using my technical instincts. For instance, when a temporary bug in Facebook Messenger began distorting shared links to vital tools like Google Forms and Sheets, I was able to help my friends by manually decrypting the broken links, translating the scrambled hexadecimal values into ASCII characters to recover the usable URLs.</p>
-
-  <p>Today, I am pursuing my BS in Web Design & Development.</p>
 </BaseLayout>

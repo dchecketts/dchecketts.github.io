@@ -12,30 +12,30 @@ const { url, title, pubDate, description, tags, image } = Astro.props;
 ---
 
 <!-- Card layout container with a border, rounded corners, and hover shadow animations -->
-<li class="flex flex-col justify-between p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200 mx-30 my-10">
+<li class="">
   <a href={url} hx-boost="true"><div>
   <div>
     <!-- Title linked to the post -->
-    <h2 class="text-xl font-bold text-slate-950 mb-1">
+    <h2 class="">
       {title}
     </h2>
 
     <!-- Publication Date styled in muted small text -->
-    <p class="text-xs font-semibold tracking-wide uppercase text-slate-400 mb-3">
+    <p class="">
       {new Date(pubDate).toLocaleDateString()}
     </p>
 
     <!-- Description with line-clamp to keep card sizes uniform -->
-    <p class="text-slate-600 text-sm line-clamp-3 mb-4">
+    <p class="">
       {description}
     </p>
   </div>
 
   <!-- Tag Pill Section -->
   {tags && (
-    <div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100">
+    <div class="">
       {tags.map((tag) => (
-        <span class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200">
+        <span class="">
           #{tag}
         </span>
       ))}

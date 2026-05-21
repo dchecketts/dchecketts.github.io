@@ -1,10 +1,43 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-const pageName = "Home"
+const pageName = "Daniel Checketts"
 ---
 
-<BaseLayout pageTitle = pageName>
-	<h1>{pageName}</h1>
-  
+<BaseLayout pageTitle ={pageName}>
+
+	<div>
+		<section id="welcome-banner">
+			<img id="welcome-banner-background" src="#" alt="Welcome Banner Image">
+			<div id="welcome-banner-content">
+				<div id="image-card">
+					<img src="#" alt="Photo of Daniel Checketts">
+					<span> Me, Circa Late 2025</span>
+				</div>
+				<div id="welcome-banner-message">
+					<span>Welcome!</span>
+					<span>Hi, my name is Daniel Checketts, and I love writing code.</span>
+					<a href="#">Start Learning</a>
+				</div>
+			</div>
+		</section>
+
+		<section id="about">
+			<!-- Maybe eventually get GitHub API to take the README.md for my GitHub Profile and populate this section -->
+			<p>Computers have always been in my DNA—my dad graduated from BYU-Idaho in Computer Information Technology and programmed throughout my childhood. While middle and high school computer classes didn't quite capture my imagination, everything changed when I arrived at BYU-I myself.</p>
+			<p>In an Intro to Programming course, I fell in love with Python. The class taught simple concepts like loops and logic gates, gave us a desired outcome, and granted us unlimited freedom to achieve it. That open-ended puzzle-solving hooked me.</p>
+			<p>My path wasn't entirely linear; educational hardships initially pushed me away from my dad's exact degree track. However, while serving a mission for The Church of Jesus Christ of Latter-day Saints, I found clarity. My mission gave me perspective on what I truly valued in my education, alongside unique opportunities to serve others using my technical instincts. For instance, when a temporary bug in Facebook Messenger began distorting shared links to vital tools like Google Forms and Sheets, I was able to help my friends by manually decrypting the broken links, translating the scrambled hexadecimal values into ASCII characters to recover the usable URLs.</p>
+			<p>Today, I am pursuing my BS in Web Design & Development.</p>
+		</section>
+
+		<section id="project-showcase">
+		<!-- Eventually start using GitHib API to populate. Create cards using repo name, description, tags. Click takes them to a page that uses GitHub API to populate based on the README.md in the repo. -->
+			<h2>Projects</h2>
+			<ul>
+				<li><a href="https://github.com/dchecketts/dchecketts.github.io">Personal Website</a></li>
+				<li><a href="https://github.com/dchecketts/vite-site-template">Vite Site Template</a></li>
+			</ul>
+		</section>
+	</div>
+
 </BaseLayout>
