@@ -12,10 +12,10 @@ const { frontmatter } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{frontmatter.title}</title>
 </head>
-<body class="">
+<body class="flex flex-col min-h-screen">
 <Heading />
 
-<main class="">
+<main class="grow bg-slate-50">
   <article class="">
     <div class="">
       <h1 class="">
@@ -34,44 +34,44 @@ const { frontmatter } = Astro.props;
 
 <Footer />
 
-<!--<style is:global>-->
-<!--    @reference "../styles/global.css";-->
+<style is:global>
+    @reference "../styles/global.css";
 
-<!--    .mdx-content {-->
-<!--        @apply px-0 py-4 md:px-8 md:py-8;-->
-<!--    }-->
+    .mdx-content {
+        @apply px-0 py-4 md:px-8 md:py-8;
+    }
 
-<!--    .mdx-content h1 {-->
-<!--        @apply mt-8 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl;-->
-<!--    }-->
+    .mdx-content h1 {
+        @apply mt-8 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl;
+    }
 
-<!--    .mdx-content h2 {-->
-<!--        @apply mt-8 mb-4 text-2xl font-bold tracking-tight text-gray-800 md:text-3xl;-->
-<!--    }-->
+    .mdx-content h2 {
+        @apply mt-8 mb-4 text-2xl font-bold tracking-tight text-gray-800 md:text-3xl;
+    }
 
-<!--    .mdx-content h3 {-->
-<!--        @apply mt-6 mb-2 text-xl font-semibold text-gray-800;-->
-<!--    }-->
+    .mdx-content h3 {
+        @apply mt-6 mb-2 text-xl font-semibold text-gray-800;
+    }
 
-<!--    .mdx-content p {-->
-<!--        @apply mb-4 text-base leading-relaxed text-gray-700;-->
-<!--    }-->
+    .mdx-content p {
+        @apply mb-4 text-base leading-relaxed text-gray-700;
+    }
 
-<!--    .mdx-content a {-->
-<!--        @apply text-blue-600 underline hover:text-blue-800;-->
-<!--    }-->
+    .mdx-content a {
+        @apply text-blue-600 underline hover:text-blue-800;
+    }
 
-<!--    .mdx-content ul {-->
-<!--        @apply mb-4 list-disc list-inside;-->
-<!--    }-->
+    .mdx-content ul {
+        @apply mb-4 list-disc list-inside;
+    }
 
-<!--    .mdx-content pre {-->
-<!--        @apply overflow-x-auto rounded-lg;-->
-<!--    }-->
+    .mdx-content pre {
+        @apply overflow-x-auto rounded-lg;
+    }
 
-<!--    .mdx-content img {-->
-<!--        @apply h-auto max-w-full rounded-lg;-->
-<!--    }-->
-<!--</style>-->
+    .mdx-content img {
+        @apply h-auto max-w-full rounded-lg;
+    }
+</style>
 </body>
 </html>
