@@ -4,40 +4,64 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 const pageName = "Daniel Checketts"
 ---
 
-<BaseLayout pageTitle ={pageName}>
+<BaseLayout pageTitle={pageName}>
+	<div class="space-y-16">
+		<section id="welcome-banner" class="surface-card surface-card-hover relative overflow-hidden">
+			<img
+				id="welcome-banner-background"
+				src="#"
+				alt="Welcome Banner Image"
+				class="absolute inset-0 h-full w-full object-cover opacity-10"
+			/>
 
-	<div>
-		<section id="welcome-banner">
-			<img id="welcome-banner-background" src="#" alt="Welcome Banner Image">
-			<div id="welcome-banner-content">
-				<div id="image-card">
-					<img src="#" alt="Photo of Daniel Checketts">
-					<span> Me, Circa Late 2025</span>
+			<div id="welcome-banner-content" class="relative grid gap-8 p-6 md:grid-cols-[auto,1fr] md:items-center md:p-10">
+				<div id="image-card" class="surface-card bg-stone-50 p-4 shadow-sm">
+					<img
+						src="#"
+						alt="Photo of Daniel Checketts"
+						class="h-40 w-40 rounded-full object-cover ring-4 ring-white"
+					/>
+					<span class="mt-3 block text-center text-sm text-stone-600">Me, Circa Late 2025</span>
 				</div>
-				<div id="welcome-banner-message">
-					<span>Welcome!</span>
-					<span>Hi, my name is Daniel Checketts, and I love writing code.</span>
-					<a href="#">Start Learning</a>
+
+				<div id="welcome-banner-message" class="space-y-4 max-w-2xl">
+					<span class="pill">Welcome!</span>
+					<h1 class="page-heading">Hi, my name is Daniel Checketts, and I love writing code.</h1>
+					<a href="/learn" class="button-primary">Start Learning</a>
 				</div>
 			</div>
 		</section>
 
-		<section id="about">
-			<!-- Maybe eventually get GitHub API to take the README.md for my GitHub Profile and populate this section -->
-			<p>Computers have always been in my DNA—my dad graduated from BYU-Idaho in Computer Information Technology and programmed throughout my childhood. While middle and high school computer classes didn't quite capture my imagination, everything changed when I arrived at BYU-I myself.</p>
-			<p>In an Intro to Programming course, I fell in love with Python. The class taught simple concepts like loops and logic gates, gave us a desired outcome, and granted us unlimited freedom to achieve it. That open-ended puzzle-solving hooked me.</p>
-			<p>My path wasn't entirely linear; educational hardships initially pushed me away from my dad's exact degree track. However, while serving a mission for The Church of Jesus Christ of Latter-day Saints, I found clarity. My mission gave me perspective on what I truly valued in my education, alongside unique opportunities to serve others using my technical instincts. For instance, when a temporary bug in Facebook Messenger began distorting shared links to vital tools like Google Forms and Sheets, I was able to help my friends by manually decrypting the broken links, translating the scrambled hexadecimal values into ASCII characters to recover the usable URLs.</p>
-			<p>Today, I am pursuing my BS in Web Design & Development.</p>
+		<section id="about" class="surface-card p-6 shadow-sm md:p-8">
+			<div class="space-y-4">
+				<p class="text-base leading-7 text-stone-700">Computers have always been in my DNA—my dad graduated from BYU-Idaho in Computer Information Technology and programmed throughout my childhood. While middle and high school computer classes didn't quite capture my imagination, everything changed when I arrived at BYU-I myself.</p>
+				<p class="text-base leading-7 text-stone-700">In an Intro to Programming course, I fell in love with Python. The class taught simple concepts like loops and logic gates, gave us a desired outcome, and granted us unlimited freedom to achieve it. That open-ended puzzle-solving hooked me.</p>
+				<p class="text-base leading-7 text-stone-700">My path wasn't entirely linear; educational hardships initially pushed me away from my dad's exact degree track. However, while serving a mission for The Church of Jesus Christ of Latter-day Saints, I found clarity. My mission gave me perspective on what I truly valued in my education, alongside unique opportunities to serve others using my technical instincts. For instance, when a temporary bug in Facebook Messenger began distorting shared links to vital tools like Google Forms and Sheets, I was able to help my friends by manually decrypting the broken links, translating the scrambled hexadecimal values into ASCII characters to recover the usable URLs.</p>
+				<p class="text-base leading-7 text-stone-700">Today, I am pursuing my BS in Web Design &amp; Development.</p>
+			</div>
 		</section>
 
-		<section id="project-showcase">
-		<!-- Eventually start using GitHib API to populate. Create cards using repo name, description, tags. Click takes them to a page that uses GitHub API to populate based on the README.md in the repo. -->
-			<h2>Projects</h2>
-			<ul>
-				<li><a href="https://github.com/dchecketts/dchecketts.github.io">Personal Website</a></li>
-				<li><a href="https://github.com/dchecketts/vite-site-template">Vite Site Template</a></li>
+		<section id="project-showcase" class="space-y-6">
+			<h2 class="section-heading">Projects</h2>
+			<ul class="grid gap-4 md:grid-cols-2">
+				<li class="surface-card surface-card-hover">
+					<a href="https://github.com/dchecketts/dchecketts.github.io" class="block h-full p-5 text-stone-900 no-underline">
+						<div class="space-y-2">
+							<h3 class="text-lg font-semibold tracking-tight">Personal Website</h3>
+							<p class="text-sm leading-6 text-stone-600">This site, built with Astro, Tailwind, and HTMX.</p>
+						</div>
+					</a>
+				</li>
+
+				<li class="surface-card surface-card-hover">
+					<a href="https://github.com/dchecketts/vite-site-template" class="block h-full p-5 text-stone-900 no-underline">
+						<div class="space-y-2">
+							<h3 class="text-lg font-semibold tracking-tight">Vite Site Template</h3>
+							<p class="text-sm leading-6 text-stone-600">A starter template for quickly spinning up sites.</p>
+						</div>
+					</a>
+				</li>
 			</ul>
 		</section>
 	</div>
-
 </BaseLayout>

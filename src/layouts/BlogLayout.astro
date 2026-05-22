@@ -12,21 +12,21 @@ const { frontmatter } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{frontmatter.title}</title>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="min-h-screen flex flex-col bg-stone-50 text-stone-900 antialiased">
 <Heading />
 
-<main class="grow bg-slate-50">
-  <article class="">
-    <div class="">
-      <h1 class="">
+<main class="flex-1 bg-stone-50">
+  <article class="site-container py-10 md:py-14">
+    <div class="mb-8 space-y-3">
+      <h1 class="page-heading">
         {frontmatter.title}
       </h1>
       {frontmatter.pubDate && (
-        <p class="">{frontmatter.pubDate}</p>
+          <p class="text-sm text-stone-500">{frontmatter.pubDate}</p>
       )}
     </div>
 
-    <section class="mdx-content">
+    <section class="mdx-content prose prose-stone prose-lg max-w-none prose-headings:scroll-mt-24 prose-a:text-emerald-700 prose-a:font-medium">
       <slot />
     </section>
   </article>
@@ -35,43 +35,47 @@ const { frontmatter } = Astro.props;
 <Footer />
 
 <style is:global>
-    @reference "../styles/global.css";
+  @reference "../styles/global.css";
 
-    .mdx-content {
-        @apply px-0 py-4 md:px-8 md:py-8;
-    }
+  .mdx-content h1 {
+    @apply mt-8 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl;
+  }
 
-    .mdx-content h1 {
-        @apply mt-8 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl;
-    }
+  .mdx-content h2 {
+    @apply mt-8 mb-4 text-2xl font-bold tracking-tight text-gray-800 md:text-3xl;
+  }
 
-    .mdx-content h2 {
-        @apply mt-8 mb-4 text-2xl font-bold tracking-tight text-gray-800 md:text-3xl;
-    }
+  .mdx-content h3 {
+    @apply mt-6 mb-2 text-xl font-semibold text-gray-800;
+  }
 
-    .mdx-content h3 {
-        @apply mt-6 mb-2 text-xl font-semibold text-gray-800;
-    }
+  .mdx-content p {
+    @apply mb-4 text-base leading-relaxed text-gray-700;
+  }
 
-    .mdx-content p {
-        @apply mb-4 text-base leading-relaxed text-gray-700;
-    }
+  .mdx-content a {
+    @apply text-emerald-700 underline underline-offset-4 hover:text-emerald-900;
+  }
 
-    .mdx-content a {
-        @apply text-blue-600 underline hover:text-blue-800;
-    }
+  .mdx-content ul {
+    @apply mb-4 list-disc list-inside;
+  }
 
-    .mdx-content ul {
-        @apply mb-4 list-disc list-inside;
-    }
+  .mdx-content pre {
+    @apply overflow-x-auto rounded-xl;
+  }
 
-    .mdx-content pre {
-        @apply overflow-x-auto rounded-lg;
-    }
+  .mdx-content code {
+    @apply rounded bg-stone-100 px-1.5 py-0.5 text-[0.9em] text-stone-800;
+  }
 
-    .mdx-content img {
-        @apply h-auto max-w-full rounded-lg;
-    }
+  .mdx-content pre code {
+    @apply bg-transparent px-0 py-0 text-inherit;
+  }
+
+  .mdx-content img {
+    @apply h-auto max-w-full rounded-xl;
+  }
 </style>
 </body>
 </html>

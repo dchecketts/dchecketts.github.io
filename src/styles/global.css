@@ -1,1 +1,73 @@
 @import "tailwindcss";
+
+:root {
+    color-scheme: light;
+}
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    body {
+        @apply bg-stone-50 text-stone-900 antialiased;
+    }
+
+    ::selection {
+        @apply bg-emerald-200 text-emerald-950;
+    }
+
+    a {
+        @apply transition-colors;
+    }
+
+    :focus-visible {
+        @apply outline-none ring-2 ring-emerald-500 ring-offset-2 ring-offset-stone-50;
+    }
+}
+
+@layer components {
+    .site-container {
+        @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .page-section {
+        @apply py-8 md:py-12;
+    }
+
+    .surface-card {
+        @apply rounded-3xl border border-stone-200 bg-white shadow-sm;
+    }
+
+    .surface-card-hover {
+        @apply transition duration-200 hover:-translate-y-0.5 hover:shadow-md;
+    }
+
+    .link-accent {
+        @apply text-emerald-700 underline-offset-4 hover:text-emerald-900 hover:underline;
+    }
+
+    .button-primary {
+        @apply inline-flex items-center justify-center rounded-full bg-emerald-700 px-5 py-2.5 font-medium text-white shadow-sm transition hover:bg-emerald-800;
+    }
+
+    .button-secondary {
+        @apply inline-flex items-center justify-center rounded-full border border-stone-300 bg-white px-5 py-2.5 font-medium text-stone-700 shadow-sm transition hover:bg-stone-100 hover:text-stone-900;
+    }
+
+    .section-heading {
+        @apply text-2xl font-bold tracking-tight text-stone-900 md:text-3xl;
+    }
+
+    .page-heading {
+        @apply text-3xl font-bold tracking-tight text-stone-900 md:text-5xl;
+    }
+
+    .muted-text {
+        @apply text-stone-600;
+    }
+
+    .pill {
+        @apply inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-900;
+    }
+}

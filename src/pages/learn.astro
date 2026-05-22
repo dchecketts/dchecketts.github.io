@@ -3,61 +3,84 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
 const pageName = "Learn to Program"
 
-const topicCard = "rounded-sm shadow-sm m-2 p-2 hover:shadow-md flex flex-col items-center"
+const topicCard = "group flex h-full flex-col items-center gap-4 rounded-2xl border border-stone-200 bg-white p-5 text-center shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
 ---
 
-<BaseLayout pageTitle = pageName>
-  <h2>{pageName}</h2>
-  <section id="introduction">
-    <span>Learning programming can be painful to begin. When I started, the most resources that I had was a few books and my dad (Who was still busy with work). While I was able to learn some things, the most that stuck with me was Python's <code>print()</code> statement. It's my goal for this section of my website to compile resources and learning experiences in an engaging medium, using the same methods that helped me really start to enjoy programming, and changes and notes for things that I wished that I had known when I started.</span>
-    <span>Each of these pages will link to resources I found helpful, as well as organized "lessons" to learn more.</span>
-  </section>
+<BaseLayout pageTitle={pageName}>
+  <div class="space-y-10">
+    <header class="space-y-4">
+      <h1 class="page-heading">{pageName}</h1>
+    </header>
 
-  <section id="list-topics" class="my-5">
-    <h2 class="text-2xl font-bold text-center">Topics</h2>
-    <ul class="flex flex-col items-center">
-      <li><a href="/learn/python" hx-boost="true">
-        <div class={topicCard}>
-          <img src="#" alt="Python">
-          <p>Python</p>
-          <p>A great beginner language. High level (Close to English), but also very flexible.</p>
-      </div>
-      </a></li>
-      <li><a href="/learn/html" hx-boost="true">
-        <div class={topicCard}>
-          <img src="#" alt="HTML">
-          <p>HTML</p>
-          <p>Hypertext Markup Language forms the foundation of the web.</p>
-        </div>
-      </a></li>
-      <li><a href="/learn/css" hx-boost="true">
-        <div class={topicCard}>
-          <img src="#" alt="CSS">
-          <p>CSS</p>
-          <p>The language that forms the distinct visual identities of each site.</p>
-        </div>
-      </a></li>
-      <li><a href="/learn/javascript" hx-boost="true">
-        <div class={topicCard}>
-          <img src="#" alt="JavaScript">
-          <p>Javascript</p>
-          <p>Distinct from Java, JavaScript is used to provide dynamic interactive content.</p>
-        </div>
-      </a></li>
-      <li><a href="/learn/web-bonus" hx-boost="true">
-        <div class={topicCard}>
-          <img src="#" alt="Advanced Web">
-          <p>Advanced Web Development</p>
-          <p>HTMX, Astro, etc.</p>
-        </div>
-      </a></li>
-      <li><a href="/learn/c-sharp" hx-boost="true">
-        <div class={topicCard}>
-          <img src="#" alt="C#">
-          <p>C#</p>
-          <p>A good introduction to object oriented programming. (OOP)</p>
-        </div>
-      </a></li>
-    </ul>
-  </section>
+    <section id="introduction" class="surface-card p-6 shadow-sm space-y-4 leading-7 text-stone-700">
+      <p>Learning programming can be painful to begin. When I started, the most resources that I had was a few books and my dad (who was still busy with work). While I was able to learn some things, the most that stuck with me was Python's <code>print()</code> statement. It's my goal for this section of my website to compile resources and learning experiences in an engaging medium, using the same methods that helped me really start to enjoy programming, and changes and notes for things that I wished that I had known when I started.</p>
+      <p>Each of these pages will link to resources I found helpful, as well as organized "lessons" to learn more.</p>
+    </section>
+
+    <section id="list-topics" class="space-y-6 py-2">
+      <h2 class="section-heading text-center">Topics</h2>
+
+      <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <li>
+          <a href="/learn/python" hx-boost="true" class="block h-full focus-visible:outline-none">
+            <div class={topicCard}>
+              <img src="#" alt="Python" class="h-16 w-16 object-contain" />
+              <p class="text-lg font-semibold text-stone-900">Python</p>
+              <p class="text-sm leading-6 text-stone-600">A great beginner language. High level (close to English), but also very flexible.</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="/learn/html" hx-boost="true" class="block h-full focus-visible:outline-none">
+            <div class={topicCard}>
+              <img src="#" alt="HTML" class="h-16 w-16 object-contain" />
+              <p class="text-lg font-semibold text-stone-900">HTML</p>
+              <p class="text-sm leading-6 text-stone-600">Hypertext Markup Language forms the foundation of the web.</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="/learn/css" hx-boost="true" class="block h-full focus-visible:outline-none">
+            <div class={topicCard}>
+              <img src="#" alt="CSS" class="h-16 w-16 object-contain" />
+              <p class="text-lg font-semibold text-stone-900">CSS</p>
+              <p class="text-sm leading-6 text-stone-600">The language that forms the distinct visual identities of each site.</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="/learn/javascript" hx-boost="true" class="block h-full focus-visible:outline-none">
+            <div class={topicCard}>
+              <img src="#" alt="JavaScript" class="h-16 w-16 object-contain" />
+              <p class="text-lg font-semibold text-stone-900">JavaScript</p>
+              <p class="text-sm leading-6 text-stone-600">Distinct from Java, JavaScript is used to provide dynamic interactive content.</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="/learn/web-bonus" hx-boost="true" class="block h-full focus-visible:outline-none">
+            <div class={topicCard}>
+              <img src="#" alt="Advanced Web" class="h-16 w-16 object-contain" />
+              <p class="text-lg font-semibold text-stone-900">Advanced Web Development</p>
+              <p class="text-sm leading-6 text-stone-600">HTMX, Astro, etc.</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a href="/learn/c-sharp" hx-boost="true" class="block h-full focus-visible:outline-none">
+            <div class={topicCard}>
+              <img src="#" alt="C#" class="h-16 w-16 object-contain" />
+              <p class="text-lg font-semibold text-stone-900">C#</p>
+              <p class="text-sm leading-6 text-stone-600">A good introduction to object oriented programming. (OOP)</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
 </BaseLayout>

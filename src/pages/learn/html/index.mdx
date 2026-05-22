@@ -13,4 +13,31 @@ import Note from '../../../components/mdx/Note.astro'
 
 [//]: # (Below is the article content)
 
-HTML is the foundation of the modern internet, providing structure for each and every website you interact with. If it's in your browser, then it's got HTML in it.
+<a href={"https://www.w3schools.com/html/html_intro.asp"} target={"_blank"} rel={"noopener noreferrer"}>
+    <Quote citation={"W3Schools, Introduction to HTML"}>
+        HTML is the standard markup language for creating web pages.
+    </Quote>
+</a>
+
+All web browsers (Chrome, Firefox, Safari, etc.) receive HTML to dictate the content and basic layout of a web page. Once the browser obtains the HTML, then it starts running it. The HTML file then includes references to other files, such as CSS, which then is used to change the appearance of the page, and JavaScript, which is responsible for most dynamic and ineractive content.
+
+Below is an example of a very basic template for an HTML file. The first part, on `line 1`, provides a declaration that it is an HTML file. After that is the opening `html` tag. Most elements in HTML consist of two tags, one opens, and the second one closes. All content between `<html>` and `</html>` is then used by a browser. Content in the `head` is referenced behind the scenes. `meta` elements are read by social media sites, such as Facebook and Discord to render nice looking cards, instead of a plain hyperlink. These are exceptions to the opening and closing rule. The `title` element provides the title of the page, which is displayed on the tab at the top of your browser. (Or the side, if your browser permits) All content between the `body` tags is rendered on the page.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+This series will serve as an introduction to HTML, and works in conjunction with the CSS series and JavaScript series to build a basic web journal with the ability to save and load content.
+
+## Pages in this series
+
+- [What can I do with HTML Elements?](html/what-can-do)

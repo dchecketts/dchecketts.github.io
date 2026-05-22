@@ -2,42 +2,49 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Footnote from '../components/footnote.astro'
 
-const pageName = "About"
+const pageName = "Now"
 const location = "Rexburg, Idaho"
 const date = "2026-5-21"
 
-const heading3 = ""
-const nowList = ""
-const nowListItem = ""
+const heading3 = "mt-8 text-xl font-semibold tracking-tight text-stone-900"
+const nowList = "mt-4 space-y-3"
+const nowListItem = "rounded-2xl border border-stone-200 bg-white p-4 text-stone-700 shadow-sm"
 ---
 
-<BaseLayout pageTitle = {pageName}>
-  <h2 class="">{pageName}</h2>
+<BaseLayout pageTitle={pageName}>
+  <div class="space-y-10">
+    <header class="space-y-4">
+      <h1 class="page-heading">{pageName}</h1>
+      <p class="max-w-3xl text-base leading-7 text-stone-700">
+        Hello, I'm Daniel, and I am a web developer, student, and educator based in {location}. I operate on a core philosophy: users should only interact with the wires they absolutely need to. Whether I am organizing my physical desk, structuring a project's directory, or writing clean codebase architecture, I build for minimalism, clarity, and Locality of Behavior.
+      </p>
+      <p class="max-w-3xl text-base leading-7 text-stone-700">Below is a living snapshot of exactly what is occupying my time, energy, and attention right now.</p>
+    </header>
 
-  <p>Hello, I'm Daniel, and I am a web developer, student, and educator based in {location}. I operate on a core philosophy: users should only interact with the wires they absolutely need to. Whether I am organizing my physical desk, structuring a project's directory, or writing clean codebase architecture, I build for minimalism, clarity, and Locality of Behavior.</p>
-  <p>Below is a living snapshot of exactly what is occupying my time, energy, and attention right now.</p>
+    <section class="surface-card p-6 shadow-sm md:p-8">
+      <h2 class="section-heading">Current Focus</h2>
 
-  <section class="">
-    <h3 class={heading3}>Web Development & Technology</h3>
-    <ul class={nowList}>
-      <li class={nowListItem}>HTML-First Exploration: I’m currently rebuilding this personal website using Astro, Tailwind, and HTMX. None of these are covered in my university classes, but they perfectly fit my philosophy of keeping behavior local and avoiding unnecessary "wires" or over-complicated JavaScript pipelines.</li>
-      <li class={nowListItem}>Learning C# & Linux: In my formal studies at BYU-Idaho, I'm currently expanding my toolkit into object-oriented programming with C# and getting comfortable on the command line in Intro to Linux.</li>
-    </ul>
+      <h3 class={heading3}>Web Development &amp; Technology</h3>
+      <ul class={nowList}>
+        <li class={nowListItem}>HTML-First Exploration: I’m currently rebuilding this personal website using Astro, Tailwind, and HTMX. None of these are covered in my university classes, but they perfectly fit my philosophy of keeping behavior local and avoiding unnecessary "wires" or over-complicated JavaScript pipelines.</li>
+        <li class={nowListItem}>Learning C# &amp; Linux: In my formal studies at BYU-Idaho, I'm currently expanding my toolkit into object-oriented programming with C# and getting comfortable on the command line in Intro to Linux.</li>
+      </ul>
 
-    <h3 class={heading3}>Teaching & Content Creation</h3>
-    <ul class={nowList}>
-      <li class={nowListItem}>Guiding Future Devs: As a BYU-I Teaching Assistant, I spend my weeks helping students bridge the gap from beginner to intermediate Python, as well as introducing them to cloud ecosystems like Google Firebase and AWS.</li>
-      <li class={nowListItem}>Building a Learning Hub: I am actively developing a new Learning Section for this website. It will host coding lessons, tips, and tricks designed to help others master the technologies I work with every day, translating complex concepts into clear, digestible guides.</li>
-    </ul>
+      <h3 class={heading3}>Teaching &amp; Content Creation</h3>
+      <ul class={nowList}>
+        <li class={nowListItem}>Guiding Future Devs: As a BYU-I Teaching Assistant, I spend my weeks helping students bridge the gap from beginner to intermediate Python, as well as introducing them to cloud ecosystems like Google Firebase and AWS.</li>
+        <li class={nowListItem}>Building a Learning Hub: I am actively developing a new Learning Section for this website. It will host coding lessons, tips, and tricks designed to help others master the technologies I work with every day, translating complex concepts into clear, digestible guides.</li>
+      </ul>
 
-    <h3 class={heading3}>Creative Projects & Hobbies</h3>
-    <ul class={nowList}>
-      <li class={nowListItem}>Prepping my First D&D Campaign: I am actively planning a homebrew expansion for Eberron: Forge of the Artificer. I’m learning the ropes of Foundry VTT and preparing to step behind the DM screen for the very first time.</li>
-      <li class={nowListItem}>Digital Intentionality: I’m working on shifting my daily habits away from my phone and onto my computer, focusing on intentional productivity whether I'm tackling homework or cleaning the apartment I share with my wife.</li>
-    </ul>
-  </section>
+      <h3 class={heading3}>Creative Projects &amp; Hobbies</h3>
+      <ul class={nowList}>
+        <li class={nowListItem}>Prepping my First D&amp;D Campaign: I am actively planning a homebrew expansion for Eberron: Forge of the Artificer. I’m learning the ropes of Foundry VTT and preparing to step behind the DM screen for the very first time.</li>
+        <li class={nowListItem}>Digital Intentionality: I’m working on shifting my daily habits away from my phone and onto my computer, focusing on intentional productivity whether I'm tackling homework or cleaning the apartment I share with my wife.</li>
+      </ul>
+    </section>
 
-  <Footnote>
-    Last Updated: {date}
-  </Footnote>
+    <Footnote>
+      Last Updated: {date}
+    </Footnote>
+  </div>
 </BaseLayout>

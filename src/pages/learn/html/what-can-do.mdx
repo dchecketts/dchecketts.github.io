@@ -1,0 +1,51 @@
+---
+layout: ../../../layouts/BlogLayout.astro
+title: "What can I do with HTML Elements?"
+pubDate: "2026-5-20"
+description: "HTML is the foundation of the modern internet, providing structure for each and every website you interact with. If it's in your browser, then it's got HTML in it."
+tags: ["html"]
+image: "/assets/html/preview.png"
+---
+
+import CodeBlock from '../../../components/mdx/CodeBlock.astro'
+import Quote from '../../../components/mdx/Quote.astro'
+import Note from '../../../components/mdx/Note.astro'
+import Directional from '../../../components/directional.astro'
+
+[//]: # (Below is the article content)
+
+HTML elements are incredibly versatile. Every site you've visited uses them. YouTube, Netflix, Discord, etc. Every object that appears on your screen uses HTML. These Elements can be used to display content, or provide an interface for interacting with content.
+
+<div
+    hx-get="/partials/interactive-input"
+    hx-trigger="load"
+    hx-swap="outerHTML"
+>
+    <p class="text-sm text-gray-400 animate-pulse">Loading interactive demo...</p>
+</div>
+
+The above example uses only four HTML elements. `div`, which is used to divide content into smaller parts; `input`, which provided the area you could type in; `button`, which you clicked to make your text display; and `span`, which held the text. It used JavaScript to do the actual actions, and CSS to style it, but both of those required the HTML elements to exist so they could do anything.
+
+Let's dive more into the anatomy of an element, such as an [`anchor`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a). Below is an example of a functional link. Each `attribute` is placed on a separate line to help me communicate, but you don't need to have them separated like this. I'll just do it in my examples, since I find it easier to read. Lines 1 and 7 contain the opening and closing tags, but the opening tag is kind of stretched across lines 1 through 5 (Notice the `>` moved from beside `<a` down to line 5) All attributes for an element will be placed inside  the opening tag. The anchor tag requires at least one attribute to do its job, `href`, or **H**yperlink **Ref**rence. This attribute contains the URL that it will redirect the user to when they click it. Alternatively, if the link is to somewhere on your own site, you can use a relative URL, which is instructions on how to reach the new file. The example on line 9 redirects the user to the 'root' of the site, or the home page. If you do not include the `href` attribute, your anchor will be displayed as plain text.
+
+<Note>There are other things we can put inside of the `href` attribute, but for now we'll only worry about URLs. If you want to learn more about what you can link to, you can learn more by reading <a href={"https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#href"}>the MDN documentation about it.</a></Note>
+
+Lines 3 through 5 are optional attributes. `id` is a unique identifier that can be specifically targeted by JavaScript during interactions, as well as CSS for styling. `class` is intended to hold classes, which can be used in a CSS file to apply multiple styles simultaniously. `rel` describes the relationship that the page has with the new page. When using an anchor to direct a user to a page outside your site, it's a good saftey practice to include this attribute.
+
+
+```html
+<a
+    href="https://google.com"
+    id="example-link"
+    class="link"
+    rel="noopener noreferrer">
+Link to Google
+</a>
+
+<a href="/"> Link to home</a>
+```
+
+<div class="flex justify-between gap-4 mt-8">
+    <Directional direction="left" url="/learn/html"/>
+    <Directional direction="right" url="/learn/css"/>
+</div>

@@ -8,38 +8,35 @@ interface Props {
   image?: string;
 }
 
-const { url, title, pubDate, description, tags, image } = Astro.props;
+const { url, title, pubDate, description, tags } = Astro.props;
 ---
 
-<!-- Card layout container with a border, rounded corners, and hover shadow animations -->
-<li class="">
-  <a href={url} hx-boost="true"><div>
-  <div>
-    <!-- Title linked to the post -->
-    <h2 class="">
-      {title}
-    </h2>
+<li class="surface-card surface-card-hover overflow-hidden">
+  <a href={url} hx-boost="true" class="block h-full p-6">
+    <div class="space-y-4">
+      <div class="space-y-2">
+        <h2 class="text-xl font-semibold tracking-tight text-stone-900">
+          {title}
+        </h2>
 
-    <!-- Publication Date styled in muted small text -->
-    <p class="">
-      {new Date(pubDate).toLocaleDateString()}
-    </p>
+        <p class="text-sm text-stone-500">
+          {new Date(pubDate).toLocaleDateString()}
+        </p>
 
-    <!-- Description with line-clamp to keep card sizes uniform -->
-    <p class="">
-      {description}
-    </p>
-  </div>
+        <p class="text-sm leading-6 text-stone-700">
+          {description}
+        </p>
+      </div>
 
-  <!-- Tag Pill Section -->
-  {tags && (
-    <div class="">
-      {tags.map((tag) => (
-        <span class="">
-          #{tag}
-        </span>
-      ))}
+      {tags && tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 pt-2">
+            {tags.map((tag) => (
+                <span class="rounded-full bg-stone-100 px-2.5 py-1 text-xs font-medium text-stone-700">
+              #{tag}
+            </span>
+            ))}
+          </div>
+      )}
     </div>
-  )}
-  </div></a>
+  </a>
 </li>

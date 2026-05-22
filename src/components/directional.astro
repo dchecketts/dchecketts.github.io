@@ -1,0 +1,42 @@
+---
+import { pages } from '../lib/pages';
+
+interface Props {
+    direction: 'left' | 'right';
+    url: string;
+    label?: string;
+}
+
+const { direction, url, label } = Astro.props as Props;
+
+const destinationPage = pages.find(p => p.url === url);
+const displayLabel = label || destinationPage?.title || (direction === 'right' ? 'Next Page' : 'Previous Page');
+const isRight = direction === 'right';
+const arrowSymbol = isRight ? '→' : '←';
+---
+
+<a href={url} class={`directional-button ${direction}`} aria-label={displayLabel}>
+    {!isRight && <span class="arrow">{arrowSymbol}</span>}
+    <span class="label">{displayLabel}</span>
+    {isRight && <span class="arrow">{arrowSymbol}</span>}
+</a>
+
+<style>
+    @reference '../styles/global.css'
+    .directional-button {
+        @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-700 text-white font-medium hover:bg-emerald-800 transition-colors;
+        text-decoration: none;
+    }
+
+    .arrow {
+        @apply text-lg;
+    }
+
+    .directional-button.left {
+        @apply justify-start;
+    }
+
+    .directional-button.right {
+        @apply justify-end flex-row-reverse;
+    }
+</style>

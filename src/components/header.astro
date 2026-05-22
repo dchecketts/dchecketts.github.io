@@ -1,16 +1,15 @@
 ---
-const menuItem = ""
+const menuItem = "text-sm font-medium text-emerald-100 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-white";
 ---
 
-<!-- bg-green-900 -->
-<header class="bg-green-900 text-white">
-  <div class="flex flex-col items-center">
-    <a href="/" class="m-2">
+<header class="sticky top-0 z-50 border-b border-emerald-950/20 bg-emerald-900 text-white shadow-sm">
+  <div class="site-container flex items-center justify-between py-4">
+    <a href="/" class="text-lg font-semibold tracking-tight text-white hover:text-emerald-100">
       Daniel Checketts
     </a>
 
     <nav aria-label="Main navigation">
-      <ul class="flex flex-row items-center gap-5">
+      <ul class="flex items-center gap-6">
         <li><a href="/now" class={menuItem}>Now</a></li>
         <li><a href="/learn" class={menuItem}>Learn</a></li>
         <li><a href="/blog" class={menuItem}>Blog</a></li>

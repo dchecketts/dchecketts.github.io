@@ -1,0 +1,176 @@
+---
+layout: ../../layouts/BlogLayout.astro
+title: "Example Post"
+pubDate: "2026-5-22"
+description: "This file will be an example for every element I can use in the MDX files for my site, commonly found in the Learning section and Blog section."
+tags: ["tag"]
+image: "/assets/page/preview.png"
+---
+
+import CodeBlock from '../../components/mdx/CodeBlock.astro'
+import Quote from '../../components/mdx/Quote.astro'
+import Note from '../../components/mdx/Note.astro'
+import Directional from '../../components/directional.astro'
+
+[//]: # (Below is the article content)
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+Alternative Heading 1
+====
+
+Alternative Heading 2
+----
+
+Example text.
+
+Example text
+with a line break.
+
+**Bolded text**.
+
+*Italicized text*.
+
+***Bold and italic text***.
+
+> A Block Quote
+
+> A
+> Multi-line
+> Block quote
+
+> A
+>> Block quote within
+> A block quote
+
+- Unordered
+- Lists
+- Work
+- Great
+
+1. So
+2. Do
+3. Ordered
+4. Ones!
+
+- You can
+    - indent
+- in a list
+
+- Unordered List
+
+* Unordered List
+
++ Unordered List
+
+- 2026\. Was the start of a good year.
+- Start an unordered list with a number by using the escape slash :D
+
+Represent a word as `code`, or multiple words ``As an example and use a `backtick` inside them``
+
+```markdown
+If you want to create a codeblock without indenting every line by one tab or four spaces, use three backtick characters, \`.
+```
+
+If you use a blank line immediately before it...
+
+---
+
+Then you can make a horizontal rule with three dashes!
+
+***
+
+Three stars can do it too!
+
+___
+
+As can three underscores!
+
+[Example link to homepage.](/)
+
+[Example Link to external page!](https://google.com)
+
+[You can also link to a footnote.] [1]
+
+I'll use [this method](/ "So I can include comments!") for my links.
+
+![Linux](https://www.markdownguide.org/assets/images/generated/assets/images/tux-1080.webp)
+
+| Column 1 | Column 2 |
+| --- | --- |
+| Cell | Cell |
+
+| Column 1 | Column 2 | Column 3 |
+| :--- | :---: | ---: |
+| Cell | Cell | Cell |
+
+This text has a footnote[^1]
+
+[//]: # (### you can assign a custom id to a header {#example-id})
+
+[//]: # (And then [link to the header]&#40;#example-id&#41; later.)
+
+[//]: # (Doing it that way breaks Astro :( )
+
+Definition List
+: Some Markdown Processors enable users to specify definitions.
+
+~~This is strikethrough text~~
+
+- [ ] Some Markdown processors enable checkboxes.
+- [x] Which can help you mark tasks as complete.
+
+The best Markdown can ==highlight==
+
+And some can do ~subscript~.
+
+And a few can do ^superscrpt^.
+
+A lot of markdown processors automatically link urls like https://google.com
+
+## Custom Elements
+
+```python
+print("This is an example of a code block.")
+print("No fancy component used inside of the MDX file.")
+print("A nice numbered code block will be generated based on regular Markdown code block syntax.")
+
+# Generated code blocks will also include a handy copy button to enable users to play with the code in their own environment!
+```
+
+<Quote>By default, quotes are given the citation "Unknown".</Quote>
+
+<Quote citation={"Me, May 22, 2026"}>If you want to specify a citation, such as the speaker and when the quote was uttered, or where the quote was written, that requires using the "citation" attribute.</Quote>
+
+<Note>Notes default to the info type.</Note>
+
+<Note type={"success"}>You can also celebrate with a green success type by setting the "type" attribute to "success".</Note>
+
+<Note type={"warning"}>You can also warn of impending dangers with the "warning" type!</Note>
+
+<Note type={"danger"}>And when things get serious, use the "danger" type.</Note>
+
+---
+
+[1]: </> "Just don't forget to include the link in the footnote!"
+
+[^1]: This is the first footnote. Notice now the footnote gets rendered under the file content, so only use this in single blog posts.
+
+https://www.markdownguide.org/
+
+[//]: # (Above is the article content)
+
+<div class="flex justify-between gap-4 mt-8">
+    <Directional direction="left" url="/learn/html"/>
+    <Directional direction="right" url="/learn/css"/>
+</div>

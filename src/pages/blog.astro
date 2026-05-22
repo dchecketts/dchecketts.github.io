@@ -8,18 +8,25 @@ const markdownFiles = import.meta.glob('./blog/*.mdx', { eager: true })
 const posts = Object.values(markdownFiles) as Array<{ url: string; frontmatter: { title: string; pubDate: string; description: string; tags: string[] } }>
 ---
 
-<BaseLayout pageTitle = {pageName}>
-  <h1>{pageName}</h1>
+<BaseLayout pageTitle={pageName}>
+  <div class="space-y-8">
+    <header class="space-y-4">
+      <h1 class="page-heading">{pageName}</h1>
+      <p class="max-w-2xl text-base leading-7 text-stone-700">
+        Notes, articles, and reflections on programming, learning, and the work I’m building.
+      </p>
+    </header>
 
-  <ul>
-    {posts.map((post) => (
-      <BlogCard
-        url={post.url}
-        title={post.frontmatter.title}
-        pubDate={post.frontmatter.pubDate}
-        description={post.frontmatter.description}
-        tags={post.frontmatter.tags}
-      />
-    ))}
-  </ul>
+    <ul class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {posts.map((post) => (
+          <BlogCard
+              url={post.url}
+              title={post.frontmatter.title}
+              pubDate={post.frontmatter.pubDate}
+              description={post.frontmatter.description}
+              tags={post.frontmatter.tags}
+          />
+      ))}
+    </ul>
+  </div>
 </BaseLayout>
