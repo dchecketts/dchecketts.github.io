@@ -1,5 +1,6 @@
 ---
 import { pages } from '../lib/pages';
+import Link from '../components/mdx/Link.astro'
 
 interface Props {
     direction: 'left' | 'right';
@@ -12,14 +13,14 @@ const { direction, url, label } = Astro.props as Props;
 const destinationPage = pages.find(p => p.url === url);
 const displayLabel = label || destinationPage?.title || (direction === 'right' ? 'Next Page' : 'Previous Page');
 const isRight = direction === 'right';
-const arrowSymbol = isRight ? '→' : '←';
+const arrowSymbol = isRight ? ' →' : '← ';
 ---
 
-<a href={url} class={`directional-button ${direction}`} aria-label={displayLabel}>
+<Link url={url} class={`directional-button ${direction}`} aria-label={displayLabel}>
     {!isRight && <span class="arrow">{arrowSymbol}</span>}
     <span class="label">{displayLabel}</span>
     {isRight && <span class="arrow">{arrowSymbol}</span>}
-</a>
+</Link>
 
 <style>
     @reference '../styles/global.css'

@@ -37,30 +37,9 @@ const { frontmatter } = Astro.props;
 <style is:global>
   @reference "../styles/global.css";
 
-  .mdx-content h1 {
-    @apply mt-8 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl;
-  }
-
-  .mdx-content h2 {
-    @apply mt-8 mb-4 text-2xl font-bold tracking-tight text-gray-800 md:text-3xl;
-  }
-
-  .mdx-content h3 {
-    @apply mt-6 mb-2 text-xl font-semibold text-gray-800;
-  }
-
   .mdx-content p {
     @apply mb-4 text-base leading-relaxed text-gray-700;
   }
-
-  .mdx-content a {
-    @apply text-emerald-700 underline underline-offset-4 hover:text-emerald-900;
-  }
-
-  .mdx-content ul {
-    @apply mb-4 list-disc list-inside;
-  }
-
   .mdx-content pre {
     @apply overflow-x-auto rounded-xl;
   }

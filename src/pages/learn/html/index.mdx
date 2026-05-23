@@ -10,14 +10,18 @@ image: "/assets/html/preview.png"
 import CodeBlock from '../../../components/mdx/CodeBlock.astro'
 import Quote from '../../../components/mdx/Quote.astro'
 import Note from '../../../components/mdx/Note.astro'
+import List from '../../../components/mdx/ListElement.astro'
+import Link from '../../../components/mdx/Link.astro'
+import Heading from '../../../components/mdx/Heading.astro'
+import Directional from '../../../components/directional.astro'
 
 [//]: # (Below is the article content)
 
-<a href={"https://www.w3schools.com/html/html_intro.asp"} target={"_blank"} rel={"noopener noreferrer"}>
+<Link url="https://www.w3schools.com/html/html_intro.asp" tip="Introduction to HTML, W3Schools" external={true}>
     <Quote citation={"W3Schools, Introduction to HTML"}>
         HTML is the standard markup language for creating web pages.
     </Quote>
-</a>
+</Link>
 
 All web browsers (Chrome, Firefox, Safari, etc.) receive HTML to dictate the content and basic layout of a web page. Once the browser obtains the HTML, then it starts running it. The HTML file then includes references to other files, such as CSS, which then is used to change the appearance of the page, and JavaScript, which is responsible for most dynamic and ineractive content.
 
@@ -38,6 +42,13 @@ Below is an example of a very basic template for an HTML file. The first part, o
 
 This series will serve as an introduction to HTML, and works in conjunction with the CSS series and JavaScript series to build a basic web journal with the ability to save and load content.
 
-## Pages in this series
+<Heading level="h2">Pages in this series</Heading>
 
-- [What can I do with HTML Elements?](/learn/html/what-can-do)
+<List>
+    <li><Link url="/learn/html/what-can-do" tip="What can I do with HTML Elements?">What can I do with HTML Elements?</Link></li>
+</List>
+
+<div class="flex justify-between gap-4 mt-8">
+    <Directional direction="left" url="/learn/"/>
+    <Directional direction="right" url="/learn/html/what-can-do"/>
+</div>

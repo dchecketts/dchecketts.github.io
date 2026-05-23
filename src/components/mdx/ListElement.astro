@@ -1,0 +1,30 @@
+---
+interface Props {
+    type?: 'none' | 'ordered' | 'unordered';
+    class?: string; // Allows passing extra Tailwind classes from outside
+}
+
+const { type = 'unordered', class: extraClasses = '' } = Astro.props;
+
+// Define base Tailwind classes for each list type
+const typeClasses = {
+    none: 'list-none pl-0',
+    ordered: 'list-decimal pl-5',
+    unordered: 'list-disc pl-5',
+};
+
+const chosenClass = typeClasses[type];
+
+const DynamicTag = type === 'ordered' ? 'ol' : 'ul';
+---
+
+{/* class:list combines your base styles, type styles, and any external styles */}
+<DynamicTag
+        class:list={[
+            'space-y-2', // Tailwind utility: adds vertical spacing between items
+    chosenClass,
+            extraClasses
+        ]}
+>
+    <slot />
+</DynamicTag>

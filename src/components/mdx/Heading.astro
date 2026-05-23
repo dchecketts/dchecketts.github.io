@@ -1,0 +1,24 @@
+---
+interface Props {
+    level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+}
+
+const { level = 'h1'} = Astro.props
+
+const levelClasses = {
+    h1: 'mt-8 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl',
+    h2: 'mt-8 mb-4 text-2xl font-bold tracking-tight text-gray-800 md:text-3xl',
+    h3: 'mt-6 mb-2 text-xl font-semibold text-gray-800',
+    h4: 'mt-4 mb-2 text-xl font-semibold text-gray-800',
+    h5: 'mt-4 mb-2 text-xl font-semibold text-gray-800',
+    h6: 'mt-4 mb-2 text-xl font-semibold text-gray-800'
+}
+
+const chosenClass = levelClasses[level]
+
+const DynamicTag = level
+---
+
+<DynamicTag class={chosenClass}>
+    <slot />
+</DynamicTag>

@@ -6,5 +6,6 @@ export const pages = [
     { url: '/learn/python', title: 'Python Guide' },
     { url: '/learn/c-sharp', title: 'C# Basics' },
     { url: '/learn/web-bonus', title: 'Web Bonus Content' },
+    { url: '/learn/html/what-can-do', title: 'What can I do with HTML Elements?' },
     // Add all your pages here
 ];

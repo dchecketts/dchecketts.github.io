@@ -1,0 +1,22 @@
+---
+interface Props {
+    url?: string,
+    tip?: string,
+    external?: boolean
+}
+
+const {
+    url = "/",
+    tip,
+    external = false
+} = Astro.props
+---
+
+<a
+        href={url}
+        title={tip || undefined}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        class="text-emerald-700 underline underline-offset-4 hover:text-emerald-900">
+    <slot />
+</a>
