@@ -1,9 +1,10 @@
 ---
 interface Props {
     level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+    identity?: string
 }
 
-const { level = 'h1'} = Astro.props
+const { level = 'h1', identity} = Astro.props
 
 const levelClasses = {
     h1: 'mt-8 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl',
@@ -19,6 +20,6 @@ const chosenClass = levelClasses[level]
 const DynamicTag = level
 ---
 
-<DynamicTag class={chosenClass}>
+<DynamicTag class={chosenClass} id={identity || undefined}>
     <slot />
 </DynamicTag>

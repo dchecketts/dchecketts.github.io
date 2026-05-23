@@ -2,14 +2,24 @@
 interface Props {
     url?: string,
     tip?: string,
-    external?: boolean
+    external?: boolean,
+    type?: string
 }
 
 const {
     url = "/",
     tip,
-    external = false
+    external = false,
+    type ,
 } = Astro.props
+
+const styles: Record<string, string> = {
+    plain: "text-emerald-700 underline underline-offset-4 hover:text-emerald-900",
+    header: "text-sm font-medium text-emerald-100 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-white",
+    footer: "text-sm text-emerald-100 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-white"
+}
+
+const className = styles[type] ?? styles.plain
 ---
 
 <a
@@ -17,6 +27,6 @@ const {
         title={tip || undefined}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        class="text-emerald-700 underline underline-offset-4 hover:text-emerald-900">
+        class={className}>
     <slot />
 </a>

@@ -1,6 +1,8 @@
 ---
 const year = new Date().getFullYear()
 
+import Link from '../components/mdx/Link.astro'
+
 const linkItem = "text-sm text-emerald-100 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-white"
 ---
 
@@ -10,9 +12,9 @@ const linkItem = "text-sm text-emerald-100 underline-offset-4 transition-colors 
 
     <nav aria-label="Footer links">
       <ul class="flex flex-wrap gap-4">
-        <li><a href="https://www.facebook.com/manny.checketts" class={linkItem}>Facebook</a></li>
-        <li><a href="https://www.linkedin.com/in/danielchecketts" class={linkItem}>LinkedIn</a></li>
-        <li><a href="https://www.github.com/dchecketts" class={linkItem}>GitHub</a></li>
+        <li><Link url="https://www.facebook.com/manny.checketts" type="footer">Facebook</Link></li>
+        <li><Link url="https://www.linkedin.com/in/danielchecketts" type="footer">LinkedIn</Link></li>
+        <li><Link url="https://www.github.com/dchecketts" type="footer">GitHub</Link></li>
       </ul>
     </nav>
   </div>

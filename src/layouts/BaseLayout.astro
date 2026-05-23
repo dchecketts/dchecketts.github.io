@@ -6,7 +6,7 @@ import '../styles/global.css'
 const { pageTitle } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -15,10 +15,17 @@ const { pageTitle } = Astro.props;
   <meta name="generator" content={Astro.generator} />
   <title>{pageTitle}</title>
 </head>
-<body class="min-h-screen flex flex-col bg-stone-50 text-stone-900 antialiased">
+<img
+    src="/img/welcome-banner-image.jpg"
+    alt=""
+    aria-hidden="true"
+    class="fixed inset-0 w-full h-full object-cover pointer-events-none -z-20"
+/>
+
+<body class="min-h-screen bg-stone-50 text-stone-900 antialiased flex flex-col min-h-full">
 <Header />
 
-<main class="flex-1 w-full">
+<main class="w-full grow">
   <div class="site-container page-section">
     <slot />
   </div>

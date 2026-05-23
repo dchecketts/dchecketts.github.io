@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/BlogLayout.astro
-title: "A new site! (Again)"
+title: "A new site! (Again...)"
 pubDate: "2026-5-20"
 description: "I have a new site! Again! Hopefully this is the last time I overhaul things under the hood."
 tags: ["site", "astro", "html", "css", "javascript", "tailwind", "webdev"]
@@ -10,6 +10,11 @@ image: "/assets/5202026/preview.png"
 import CodeBlock from '../../components/mdx/CodeBlock.astro'
 import Quote from '../../components/mdx/Quote.astro'
 import Note from '../../components/mdx/Note.astro'
+import List from '../../components/mdx/ListElement.astro'
+import Link from '../../components/mdx/Link.astro'
+import Heading from '../../components/mdx/Heading.astro'
+import Highlight from '../../components/mdx/Highlight.astro'
+import Directional from '../../components/directional.astro'
 
 [//]: # (Below is the article content)
 
@@ -31,3 +36,8 @@ This time, I've got a toolkit set up that I believe I'll be able to stick with f
 <Note type={"info"}>This is a note. There are four different versions; Warning (Yellow), info (Blue), success (Green), and danger (Red). </Note>
 
 <Quote citation={"J.R.R. Tolkien"}>Not all that is gold glitters.</Quote>
+
+<div class="flex justify-between gap-4 mt-8">
+    <Directional direction="left" url="/blog"/>
+    <Directional direction="right" url="/blog/5232026"/>
+</div>

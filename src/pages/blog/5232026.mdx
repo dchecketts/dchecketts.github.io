@@ -1,0 +1,40 @@
+---
+layout: ../../layouts/BlogLayout.astro
+title: "Version 1.0"
+pubDate: "2026-5-23"
+description: "Now I think I've got most of the default content figured out."
+tags: ["site", "astro", "html", "css", "javascript", "tailwind", "webdev"]
+image: "/assets/5232026/preview.png"
+---
+
+import CodeBlock from '../../components/mdx/CodeBlock.astro'
+import Quote from '../../components/mdx/Quote.astro'
+import Note from '../../components/mdx/Note.astro'
+import List from '../../components/mdx/ListElement.astro'
+import Link from '../../components/mdx/Link.astro'
+import Heading from '../../components/mdx/Heading.astro'
+import Highlight from '../../components/mdx/Highlight.astro'
+import Directional from '../../components/directional.astro'
+
+[//]: # (Below is the article content)
+
+Now that I've spent some time working through all the directories and making sure that everything is where I want it, I've also started adding in Astro components that I can use to do fun things such as:
+
+<List>
+    <li><Highlight>highlighting words</Highlight></li>
+    <li>Redact <Highlight color="redacted">cheeky</Highlight>  content</li>
+    <li><Note>Make nice notes about arbitrary details.</Note></li>
+    <li><Quote citation="Myself, right now">Quote people easily.</Quote></li>
+</List>
+
+```markdown
+And make nice looking code blocks.
+```
+
+Hopefully I can now move onto actually making worthwhile content for this site now, instead of overhauling this site every six months or so. Some things seem to look a little goofy on desktop still, and not everything has the styling exactly as I'd want it (Various backend iterations while I've tinkered with some frontend stuff), but now things are where I'll happily claim this as my own.
+
+<Note>Oh yeah, I also made this nifty little thing at the bottom so I can easily direct users between pages. :D</Note>
+
+<div class="flex justify-between gap-4 mt-8">
+    <Directional direction="left" url="/blog/5202026"/>
+</div>

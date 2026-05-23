@@ -1,5 +1,5 @@
 ---
-const menuItem = "text-sm font-medium text-emerald-100 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-white";
+import Link from '../components/mdx/Link.astro'
 ---
 
 <header class="sticky top-0 z-50 border-b border-emerald-950/20 bg-emerald-900 text-white shadow-sm">
@@ -10,9 +10,9 @@ const menuItem = "text-sm font-medium text-emerald-100 underline-offset-4 transi
 
     <nav aria-label="Main navigation">
       <ul class="flex items-center gap-6">
-        <li><a href="/now" class={menuItem}>Now</a></li>
-        <li><a href="/learn" class={menuItem}>Learn</a></li>
-        <li><a href="/blog" class={menuItem}>Blog</a></li>
+        <li><Link url="/now" type="header">Now</Link></li>
+        <li><Link url="/learn" type="header">Learn</Link></li>
+        <li><Link url="/blog" type="header">Blog</Link></li>
       </ul>
     </nav>
   </div>
