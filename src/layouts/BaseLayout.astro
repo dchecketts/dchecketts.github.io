@@ -15,6 +15,9 @@ const { pageTitle } = Astro.props;
   <meta name="generator" content={Astro.generator} />
   <title>{pageTitle}</title>
 </head>
+
+<body class="min-h-screen bg-stone-50 text-stone-900 antialiased flex flex-col min-h-full">
+
 <img
     src="/img/welcome-banner-image.jpg"
     alt=""
@@ -22,7 +25,6 @@ const { pageTitle } = Astro.props;
     class="fixed inset-0 w-full h-full object-cover pointer-events-none -z-20"
 />
 
-<body class="min-h-screen bg-stone-50 text-stone-900 antialiased flex flex-col min-h-full">
 <Header />
 
 <main class="w-full grow">

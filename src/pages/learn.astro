@@ -7,13 +7,11 @@ const topicCard = "group flex h-full flex-col items-center gap-4 rounded-2xl bor
 ---
 
 <BaseLayout pageTitle={pageName}>
-  <div class="space-y-10">
-    <header class="space-y-4">
-      <h1 class="page-heading">{pageName}</h1>
-    </header>
+  <div class="space-y-10 md:flex md:flex-col md:items-center">
+    <h1 class="page-heading text-center">{pageName}</h1>
 
-    <section id="introduction" class="surface-card p-6 shadow-sm space-y-4 leading-7 text-stone-700">
-      <p>Learning programming can be painful to begin. When I started, the most resources that I had was a few books and my dad (who was still busy with work). While I was able to learn some things, the most that stuck with me was Python's <code>print()</code> statement. It's my goal for this section of my website to compile resources and learning experiences in an engaging medium, using the same methods that helped me really start to enjoy programming, and changes and notes for things that I wished that I had known when I started.</p>
+    <section id="introduction" class="surface-card p-6 shadow-sm space-y-4 leading-7 text-stone-700 md:max-w-7/10">
+      <p>Learning programming can be rough. When I started, the most resources that I had was a few books and my dad (who was still busy with work). While I was able to learn some things, the most that stuck with me was Python's <code>print()</code> statement. It's my goal for this section of my website to compile resources and learning experiences in an engaging medium, using the same methods that helped me really start to enjoy programming, and changes and notes for things that I wished that I had known when I started.</p>
       <p>Each of these pages will link to resources I found helpful, as well as organized "lessons" to learn more.</p>
     </section>
 

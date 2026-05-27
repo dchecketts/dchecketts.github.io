@@ -27,6 +27,4 @@ const className = styles[type] ?? styles.plain
         title={tip || undefined}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        class={className}>
-    <slot />
-</a>
+        class={className}><slot /></a>

@@ -20,6 +20,4 @@ const chosenClass = levelClasses[level]
 const DynamicTag = level
 ---
 
-<DynamicTag class={chosenClass} id={identity || undefined}>
-    <slot />
-</DynamicTag>
+<DynamicTag class={chosenClass} id={identity || undefined}><slot /></DynamicTag>

@@ -13,7 +13,5 @@ const className = styles[type] ?? styles.info;
 
 <div class={`p-4 border-l-4 rounded-r my-6 ${className}`}>
   <p class="font-bold capitalize mb-1">{type && (type.toLowerCase() === "success" ? "Success!" : type.toLowerCase() === "danger" ? "Danger!" : type.toLowerCase() === "warning" ? "Warning!" : type)}</p>
-  <div class="text-sm">
-    <slot />
-  </div>
+  <div class="text-sm"><slot /></div>
 </div>

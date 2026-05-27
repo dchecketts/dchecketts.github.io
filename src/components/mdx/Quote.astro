@@ -3,9 +3,7 @@ const { citation = "Unknown" } = Astro.props;
 ---
 
 <figure class="border-l-4 border-purple-500 pl-4 my-6 italic bg-gray-50 py-2 pr-2 rounded-r">
-  <blockquote class="text-lg text-gray-800">
-    <slot />
-  </blockquote>
+  <blockquote class="text-lg text-gray-800"><slot /></blockquote>
   <figcaption class="text-xs text-gray-500 mt-2 font-medium not-italic text-right">
     — {citation}
   </figcaption>
