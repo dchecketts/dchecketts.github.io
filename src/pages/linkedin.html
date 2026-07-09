@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrono-Thought Leader: API Edition</title>
+  <!-- Tailwind CSS for modern layouts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body, #mainCard, #generateBtn, #timeBadge, #excuseToggleContainer {
+      transition: background-color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Twinkle animation for stars */
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    .star {
+      animation: twinkle 3.5s infinite ease-in-out;
+    }
+
+    /* Ambient blur overlay to bind skyline layers cleanly */
+    .city-haze {
+      background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+    }
+
+    /* Smooth animation for newly generated posts */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body id="body" class="min-h-screen flex flex-col items-center justify-center py-10 px-4 relative overflow-hidden select-none">
+
+<!-- Procedural Cityscape Background Canvas -->
+<div id="skylineBg" class="absolute inset-0 z-0 overflow-hidden transition-all duration-1000">
+  <!-- Dynamically drawn by our JS render engine -->
+</div>
+
+<!-- Ambient Overlays -->
+<div class="absolute inset-0 city-haze pointer-events-none z-1"></div>
+<div class="absolute inset-0 bg-black/25 pointer-events-none z-1"></div>
+
+<!-- Main Dynamic Glassmorphism Card -->
+<div id="mainCard" class="w-full max-w-xl rounded-2xl p-6 md:p-8 text-center border backdrop-blur-md z-10 shadow-2xl relative">
+
+  <!-- Header -->
+  <div class="mb-5">
+    <h1 class="text-3xl font-black tracking-tight mb-1 flex items-center justify-center gap-2 drop-shadow-md">
+      ⏱️ Chrono-Thought Leader
+    </h1>
+    <p class="text-xs uppercase tracking-widest opacity-70 mt-1 font-bold">Real-Time Satire & API Core</p>
+    <div id="timeBadge" class="inline-block text-xs font-bold px-4 py-1.5 rounded-full border mt-3 shadow-md">
+      Detecting local time...
+    </div>
+  </div>
+
+  <!-- API Excuse Controls -->
+  <div id="excuseToggleContainer" class="mb-6 p-4 rounded-xl border border-white/10 text-left bg-black/30 flex flex-col gap-3">
+    <div class="flex items-center justify-between">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider block">⚠️ Developer Excuse Injection</span>
+        <span class="text-[10px] opacity-60">Connects to dev-excuse microservices in real time</span>
+      </div>
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" id="excuseToggle" class="sr-only peer">
+        <div class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+      </label>
+    </div>
+
+    <!-- Real-time Loading Status -->
+    <div id="apiStatus" class="hidden text-xs text-blue-400 font-mono items-center gap-2 animate-pulse">
+      <span class="inline-block w-2 h-2 rounded-full bg-blue-500"></span>
+      <span>Connecting to api.devexcus.es...</span>
+    </div>
+  </div>
+
+  <button id="generateBtn" class="w-full text-white font-black py-4 px-6 rounded-xl shadow-lg transition transform active:scale-95 hover:scale-[1.01] text-lg tracking-wide mb-6">
+    Generate Time-Appropriate Flex 🚀
+  </button>
+
+  <!-- Output Container -->
+  <div id="outputContainer" class="hidden text-left transition-all duration-500">
+    <div class="flex justify-between items-center mb-3">
+      <span class="text-xs font-bold uppercase tracking-wider opacity-80">Your Corporate Satire:</span>
+      <button id="copyBtn" class="text-xs bg-black/40 hover:bg-black/60 font-semibold py-1.5 px-3 rounded border border-white/10 transition">
+        Copy Post
+      </button>
+    </div>
+    <div id="outputText" class="bg-black/60 rounded-xl p-5 font-sans whitespace-pre-wrap leading-relaxed text-sm md:text-base shadow-inner border border-white/10 text-slate-100 animate-fadeIn"></div>
+  </div>
+
+</div>
+
+<script>
+  // Large vocabulary matrix grouped by time window
+  const timePools = {
+    insanelyEarly: {
+      name: "Insanely Early Morning (4 AM - 6 AM)",
+      theme: 'grindset',
+      hooks: [
+        "While 99% of my network is sleeping, I’m actively building them. ☕",
+        "4:30 AM check-in. The stars are out, and so is my passion for pipeline optimization.",
+        "Unpopular opinion: If you sleep past 5 AM, you've already lost the fiscal quarter.",
+        "If you aren't sweating before your competitors even enter REM sleep, can you truly call yourself an operator?",
+        "Woke up at 3:45 AM. Not because of an alarm, but because my subconscious was processing unoptimized cross-functional inefficiencies.",
+        "Cold plunge at 4:00 AM, followed by a double shot of liquid clarity. Let's discuss why comfort is the silent killer of enterprise value."
+      ],
+      achievements: [
+        "crushed a pre-dawn visualization session and mapped out our 5-year synergy ecosystem",
+        "logged a 5-mile run while listening to an audio speed-run of a negotiation",
+        "manually audited 1,200 lines of legacy SQL before the first bird chirped",
+        "restructured our entire SDR outreach strategy while doing isometric wall-sits",
+        "meditated for 20 minutes on the concept of 'leverage' and achieved complete spiritual alignment with our Q4 OKRs"
+      ]
+    },
+    morning: {
+      name: "Morning Rush (6 AM - 11 AM)",
+      theme: 'growth',
+      hooks: [
+        "Fueling up on double-shot espresso and raw ambition this morning. let's talk scale. 📈",
+        "Driving in, I looked at a construction cone and realized something profound about project boundaries.",
+        "Good morning to everyone except those who block calendar slots without adding a description.",
+        "The aroma of fresh coffee and newly minted KPIs in the morning is unmatched. Let's dive deep into structural velocity.",
+        "Is your team rowing in the same direction, or are they just splashing water? A quick Tuesday morning thought.",
+        "Just stepped into the lobby. The energy is palpable. The whiteboard is clean. The goals are highly unrealistic. Let's execute."
+      ],
+      achievements: [
+        "pivoted our entire Q3 roadmap over a quick standby breakfast meeting",
+        "onboarded three new rockstars into our hyper-growth paradigm",
+        "conducted a masterclass in 'managing up' during our weekly executive alignment sync",
+        "re-architected our sales funnel to focus exclusively on high-intent, low-friction, buzzword-compatible leads",
+        "re-framed a massive, system-wide database crash as a 'proactive stress-testing window'"
+      ]
+    },
+    noon: {
+      name: "Noon-ish (11 AM - 1 PM)",
+      theme: 'synergy',
+      hooks: [
+        "Quick lunchtime reflection: Are we eating to live, or eating to optimize cross-functional output? 🥗",
+        "Over a salad, my mentor dropped a truth bomb that changed the way I view operational leverage.",
+        "Lunch isn't a break; it's a strategic refueling interval for high-bandwidth thought partners.",
+        "Chewing on some high-fiber complex carbs while chewing on some high-level strategic pivots. Coincidence?",
+        "I always ask our interns what they're eating for lunch. It tells me everything I need to know about their risk tolerance."
+      ],
+      achievements: [
+        "finalized a strategic alliance over a heavily compromised UberEats order",
+        "facilitated a workshop that finally defined what 'ASAP' means for our team",
+        "successfully renegotiated our corporate catering contract to prioritize high-protein focus foods",
+        "convinced a major client that our 25% price hike was actually a 'premium partnership integration fee'",
+        "solved a cross-team bottleneck using nothing but napkin sketches and raw, unfiltered charisma"
+      ]
+    },
+    afternoon: {
+      name: "Mid-Afternoon (1 PM - 5 PM)",
+      theme: 'disruption',
+      hooks: [
+        "Pushing through the 3 PM wall with pure grit, operational vision, and questionable caffeine.",
+        "True leaders don't manage projects; they harvest potential.",
+        "The 2:00 PM slump is just weakness leaving your corporate vessel. Push through.",
+        "If your meetings don't end with at least three people questioning their career choices, did you even collaborate?",
+        "Spent the last hour looking at slide templates. Design isn't just how it looks; it's how much funding it secures."
+      ],
+      achievements: [
+        "successfully migrated a legacy spreadsheet into a slightly newer, more volatile spreadsheet",
+        "sat through a call that absolutely, beautifully could have been a single bulleted Slack message",
+        "created a 45-slide deck that explains our strategy without using a single real noun",
+        "instigated a 'constructive friction' exercise that resulted in the engineering team temporarily muting me",
+        "defined a brand new paradigm that effectively shifts our core blame vector to a third-party vendor"
+      ]
+    },
+    evening: {
+      name: "Evening Wrap-up (5 PM - 9 PM)",
+      theme: 'visibility',
+      hooks: [
+        "Closing the laptop (or am I?). What a grueling, beautiful, disruptive day. 🌆",
+        "Heading home, but the brain never stops iterating on paradigm-shifting architecture.",
+        "As the office empty-nesters start shutting off their monitors, I ask myself: did we move the needle, or just wiggle it?",
+        "The sun is setting, but the pipeline is rising. Reflection time.",
+        "True visibility isn't being seen in the office; it's being seen in the CC chain of a highly critical incident report."
+      ],
+      achievements: [
+        "signed off on a major deployment that will keep the engineering team awake all weekend",
+        "delivered an absolute masterclass in tactical hand-waving during the final stakeholder review",
+        "agreed to 'take this offline' in 14 different meetings, successfully deferring work until next quarter",
+        "drafted a heartfelt, highly visible LinkedIn post praising our team's resilience under my chaotic leadership",
+        "volunteered our department for a highly experimental pilot program without consulting anyone who actually does the work"
+      ]
+    },
+    night: {
+      name: "Late Night Grind (9 PM - 4 AM)",
+      theme: 'obsessed',
+      hooks: [
+        "Midnight thoughts. While the world sleeps, the disruptors iterate. 🌙",
+        "They call it 'burnout.' I call it 'high-frequency human capital utilization.'",
+        "It's 11 PM. Do you know where your deliverables are?",
+        "Sleep is a great feature, but the uptime demands of this market require continuous integration.",
+        "Staring at the ceiling at 2 AM, I realized our corporate mission statement is missing a key gerund."
+      ],
+      achievements: [
+        "refactored a piece of critical production code that I will completely fail to comprehend tomorrow morning",
+        "drafted a highly confrontational LinkedIn post about work-life balance while working a 16-hour shift",
+        "set up automated email delayed-delivery timers to ensure my team thinks I work 24/7",
+        "resolved a high-severity incident by turning off the monitoring alert system entirely",
+        "wrote a complex automated script to simulate human presence in Slack, unlocking maximum peace of mind"
+      ]
+    }
+  };
+
+  const metrics = [
+    "resulting in a 412% increase in Slack reaction emoji velocity",
+    "saving our key stakeholders approximately 3.4 minutes of manual thought",
+    "optimizing our dynamic cross-functional bandwidth allocation parameters by up to 18.4%",
+    "catalyzing a complete existential breakthrough among our tier-1 support specialists",
+    "reducing our overall operational friction coefficient to historical lows",
+    "instantly driving a 600% spike in theoretical shareholder confidence indices"
+  ];
+
+  const conclusions = [
+    "Huge shoutout to the visionaries, catalysts, and ninjas who made this day possible.",
+    "Agree? 👇",
+    "Remember: The path to disruption is paved with uncomfortable alignment sessions.",
+    "Let's make some magic happen tomorrow. Or tonight. Whatever your shift dictates.",
+    "How are you optimizing your synergistic bandwidth this week? Comment below!"
+  ];
+
+  const hashtags = [
+    "#Hustle #GrowthMindset #Disruption #Synergy",
+    "#ThoughtLeadership #Innovation #Execution #Scale",
+    "#Grindset #Hypergrowth #Wellness #Alignment",
+    "#B2BSaaS #Vulnerability #ParadigmShift #Velocity"
+  ];
+
+  // Custom offline pool of developer excuses to keep app bulletproof
+  const fallbackDeveloperExcuses = [
+    "It was working in my local staging container, so the issue must be localized strictly in production network topology.",
+    "A third-party transitive dependency released an undocumented breaking revision on a minor semver patch.",
+    "The client requirement array was inherently fluid and shifted faster than our compilation sequence could resolve.",
+    "A rogue solar flare must have temporarily inverted a bit in our ephemeral database memory registry.",
+    "The legacy code framework was fully integrated and optimized until we attempted to scale its execution velocity.",
+    "It is definitely a localized browser caching discrepancy; please initiate a hard-refresh on your system memory.",
+    "The machine learning model over-fitted because the training set contained too many real-world, practical scenarios."
+  ];
+
+  const themes = {
+    'grindset': { // Insanely Early (Purple-Gold Transition)
+      body: 'text-neutral-100',
+      card: 'bg-neutral-900/80 border-neutral-700/60 shadow-neutral-950/80',
+      badge: 'bg-neutral-800/80 text-neutral-300 border-neutral-600',
+      button: 'bg-neutral-100 hover:bg-neutral-300 text-neutral-950 hover:shadow-lg',
+      skyGradient: 'linear-gradient(180deg, #180d38 0%, #301b7a 50%, #e65c00 100%)', // Dusk/Dawn
+      buildingFar: 'rgba(29, 17, 72, 0.4)',
+      buildingMid: 'rgba(38, 22, 94, 0.65)',
+      buildingNear: '#1c0f45',
+      windowColor: 'rgba(254, 240, 138, 0.75)',
+      hasStars: true,
+      sunMoon: { show: true, type: 'sun', color: '#ffb347', pos: 'bottom-20 left-1/4', size: 'w-20 h-20', blur: 'blur-md' }
+    },
+    'growth': { // Morning (Fresh Green/Blue)
+      body: 'text-emerald-50',
+      card: 'bg-emerald-950/80 border-emerald-700/60 shadow-emerald-950/80',
+      badge: 'bg-emerald-800/80 text-emerald-200 border-emerald-600',
+      button: 'bg-emerald-500 hover:bg-emerald-400 text-emerald-950 hover:shadow-emerald-500/20 shadow-lg',
+      skyGradient: 'linear-gradient(180deg, #4da0b0 0%, #d39d38 100%)', // Morning sky
+      buildingFar: 'rgba(16, 52, 57, 0.3)',
+      buildingMid: 'rgba(12, 64, 69, 0.55)',
+      buildingNear: '#0c353a',
+      windowColor: 'rgba(255, 255, 255, 0.45)',
+      hasStars: false,
+      sunMoon: { show: true, type: 'sun', color: '#fff9e6', pos: 'top-20 right-1/4', size: 'w-16 h-16', blur: 'blur-sm' }
+    },
+    'synergy': { // Noon (Vibrant Day Sky Blue)
+      body: 'text-sky-100',
+      card: 'bg-sky-950/85 border-sky-700/60 shadow-sky-950/80',
+      badge: 'bg-sky-800/80 text-sky-200 border-sky-600',
+      button: 'bg-sky-500 hover:bg-sky-400 text-white hover:shadow-sky-500/20 shadow-lg',
+      skyGradient: 'linear-gradient(180deg, #1a75ff 0%, #80b3ff 60%, #e6f0ff 100%)', // Day sky
+      buildingFar: 'rgba(12, 53, 99, 0.25)',
+      buildingMid: 'rgba(14, 73, 138, 0.5)',
+      buildingNear: '#093666',
+      windowColor: 'rgba(255, 255, 255, 0.6)',
+      hasStars: false,
+      sunMoon: { show: true, type: 'sun', color: '#ffffff', pos: 'top-10 left-1/3', size: 'w-24 h-24', blur: 'blur-xl' }
+    },
+    'disruption': { // Afternoon (Warm Golden Orange)
+      body: 'text-orange-100',
+      card: 'bg-orange-950/80 border-orange-700/60 shadow-orange-950/80',
+      badge: 'bg-orange-800/80 text-orange-200 border-orange-600',
+      button: 'bg-orange-500 hover:bg-orange-400 text-orange-950 hover:shadow-orange-500/20 shadow-lg',
+      skyGradient: 'linear-gradient(180deg, #7c2d12 0%, #ea580c 50%, #fef08a 100%)', // Afternoon heat
+      buildingFar: 'rgba(92, 33, 11, 0.35)',
+      buildingMid: 'rgba(110, 41, 15, 0.6)',
+      buildingNear: '#4c1503',
+      windowColor: 'rgba(254, 215, 170, 0.7)',
+      hasStars: false,
+      sunMoon: { show: true, type: 'sun', color: '#fdba74', pos: 'middle-20 right-1/3', size: 'w-20 h-20', blur: 'blur-md' }
+    },
+    'visibility': { // Evening (Rich twilight orange/purple)
+      body: 'text-violet-100',
+      card: 'bg-violet-950/80 border-violet-700/60 shadow-violet-950/80',
+      badge: 'bg-violet-800/80 text-violet-200 border-violet-600',
+      button: 'bg-violet-500 hover:bg-violet-400 text-white hover:shadow-violet-500/20 shadow-lg',
+      skyGradient: 'linear-gradient(180deg, #1e1b4b 0%, #4c1d95 50%, #db2777 100%)', // Sunset
+      buildingFar: 'rgba(46, 16, 101, 0.4)',
+      buildingMid: 'rgba(67, 20, 131, 0.65)',
+      buildingNear: '#2e1065',
+      windowColor: 'rgba(253, 224, 71, 0.85)',
+      hasStars: true,
+      sunMoon: { show: true, type: 'sun', color: '#f43f5e', pos: 'bottom-16 left-1/4', size: 'w-24 h-24', blur: 'blur-md' }
+    },
+    'obsessed': { // Night (Deep Neon Noir)
+      body: 'text-red-100',
+      card: 'bg-black/90 border-red-950 shadow-black',
+      badge: 'bg-black/80 text-red-400 border-red-900',
+      button: 'bg-red-700 hover:bg-red-600 text-white shadow-red-950/50 hover:shadow-lg',
+      skyGradient: 'linear-gradient(180deg, #020617 0%, #09090b 60%, #1c0505 100%)', // Night
+      buildingFar: 'rgba(15, 23, 42, 0.6)',
+      buildingMid: 'rgba(9, 9, 11, 0.85)',
+      buildingNear: '#030712',
+      windowColor: 'neon',
+      hasStars: true,
+      sunMoon: { show: true, type: 'moon', color: '#e2e8f0', pos: 'top-16 left-1/4', size: 'w-12 h-12', blur: 'blur-xs' }
+    }
+  };
+
+  function drawProceduralCity(themeKey) {
+    const container = document.getElementById('skylineBg');
+    const theme = themes[themeKey];
+    container.innerHTML = '';
+
+    container.style.backgroundImage = theme.skyGradient;
+
+    // Spawning vector stars if requested
+    if (theme.hasStars) {
+      const starsCount = 45;
+      for (let i = 0; i < starsCount; i++) {
+        const star = document.createElement('div');
+        const randX = Math.random() * 100;
+        const randY = Math.random() * 60;
+        const size = Math.random() * 2 + 1;
+        const delay = Math.random() * 3;
+        star.className = 'star absolute rounded-full bg-white';
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${randX}%`;
+        star.style.top = `${randY}%`;
+        star.style.animationDelay = `${delay}s`;
+        container.appendChild(star);
+      }
+    }
+
+    // Spawning celestial sun or moon
+    if (theme.sunMoon && theme.sunMoon.show) {
+      const celestial = document.createElement('div');
+      const conf = theme.sunMoon;
+      let positionClass = '';
+
+      if (conf.pos.includes('top-20')) positionClass = 'top-20 right-1/4';
+      else if (conf.pos.includes('top-10')) positionClass = 'top-10 left-1/3';
+      else if (conf.pos.includes('top-16')) positionClass = 'top-16 left-1/4';
+      else if (conf.pos.includes('bottom-16')) positionClass = 'bottom-16 left-1/4';
+      else if (conf.pos.includes('bottom-20')) positionClass = 'bottom-20 left-1/4';
+      else positionClass = 'top-32 right-1/4';
+
+      celestial.className = `absolute ${conf.size} rounded-full ${positionClass} ${conf.blur} transition-all duration-1000 z-0`;
+      celestial.style.backgroundColor = conf.color;
+
+      if (conf.type === 'moon') {
+        celestial.className += ' shadow-[inset_-10px_-10px_0px_0px_rgba(255,255,255,0.9)]';
+        celestial.style.backgroundColor = 'transparent';
+      }
+      container.appendChild(celestial);
+    }
+
+    // Building depths (Far, Mid, Near)
+    const layers = [
+      { id: 'far', count: 12, heightRange: [50, 85], color: theme.buildingFar, windowDensity: 0.1 },
+      { id: 'mid', count: 14, heightRange: [30, 65], color: theme.buildingMid, windowDensity: 0.35 },
+      { id: 'near', count: 16, heightRange: [15, 45], color: theme.buildingNear, windowDensity: 0.55 }
+    ];
+
+    layers.forEach((layer) => {
+      const layerWrapper = document.createElement('div');
+      layerWrapper.className = `absolute bottom-0 w-full flex items-end justify-between pointer-events-none`;
+
+      if (layer.id === 'far') layerWrapper.className += ' z-2 opacity-50';
+      if (layer.id === 'mid') layerWrapper.className += ' z-3 opacity-80';
+      if (layer.id === 'near') layerWrapper.className += ' z-4';
+
+      for (let i = 0; i < layer.count; i++) {
+        const building = document.createElement('div');
+        const randHeight = Math.floor(Math.random() * (layer.heightRange[1] - layer.heightRange[0])) + layer.heightRange[0];
+        const randWidth = Math.floor(Math.random() * 5) + 6;
+
+        building.style.height = `${randHeight}vh`;
+        building.style.width = `${randWidth}%`;
+        building.style.backgroundColor = layer.color;
+        building.className = 'relative flex flex-col justify-start items-center p-1 rounded-t shadow-2xl transition-all duration-1000';
+
+        const roofType = Math.random();
+        if (roofType > 0.75) {
+          const spire = document.createElement('div');
+          const spireHeight = Math.floor(Math.random() * 25) + 15;
+          spire.className = 'absolute bottom-full w-0.5';
+          spire.style.height = `${spireHeight}px`;
+          spire.style.backgroundColor = layer.color;
+          building.appendChild(spire);
+        } else if (roofType > 0.55 && roofType <= 0.75) {
+          const angle = document.createElement('div');
+          angle.className = 'absolute bottom-full w-full h-4 overflow-hidden';
+          angle.style.borderBottom = `16px solid ${layer.color}`;
+          angle.style.borderRight = '100px solid transparent';
+          building.appendChild(angle);
+        }
+
+        if (layer.id !== 'far') {
+          const windowGrid = document.createElement('div');
+          windowGrid.className = 'grid grid-cols-3 gap-1.5 w-4/5 mt-4 opacity-90';
+
+          const slots = Math.min(24, Math.floor(randHeight / 2.5));
+          for (let w = 0; w < slots; w++) {
+            const win = document.createElement('div');
+            win.className = 'h-1.5 rounded-sm transition-all duration-1000';
+
+            if (Math.random() < layer.windowDensity) {
+              if (theme.windowColor === 'neon') {
+                const neons = ['rgba(6, 182, 212, 0.85)', 'rgba(236, 72, 153, 0.85)', 'rgba(234, 179, 8, 0.85)', 'rgba(168, 85, 247, 0.85)'];
+                win.style.backgroundColor = neons[Math.floor(Math.random() * neons.length)];
+                win.className += ' shadow-[0_0_4px_rgba(236,72,153,0.3)]';
+              } else {
+                win.style.backgroundColor = theme.windowColor;
+              }
+            } else {
+              win.style.backgroundColor = 'rgba(0,0,0,0.35)';
+            }
+            windowGrid.appendChild(win);
+          }
+          building.appendChild(windowGrid);
+        }
+        layerWrapper.appendChild(building);
+      }
+      container.appendChild(layerWrapper);
+    });
+  }
+
+  function getCurrentTimePeriod() {
+    const hours = new Date().getHours();
+    if (hours >= 4 && hours < 6) return 'insanelyEarly';
+    if (hours >= 6 && hours < 11) return 'morning';
+    if (hours >= 11 && hours < 13) return 'noon';
+    if (hours >= 13 && hours < 17) return 'afternoon';
+    if (hours >= 17 && hours < 21) return 'evening';
+    return 'night';
+  }
+
+  function applyDynamicStyling() {
+    const currentPeriodKey = getCurrentTimePeriod();
+    const timeData = timePools[currentPeriodKey];
+    const theme = themes[timeData.theme];
+
+    document.getElementById('timeBadge').textContent = `Theme: ${timeData.name}`;
+
+    drawProceduralCity(timeData.theme);
+
+    const bodyEl = document.getElementById('body');
+    bodyEl.className = `min-h-screen flex flex-col items-center justify-center py-10 px-4 relative overflow-hidden ${theme.body}`;
+
+    document.getElementById('mainCard').className = `w-full max-w-xl rounded-2xl shadow-2xl p-6 md:p-8 text-center border backdrop-blur-md z-10 ${theme.card}`;
+    document.getElementById('timeBadge').className = `inline-block text-xs font-bold px-4 py-1.5 rounded-full border mt-3 shadow-md ${theme.badge}`;
+    document.getElementById('generateBtn').className = `w-full font-black py-4 px-6 rounded-xl shadow-lg transition transform active:scale-95 hover:scale-[1.01] text-lg tracking-wide mb-6 ${theme.button}`;
+  }
+
+  async function fetchDeveloperExcuse() {
+    const statusIndicator = document.getElementById('apiStatus');
+    statusIndicator.classList.remove('hidden');
+    statusIndicator.classList.add('flex');
+
+    try {
+      // Using corsproxy.io wrapper to prevent standard CORS errors
+      const response = await fetch("https://corsproxy.io/?url=https://api.devexcus.es/", {
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (!response.ok) {
+        throw new Error("API responded with an error");
+      }
+
+      const data = await response.json();
+
+      // Expects text field from api.devexcus.es response schemas
+      if (data && data.text) {
+        return data.text;
+      } else if (data && data.excuse) {
+        return data.excuse;
+      }
+      throw new Error("No readable text payload");
+    } catch (err) {
+      console.warn("Failed fetching from DevExcuses API, running local baseline database fallback:", err);
+      return fallbackDeveloperExcuses[Math.floor(Math.random() * fallbackDeveloperExcuses.length)];
+    } finally {
+      statusIndicator.classList.add('hidden');
+      statusIndicator.classList.remove('flex');
+    }
+  }
+
+  const generateBtn = document.getElementById('generateBtn');
+  const copyBtn = document.getElementById('copyBtn');
+  const outputContainer = document.getElementById('outputContainer');
+  const outputText = document.getElementById('outputText');
+  const excuseToggle = document.getElementById('excuseToggle');
+
+  const randomItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+  generateBtn.addEventListener('click', async () => {
+    // Re-apply time styling on interaction
+    applyDynamicStyling();
+
+    const period = getCurrentTimePeriod();
+    const pool = timePools[period];
+
+    const hook = randomItem(pool.hooks);
+    const conclusion = randomItem(conclusions);
+    const hashtag = randomItem(hashtags);
+
+    let achievementText = "";
+    let metricText = "";
+
+    if (excuseToggle.checked) {
+      // Injecting developer excuse directly into achievement parameters
+      const devExcuse = await fetchDeveloperExcuse();
+      achievementText = `pivoted our entire focus because we discovered that "${devExcuse}"`;
+      metricText = "resulting in a 412% spike in emergency Slack channels and retrospective action items";
+    } else {
+      // Standard satire arrays
+      achievementText = randomItem(pool.achievements);
+      metricText = randomItem(metrics);
+    }
+
+    // Synthesize the corporate masterpiece
+    outputText.textContent = `${hook}\n\nI recently ${achievementText}, ${metricText}.\n\n${conclusion}\n\n${hashtag}`;
+    outputContainer.classList.remove('hidden');
+    copyBtn.textContent = 'Copy Post';
+  });
+
+  // Copy mechanism
+  copyBtn.addEventListener('click', () => {
+    const textToCopy = outputText.textContent;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      copyBtn.textContent = 'Copied! 📋';
+      setTimeout(() => { copyBtn.textContent = 'Copy Post'; }, 2000);
+    });
+  });
+
+  // --- 5. INITIALIZE ---
+  applyDynamicStyling();
+</script>
+</body>
+</html>
