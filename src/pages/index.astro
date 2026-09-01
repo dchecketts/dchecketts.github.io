@@ -5,61 +5,61 @@ const pageName = "Daniel Checketts"
 ---
 
 <BaseLayout pageTitle={pageName}>
-	<div class="space-y-16">
+	<div class="bg-white/20 backdrop-blur-md border border-white/20 shadow-lg rounded-lg">
 		<section
 			id="welcome-banner"
-			class=" overflow-hidden">
+			class="flex flex-col items-center gap-5 mb-10 md:grid md:grid-cols-2">
 
 			<div
 				id="welcome-banner-content"
-				class="surface-card bg-stone-50 p-4 shadow-sm relative grid gap-8 p-6 md:grid-cols-[auto,1fr] md:items-center md:p-10">
-				<div id="image-card">
+				class="flex flex-col items-center">
+				<div id="image-card" class="flex flex-col items-center">
 					<img
 						src="/img/daniel-checketts-2025.jpg"
 						alt="Photo of Daniel Checketts"
-						class="h-40 w-40 rounded-full object-cover ring-4 ring-white"
+						class="size-32 md:size-64 aspect-square rounded-full object-cover"
 					/>
-					<span class="mt-3 block text-center text-sm text-stone-600">Me, Circa Late 2025</span>
+					<span class="">Me, Circa Late 2025</span>
 				</div>
 
-				<div id="welcome-banner-message" class="space-y-4 max-w-2xl">
-					<span class="pill">Welcome!</span>
-					<h1 class="page-heading">Hi, my name is Daniel Checketts, and I love writing code.</h1>
-					<a href="/learn" class="button-primary">Start Learning</a>
+				<div id="welcome-banner-message" class="md:col-start-2">
+					<span class="">Welcome!</span>
+					<h1 class="">Hi, my name is Daniel Checketts, and I love writing code.</h1>
+					<a href="/learn" class="rounded-full bg-emerald-600 text-white py-2 px-4">Start Learning</a>
 				</div>
 			</div>
 		</section>
 
-		<section id="about" class="surface-card p-6 shadow-sm md:p-8">
+		<section id="about" class="">
 			<div class="space-y-4">
-				<p class="text-base leading-7 text-stone-700">Computers have always been in my DNA—my dad graduated from BYU-Idaho in Computer Information Technology and programmed throughout my childhood. While middle and high school computer classes didn't quite capture my imagination, everything changed when I arrived at BYU-I myself.</p>
-				<p class="text-base leading-7 text-stone-700">In an Intro to Programming course, I fell in love with Python. The class taught simple concepts like loops and logic gates, gave us a desired outcome, and granted us unlimited freedom to achieve it. That open-ended puzzle-solving hooked me.</p>
-				<p class="text-base leading-7 text-stone-700">My path wasn't entirely linear; educational hardships initially pushed me away from my dad's exact degree track. However, while serving a mission for The Church of Jesus Christ of Latter-day Saints, I found clarity. My mission gave me perspective on what I truly valued in my education, alongside unique opportunities to serve others using my technical instincts. For instance, when a temporary bug in Facebook Messenger began distorting shared links to vital tools like Google Forms and Sheets, I was able to help my friends by manually decrypting the broken links, translating the scrambled hexadecimal values into ASCII characters to recover the usable URLs.</p>
-				<p class="text-base leading-7 text-stone-700">Today, I am pursuing my BS in Web Design &amp; Development.</p>
+				<p class="">Computers have always been in my DNA—my dad graduated from BYU-Idaho in Computer Information Technology and programmed throughout my childhood. While middle and high school computer classes didn't quite capture my imagination, everything changed when I arrived at BYU-I myself.</p>
+				<p class="">In an Intro to Programming course, I fell in love with Python. The class taught simple concepts like loops and logic gates, gave us a desired outcome, and granted us unlimited freedom to achieve it. That open-ended puzzle-solving hooked me.</p>
+				<p class="">My path wasn't entirely linear; educational hardships initially pushed me away from my dad's exact degree track. However, while serving a mission for The Church of Jesus Christ of Latter-day Saints, I found clarity. My mission gave me perspective on what I truly valued in my education, alongside unique opportunities to serve others using my technical instincts. For instance, when a temporary bug in Facebook Messenger began distorting shared links to vital tools like Google Forms and Sheets, I was able to help my friends by manually decrypting the broken links, translating the scrambled hexadecimal values into ASCII characters to recover the usable URLs.</p>
+				<p class="">Today, I am pursuing my BS in Web Design &amp; Development.</p>
 			</div>
 		</section>
+	</div>
 
-		<section id="project-showcase" class="space-y-6">
+		<section id="project-showcase" class="">
 			<h2 class="section-heading">Projects</h2>
-			<ul class="grid gap-4 md:grid-cols-2">
-				<li class="surface-card surface-card-hover">
-					<a href="https://github.com/dchecketts/dchecketts.github.io" class="block h-full p-5 text-stone-900 no-underline">
-						<div class="space-y-2">
-							<h3 class="text-lg font-semibold tracking-tight">Personal Website</h3>
-							<p class="text-sm leading-6 text-stone-600">This site, built with Astro, Tailwind, and HTMX.</p>
+			<ul class="">
+				<li class="">
+					<a href="https://github.com/dchecketts/dchecketts.github.io" class="">
+						<div class="">
+							<h3 class="">Personal Website</h3>
+							<p class="">This site, built with Astro, Tailwind, and HTMX.</p>
 						</div>
 					</a>
 				</li>
 
-				<li class="surface-card surface-card-hover">
-					<a href="https://github.com/dchecketts/vite-site-template" class="block h-full p-5 text-stone-900 no-underline">
-						<div class="space-y-2">
-							<h3 class="text-lg font-semibold tracking-tight">Vite Site Template</h3>
-							<p class="text-sm leading-6 text-stone-600">A starter template for quickly spinning up sites.</p>
+				<li class="">
+					<a href="https://github.com/dchecketts/vite-site-template" class="">
+						<div class="">
+							<h3 class="">Vite Site Template</h3>
+							<p class="">A starter template for quickly spinning up sites.</p>
 						</div>
 					</a>
 				</li>
 			</ul>
 		</section>
-	</div>
 </BaseLayout>

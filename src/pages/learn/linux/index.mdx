@@ -1,0 +1,64 @@
+---
+layout: ../../../layouts/BlogLayout.astro
+title: "Linux"
+pubDate: "2026-5-20"
+description: "Everyone uses it for servers, so what is it?"
+tags: ["linux"]
+image: "/assets/linux/preview.png"
+---
+
+import CodeBlock from '../../../components/mdx/CodeBlock.astro'
+import Quote from '../../../components/mdx/Quote.astro'
+import Note from '../../../components/mdx/Note.astro'
+import List from '../../../components/mdx/ListElement.astro'
+import Link from '../../../components/mdx/Link.astro'
+import Heading from '../../../components/mdx/Heading.astro'
+import Highlight from '../../../components/mdx/Highlight.astro'
+import Secret from '../../../components/mdx/Secret.astro'
+import Directional from '../../../components/directional.astro'
+import Footnote from '../../../components/footnote.astro'
+
+[//]: # (Below is the article content)
+
+<Heading level={"h2"}>What is Linux?</Heading>
+
+Linux is *not* an operating system like Windows or macOS. Linux is a *kernel*, which is an underlying framework that an operating system uses to interact with the hardware, files, etc. Windows and macOS are examples of operating systems that use proprietary, closed-source kernels built specifically for their own ecosystems.
+
+When people say "Linux," they are often referring to a Linux *distribution*, or "distro." A distro takes that core kernel, and wraps it in tools such as software managers, a desktop environment (Which is entirely optional!), and some beginning software to create a complete and usable operating system.
+
+Because of the unique nature of Linux, beginners often have lots of questions. Let's tackle three of them right now.
+
+<Heading level={"h3"}>If it's just a kernel, why should I care so much about it?</Heading>
+
+While Windows and macOS dominate personal laptops and desktop computers, Linux is the go-to choice when it comes to servers -- the vast network of computers that make up the internet -- supercomputers, internet routers, and even the underlying core of Android. If you want to host your own website, build your own streaming service, or work in cybersecurity, you'll interact with Linux. Learning it will make it so you can easily manage files, properly handle user saftey, and be able to exercise absolute control over the computer you work with.
+
+<Heading level={"h3"}>Do I need to wipe my current computer or get a new one to try Linux?</Heading>
+
+Nope! Programmers have devised a way to trick kernels into thinking that they are on their own machine through "virtualization," where you use software to tell it that it has its own hardware to run on, without actually being on a separate device. This means that we can easily try a Linux distro on a *Virtual Machine* (Or VM). Using a VM means that it stays completely isolated from your computer, meaning that if anything goes wrong, you don't have to worry about breaking your computer! For this adventure, we'll be using <Link url="https://www.virtualbox.org/" external={true} tip="Learn More about Oracle VirtualBox and download it here!">Oracle's VirtualBox</Link>, an open-source application specifically designed to flexibly host VMs, and it includes some pretty useful tools!
+
+<Heading level={"h3"}>Why are there so many different versions of Linux?</Heading>
+
+Since Linux is open-source, that makes it free for anyone to access and add to. Different groups make distros for different uses.
+
+<List>
+    <li>Want something polished & user-friendly? Try <Link url={"https://linuxmint.com/"} external={true}>Linux Mint</Link>.</li>
+    <li>Want something that'll last a while for your server? Try <Link url={"https://ubuntu.com/"} external={true}>Ubuntu Long-Term Support (LTS)</Link>, or <Link url={"https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"} external={true}>Red Hat Enterprise Linux (RHEL)</Link>.</li>
+    <li>Want to make sure your computer doesn't break? Try an "Atomic" version of a distro, such as <Link url={"https://fedoraproject.org/atomic-desktops/silverblue/"}>Silverblue</Link>.</li>
+</List>
+
+For this series, we'll be using Ubuntu LTS, since it's the usual starting point for both beginners and professionals.
+
+<Heading level={"h3"}>Some of my own questions</Heading>
+
+<Heading level={"h4"}>What does it mean if something is open-source, instead of closed-source?</Heading>
+When something is open-source, anyone who wants to can contribute. This means that anyone who finds a bug or security issue can fix it if they want to.
+
+<Heading level={"h4"}>What is an "Atomic" distro?</Heading>
+When a distro is "Atomic", that means that it keeps your files separate from the ones that make up the operating system, and every time that it updates, it builds a new operating system, and if it encounters an error with the new update, it sticks with the old one. <Link url={"https://fedoraproject.org/atomic-desktops/"} external={true} tip={"Five of them!"}>Fedora has a few atomic distros</Link>, each making use of different desktop environments (Plasma is highly customizable, if you're into that).
+
+<Footnote><Link url={"./linux/glossary"}>Glossary</Link></Footnote>
+
+<Heading level={"h2"}>Pages in this series</Heading>
+<List>
+    <li><Link>Setting up the Sandbox</Link></li>
+</List>
