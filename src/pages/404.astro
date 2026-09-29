@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/baselayout.astro';
+import Link from '../components/link.astro';
+---
+
+<BaseLayout title="Page Not Found">
+  <div class="flex grow items-center justify-center">
+    <section
+      class="mx-5 flex w-fit flex-col items-center gap-3 rounded-md bg-white px-10 py-5 shadow-md dark:bg-black"
+    >
+      <h1 class="text-4xl">Not Found</h1>
+      <p>Sorry, the content you are looking for does not exist.</p>
+      <Link>Return to Site</Link>
+    </section>
+  </div>
+</BaseLayout>

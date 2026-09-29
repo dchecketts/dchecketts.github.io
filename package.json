@@ -1,5 +1,5 @@
 {
-  "name": "dchecketts.github.io",
+  "name": "personal-site",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -9,14 +9,38 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,astro}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,json,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
-    "@astrojs/mdx": "^6.0.1",
-    "@tailwindcss/vite": "^4.3.0",
-    "astro": "^6.4.2",
-    "astro-htmx": "^1.0.6",
-    "htmx.org": "^2.0.10",
-    "tailwindcss": "^4.3.0"
+    "@octokit/rest": "^22.0.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.1.0",
+    "octokit": "^5.0.5",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.2",
+    "eslint": "^10.11.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^3.2.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.5.1",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "typescript-eslint": "^8.70.1"
   }
 }

@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+import Header from '../components/navigation/header.astro';
+import Footer from '../components/navigation/footer.astro';
+import defaultImage from '../assets/images/hero-banner.jpg';
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+type Props = {
+  title?: string;
+  description?: string;
+  bannerImage?: ImageMetadata;
+};
+
+const {
+  title,
+  description = 'Hello! My name is Daniel Checketts.',
+  bannerImage,
+}: Props = Astro.props;
+
+const BASE_URL = import.meta.env.BASE_URL;
+
+const imagePath =
+  typeof bannerImage === 'object' && 'src' in bannerImage ? bannerImage.src : defaultImage.src;
+
+const siteUrl = Astro.site ?? 'https://github.io';
+const absoluteImageUrl = new URL(imagePath, siteUrl).href;
+
+const displayTitle = title ?? 'Daniel Checketts';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href={`${BASE_URL}/images/favicon-96x96.png`} sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href={`${BASE_URL}/images/favicon.svg`} />
+    <link rel="shortcut icon" href={`${BASE_URL}/images/favicon.ico`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${BASE_URL}/images/apple-touch-icon.png`} />
+    <link rel="manifest" href={`${BASE_URL}/images/site.webmanifest`} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{displayTitle}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={displayTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={absoluteImageUrl} />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={displayTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteImageUrl} />
+  </head>
+  <body class="flex h-screen flex-col bg-neutral-100 dark:bg-black dark:text-neutral-100">
+    <Header />
+    <main class="flex grow">
+      <div class="relative flex h-full w-full grow overflow-hidden">
+        <Image
+          src={bannerImage ?? defaultImage}
+          width={1920}
+          height={1080}
+          alt="A landscape photograph of a lake."
+          class="absolute inset-0 -z-10 h-full w-full object-cover"
+          quality="high"
+          loading="eager"
+        />
+        <div class="absolute inset-0 -z-10 h-full w-full dark:bg-black/25"></div>
+        <div class="relative z-10 flex w-full">
+          <slot />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

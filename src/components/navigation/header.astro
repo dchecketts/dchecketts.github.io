@@ -1,0 +1,40 @@
+---
+import Link from '../link.astro';
+
+interface NavItem {
+  label: string;
+  href: string | undefined;
+  type: string | undefined;
+  external?: boolean | false;
+}
+
+const mainNavigation: NavItem[] = [
+  { label: 'Now', href: '/now', type: 'header' },
+  { label: 'Learn', href: '/learn', type: 'header' },
+  { label: 'Blog', href: '/blog', type: 'header' },
+];
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-emerald-950/20 bg-emerald-900 text-white shadow-sm"
+>
+  <div class="site-container flex items-center justify-between px-15 py-4">
+    <a href="/" class="text-lg font-semibold tracking-tight text-white hover:text-emerald-100">
+      Daniel Checketts
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="flex items-center gap-6">
+        {
+          mainNavigation.map((item: NavItem) => (
+            <li>
+              <Link url={item.href} type={item.type}>
+                {item.label}
+              </Link>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

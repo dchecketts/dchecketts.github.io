@@ -1,65 +1,40 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-
-const pageName = "Daniel Checketts"
+import BaseLayout from '../layouts/baselayout.astro';
+import RepoList from '../components/projects/RepoList.astro';
+import profilePicture from '../assets/images/daniel-checketts-2025.jpg';
+import { Image } from 'astro:assets';
 ---
 
-<BaseLayout pageTitle={pageName}>
-	<div class="bg-white/20 backdrop-blur-md border border-white/20 shadow-lg rounded-lg">
-		<section
-			id="welcome-banner"
-			class="flex flex-col items-center gap-5 mb-10 md:grid md:grid-cols-2">
+<BaseLayout>
+  <div class="flex flex-col gap-5 px-5 py-10 md:flex-row md:px-20">
+    <section
+      class="flex flex-col rounded-lg bg-white px-5 py-10 md:w-1/3 dark:bg-gray-900 dark:text-gray-200"
+      id="bio"
+    >
+      <div class="my-auto">
+        <div class="flex flex-col items-center gap-2">
+          <Image
+            src={profilePicture}
+            alt="Daniel Checketts"
+            class="aspect-square size-64 rounded-full object-cover"
+            loading="eager"
+          />
+          <span class="text-gray-400">Me, Circa Late 2025</span>
+        </div>
 
-			<div
-				id="welcome-banner-content"
-				class="flex flex-col items-center">
-				<div id="image-card" class="flex flex-col items-center">
-					<img
-						src="/img/daniel-checketts-2025.jpg"
-						alt="Photo of Daniel Checketts"
-						class="size-32 md:size-64 aspect-square rounded-full object-cover"
-					/>
-					<span class="">Me, Circa Late 2025</span>
-				</div>
+        <section class="flex flex-col items-center justify-center gap-2 p-5">
+          <h1 class="mx-auto text-5xl font-bold">Welcome!</h1>
+          <span class="mb-3 text-center text-3xl"
+            >Hi, my name is Daniel Checketts, and I love writing code.</span
+          >
+          <a
+            class="mx-auto w-fit rounded-full bg-emerald-600 px-4 py-2 text-center text-white hover:bg-emerald-700"
+            href="/learn">Start Learning</a
+          >
+        </section>
+      </div>
+    </section>
 
-				<div id="welcome-banner-message" class="md:col-start-2">
-					<span class="">Welcome!</span>
-					<h1 class="">Hi, my name is Daniel Checketts, and I love writing code.</h1>
-					<a href="/learn" class="rounded-full bg-emerald-600 text-white py-2 px-4">Start Learning</a>
-				</div>
-			</div>
-		</section>
-
-		<section id="about" class="">
-			<div class="space-y-4">
-				<p class="">Computers have always been in my DNA—my dad graduated from BYU-Idaho in Computer Information Technology and programmed throughout my childhood. While middle and high school computer classes didn't quite capture my imagination, everything changed when I arrived at BYU-I myself.</p>
-				<p class="">In an Intro to Programming course, I fell in love with Python. The class taught simple concepts like loops and logic gates, gave us a desired outcome, and granted us unlimited freedom to achieve it. That open-ended puzzle-solving hooked me.</p>
-				<p class="">My path wasn't entirely linear; educational hardships initially pushed me away from my dad's exact degree track. However, while serving a mission for The Church of Jesus Christ of Latter-day Saints, I found clarity. My mission gave me perspective on what I truly valued in my education, alongside unique opportunities to serve others using my technical instincts. For instance, when a temporary bug in Facebook Messenger began distorting shared links to vital tools like Google Forms and Sheets, I was able to help my friends by manually decrypting the broken links, translating the scrambled hexadecimal values into ASCII characters to recover the usable URLs.</p>
-				<p class="">Today, I am pursuing my BS in Web Design &amp; Development.</p>
-			</div>
-		</section>
-	</div>
-
-		<section id="project-showcase" class="">
-			<h2 class="section-heading">Projects</h2>
-			<ul class="">
-				<li class="">
-					<a href="https://github.com/dchecketts/dchecketts.github.io" class="">
-						<div class="">
-							<h3 class="">Personal Website</h3>
-							<p class="">This site, built with Astro, Tailwind, and HTMX.</p>
-						</div>
-					</a>
-				</li>
-
-				<li class="">
-					<a href="https://github.com/dchecketts/vite-site-template" class="">
-						<div class="">
-							<h3 class="">Vite Site Template</h3>
-							<p class="">A starter template for quickly spinning up sites.</p>
-						</div>
-					</a>
-				</li>
-			</ul>
-		</section>
+    <RepoList />
+  </div>
 </BaseLayout>
