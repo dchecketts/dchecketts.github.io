@@ -2,13 +2,14 @@
 import { Octokit } from 'octokit';
 import RepoCard from './RepoCard.astro';
 
+// Define what to keep from Octokit
 class GitHubProject {
   name: string;
-  description: string;
+  description: string | null;
   url: string;
   homepage: string | null;
   stars: number;
-  language: string;
+  language: string | null;
   pushedAt: string;
 
   constructor(repoData: any) {
@@ -25,6 +26,7 @@ class GitHubProject {
 const octokit = new Octokit({});
 const GITHUB_USERNAME = 'dchecketts';
 
+// Capitalize the first letter in each word, if they use '-' to separate words in the repository name
 function toTitleCase(slug: string): string {
   return slug
     .split('-')
@@ -34,6 +36,7 @@ function toTitleCase(slug: string): string {
 
 let filteredProjects: GitHubProject[] = [];
 
+// Ask Octokit to get a list of the user's public repositories
 try {
   const response = await octokit.request('GET /users/{username}/repos', {
     username: GITHUB_USERNAME,
@@ -41,10 +44,13 @@ try {
     per_page: 30,
   });
 
+  // Save the data we want to use, using the GitHubProject() example at the top of this file
   const projects = response.data.map((repo: any) => new GitHubProject(repo));
 
+  // Sort the list by date, so the most recent are at the top of the list
   projects.sort((a, b) => Date.parse(b.pushedAt) - Date.parse(a.pushedAt));
 
+  // Don't show repositories that include...
   const blockedKeywords = [
     GITHUB_USERNAME,
     'hw',
@@ -59,6 +65,7 @@ try {
     .filter((p) => !blockedKeywords.some((word) => p.name.toLowerCase().includes(word)))
     .slice(0, 6);
 } catch (error) {
+  // Handle anything going wrong while building the site
   console.error('Error fetching projects during Astro build phase:', error);
 }
 ---
@@ -68,6 +75,7 @@ try {
 
   <ul class="flex flex-col gap-2 py-4" id="projects-list">
     {
+      // For each repository, plug it into the component.
       filteredProjects.map((project) => (
         <RepoCard
           url={project.url}
@@ -78,9 +86,8 @@ try {
       ))
     }
     {
-      filteredProjects.length === 0 && (
-        <li class="p-5 text-center text-gray-500 dark:text-gray-300">No repositories available.</li>
-      )
+      // Render an error message if there are no repositories for the user
+      filteredProjects.length === 0 && <li class="no-repos">No repositories available.</li>
     }
   </ul>
 </section>
